@@ -12,11 +12,6 @@ public class Appointment {
 
 
 
-//masterdan
-    //master
-
-
-
 
 
 
