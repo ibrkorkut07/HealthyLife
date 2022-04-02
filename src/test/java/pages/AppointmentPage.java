@@ -36,9 +36,13 @@ public class AppointmentPage {
 @FindBy(xpath = "//input[@id='appoDate']")
     public WebElement appointmentDateBox;
 
-@FindBy(xpath = "//button[@id='register-submit']//span")
+@FindBy(xpath = "//button[@id='register-submit']")
     public WebElement sendAnAppointmentRequestButton;
 
+@FindBy(xpath = "//div[@class='invalid-feedback']")
+    public WebElement hataMesaji;
+
+@FindBy(xp)
 
 
 
