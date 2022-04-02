@@ -23,6 +23,23 @@ public class LoginPage {
 
 
 
+@FindBy(xpath = "//a[@class='d-flex align-items-center dropdown-toggle nav-link']")
+    public WebElement loginButton;
+
+
+@FindBy(xpath = "//a[@id='login-item']")
+    public WebElement signIn;
+
+@FindBy(xpath = "//input[@id='username']")
+    public WebElement userNamebox;
+
+@FindBy(xpath = "//input[@id='password']")
+    public WebElement passwordBox;
+
+@FindBy(xpath = "//button[@type='submit']")
+    public WebElement signInButton;
+
+
 
 
 
