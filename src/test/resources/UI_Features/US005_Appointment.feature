@@ -106,6 +106,7 @@ Feature: Staff Appointment
 
 
 
+
     Examples:
       | FirstName | LastName | SSN         | Email         | Phone        | AppointmentDate |
       | hasan     | fidan    | 323-43-8544 |user@usercom  | 333-545-6985 | 24042022|
