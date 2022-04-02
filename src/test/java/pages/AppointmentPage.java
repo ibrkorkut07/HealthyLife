@@ -42,7 +42,6 @@ public class AppointmentPage {
 @FindBy(xpath = "//div[@class='invalid-feedback']")
     public WebElement hataMesaji;
 
-@FindBy(xp)
 
 
 
