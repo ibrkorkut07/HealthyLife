@@ -7,8 +7,8 @@ Feature: Staff Appointment
 
 
 
-  Scenario Outline: TC001
-    And isim olarak "<BosFirstName>" girer
+  Scenario Outline: TC001 (First Name bos birakilamaz.)
+    And isim olarak "<FirstName>" girer
     And soy isim "<LastName>" girer
     And SSN numarasi olarak "<SSN>" girer
     And Email adresi olarak "<Email>" girer
@@ -20,14 +20,14 @@ Feature: Staff Appointment
 
 
     Examples:
-      | FirstName | LastName | SSN         | Email         | Phone        | AppointmentDate |BosFirstName|
-      | hasan     | fidan    | 323-43-8544 | user@user.com | 333-545-6985 | 24042022|                    |
+      | FirstName | LastName | SSN         | Email         | Phone        | AppointmentDate |
+      |      | fidan    | 323-43-8544 | user@user.com | 333-545-6985 | 24042022|
 
 
-  Scenario Outline: TC002
+  Scenario Outline: TC002 (SSN bos birakilamaz.)
     And isim olarak "<FirstName>" girer
     And soy isim "<LastName>" girer
-    And SSN numarasi olarak "<BosSSN>" girer
+    And SSN numarasi olarak "<SSN>" girer
     And Email adresi olarak "<Email>" girer
     And Telefon numarasi olarak "<Phone>" girer
     And Appointment Date olarak "<AppointmentDate>" girer
@@ -37,13 +37,13 @@ Feature: Staff Appointment
 
 
     Examples:
-      | FirstName | LastName | SSN         | Email         | Phone        | AppointmentDate |BosSSN|
-      | hasan     | fidan    |323-43-8544  | user@user.com | 333-545-6985 | 24042022|              |
+      | FirstName | LastName | SSN         | Email         | Phone        | AppointmentDate |
+      | hasan     | fidan    |  | user@user.com | 333-545-6985 | 24042022|
 
 
-  Scenario Outline: TC003
+  Scenario Outline: TC003 (Last Name bos birakilamaz.)
     And isim olarak "<FirstName>" girer
-    And soy isim "<BosLastName>" girer
+    And soy isim "<LastName>" girer
     And SSN numarasi olarak "<SSN>" girer
     And Email adresi olarak "<Email>" girer
     And Telefon numarasi olarak "<Phone>" girer
@@ -54,16 +54,16 @@ Feature: Staff Appointment
 
 
     Examples:
-      | FirstName | LastName | SSN         | Email         | Phone        | AppointmentDate |BosLastName|
-      | hasan     | fidan    | 323-43-8544 | user@user.com | 333-545-6985 | 24042022|                   |
+      | FirstName | LastName | SSN         | Email         | Phone        | AppointmentDate |
+      | hasan     |     | 323-43-8544 | user@user.com | 333-545-6985 | 24042022|
 
 
 
-  Scenario Outline: TC004
+  Scenario Outline: TC004 (Email bos birakilamaz.)
     And isim olarak "<FirstName>" girer
     And soy isim "<LastName>" girer
     And SSN numarasi olarak "<SSN>" girer
-    And Email adresi olarak "<BosEmail>" girer
+    And Email adresi olarak "<Email>" girer
     And Telefon numarasi olarak "<Phone>" girer
     And Appointment Date olarak "<AppointmentDate>" girer
     Then Send an Appointment Request butonuna tiklar.
@@ -72,11 +72,11 @@ Feature: Staff Appointment
 
 
     Examples:
-      | FirstName | LastName | SSN         | Email         | Phone        | AppointmentDate |BosEmail|
-      | hasan     | fidan    | 323-43-8544 |user@user.com  | 333-545-6985 | 24042022|                             |
+      | FirstName | LastName | SSN         | Email         | Phone        | AppointmentDate |
+      | hasan     | fidan    | 323-43-8544 |  | 333-545-6985 | 24042022|
 
 
-  Scenario Outline: TC005
+  Scenario Outline: TC005 (Email adresinde @ sembolu olmak zorunda)
     And isim olarak "<FirstName>" girer
     And soy isim "<LastName>" girer
     And SSN numarasi olarak "<SSN>" girer
@@ -94,7 +94,7 @@ Feature: Staff Appointment
 
 
 
-  Scenario Outline: TC006
+  Scenario Outline: TC006 (Email adresinde nokta (.) isareti olmak zorunda)
     And isim olarak "<FirstName>" girer
     And soy isim "<LastName>" girer
     And SSN numarasi olarak "<SSN>" girer
@@ -127,3 +127,56 @@ Feature: Staff Appointment
     Examples:
       | FirstName | LastName | SSN         | Email         | Phone        | AppointmentDate |
       | hasan     | fidan    | 323-43-8544 |user@user.com  | 333-545-6985 | 24042022|
+
+
+
+  Scenario Outline: TC008 (Telefon numarasi bos birakilamaz)
+    And isim olarak "<FirstName>" girer
+    And soy isim "<LastName>" girer
+    And SSN numarasi olarak "<SSN>" girer
+    And Email adresi olarak "<Email>" girer
+    And Telefon numarasi olarak "<Phone>" girer
+    And Appointment Date olarak "<AppointmentDate>" girer
+    Then Send an Appointment Request butonuna tiklar.
+    And "Phone number is required." hata mesajini gorur.
+
+
+
+    Examples:
+      | FirstName | LastName | SSN         | Email         | Phone        | AppointmentDate |
+      | hasan     | fidan    | 323-43-8544 |user@user.com  |  | 24042022|
+
+
+
+  Scenario Outline: TC009 (Telefon numarasinda 3. ve 6. rakamdan sonra tire (-) olmali ve toplam 10 rakamdan olusmali)
+    And isim olarak "<FirstName>" girer
+    And soy isim "<LastName>" girer
+    And SSN numarasi olarak "<SSN>" girer
+    And Email adresi olarak "<Email>" girer
+    And Telefon numarasi olarak "<Phone>" girer
+    And Appointment Date olarak "<AppointmentDate>" girer
+    Then Send an Appointment Request butonuna tiklar.
+    And "Phone number is invalid" hata mesajini gorur.
+
+
+
+    Examples:
+      | FirstName | LastName | SSN         | Email         | Phone        | AppointmentDate |
+      | hasan     | fidan    | 323-43-8544 |user@user.com  | 333-545-6985555  | 24042022|
+
+
+  Scenario Outline: TC010 (Telefon numarasinda 3. ve 6. rakamdan sonra tire (-) olmali ve toplam 10 rakamdan olusmali)
+    And isim olarak "<FirstName>" girer
+    And soy isim "<LastName>" girer
+    And SSN numarasi olarak "<SSN>" girer
+    And Email adresi olarak "<Email>" girer
+    And Telefon numarasi olarak "<Phone>" girer
+    And Appointment Date olarak "<AppointmentDate>" girer
+    Then Send an Appointment Request butonuna tiklar.
+    And "Phone number is invalid" hata mesajini gorur.
+
+
+
+    Examples:
+      | FirstName | LastName | SSN         | Email         | Phone        | AppointmentDate |
+      | hasan     | fidan    | 323-43-8544 |user@user.com  | 3335456985  | 24042022|

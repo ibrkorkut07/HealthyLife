@@ -8,6 +8,7 @@ import org.openqa.selenium.Keys;
 import pages.AppointmentPage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 public class US_005 {
     AppointmentPage us05 = new AppointmentPage();
@@ -84,4 +85,6 @@ public class US_005 {
         Assert.assertEquals(expectedText,actualtext);
 
     }
+
+
 }
