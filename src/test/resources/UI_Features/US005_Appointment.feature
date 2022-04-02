@@ -21,7 +21,7 @@ Feature: Staff Appointment
 
     Examples:
       | FirstName | LastName | SSN         | Email         | Phone        | AppointmentDate |
-      |      | fidan    | 323-43-8544 | user@user.com | 333-545-6985 | 24042022|
+      |      | fidan    | 256-65-8745 | user@user.com | 333-545-6985 | 24042022|
 
 
   Scenario Outline: TC002 (SSN bos birakilamaz.)
@@ -55,7 +55,7 @@ Feature: Staff Appointment
 
     Examples:
       | FirstName | LastName | SSN         | Email         | Phone        | AppointmentDate |
-      | hasan     |     | 323-43-8544 | user@user.com | 333-545-6985 | 24042022|
+      | hasan     |     | 256-65-8745 | user@user.com | 333-545-6985 | 24042022|
 
 
   Scenario Outline: TC004 (Email bos birakilamaz.)
@@ -72,7 +72,7 @@ Feature: Staff Appointment
 
     Examples:
       | FirstName | LastName | SSN         | Email         | Phone        | AppointmentDate |
-      | hasan     | fidan    | 323-43-8544 |  | 333-545-6985 | 24042022|
+      | hasan     | fidan    | 256-65-8745 |  | 333-545-6985 | 24042022|
 
 
   Scenario Outline: TC005 (Email adresinde @ sembolu olmak zorunda)
@@ -89,7 +89,7 @@ Feature: Staff Appointment
 
     Examples:
       | FirstName | LastName | SSN         | Email         | Phone        | AppointmentDate |
-      | hasan     | fidan    | 323-43-8544 |useruser.com  | 333-545-6985 | 24042022|
+      | hasan     | fidan    | 256-65-8745 |useruser.com  | 333-545-6985 | 24042022|
 
 
   Scenario Outline: TC006 (Email adresinde nokta (.) isareti olmak zorunda)
@@ -107,7 +107,7 @@ Feature: Staff Appointment
 
     Examples:
       | FirstName | LastName | SSN         | Email         | Phone        | AppointmentDate |
-      | hasan     | fidan    | 323-43-8544 |user@usercom  | 333-545-6985 | 24042022|
+      | hasan     | fidan    | 256-65-8745 |user@usercom  | 333-545-6985 | 24042022|
 
 
   Scenario Outline: TC007
@@ -124,7 +124,7 @@ Feature: Staff Appointment
 
     Examples:
       | FirstName | LastName | SSN         | Email         | Phone        | AppointmentDate |
-      | hasan     | fidan    | 323-43-8544 |user@user.com  | 333-545-6985 | 24042022|
+      | hasan     | fidan    | 256-65-8745 |user@user.com  | 333-545-6985 | 24042022|
 
 
   Scenario Outline: TC008 (Telefon numarasi bos birakilamaz)
@@ -141,7 +141,7 @@ Feature: Staff Appointment
 
     Examples:
       | FirstName | LastName | SSN         | Email         | Phone        | AppointmentDate |
-      | hasan     | fidan    | 323-43-8544 |user@user.com  |  | 24042022|
+      | hasan     | fidan    | 256-65-8745 |user@user.com  |  | 24042022|
 
 
   Scenario Outline: TC009 (Telefon numarasinda 3. ve 6. rakamdan sonra tire (-) olmali ve toplam 10 rakamdan olusmali)
@@ -158,7 +158,7 @@ Feature: Staff Appointment
 
     Examples:
       | FirstName | LastName | SSN         | Email         | Phone        | AppointmentDate |
-      | hasan     | fidan    | 323-43-8544 |user@user.com  | 333-545-6985555  | 24042022|
+      | hasan     | fidan    | 256-65-8745 |user@user.com  | 333-545-6985555  | 24042022|
 
 
   Scenario Outline: TC010 (Telefon numarasinda 3. ve 6. rakamdan sonra tire (-) olmali ve toplam 10 rakamdan olusmali)
@@ -175,4 +175,6 @@ Feature: Staff Appointment
 
     Examples:
       | FirstName | LastName | SSN         | Email         | Phone        | AppointmentDate |
-      | hasan     | fidan    | 323-43-8544 |user@user.com  | 3335456985  | 24042022|
+      | hasan     | fidan    | 256-65-8745 |user@user.com  | 3335456985  | 24042022|
+
+
