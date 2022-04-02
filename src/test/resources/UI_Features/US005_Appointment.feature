@@ -1,7 +1,7 @@
 Feature: Staff Appointment
 
 
-  Background: Appointment Test
+  Background: Ana sayfa Appointment Test
     Given kullanici "medunnaUrl" adresine gider
     Then Make an Appointment Butonuna tiklar
 
@@ -58,7 +58,6 @@ Feature: Staff Appointment
       | hasan     |     | 323-43-8544 | user@user.com | 333-545-6985 | 24042022|
 
 
-
   Scenario Outline: TC004 (Email bos birakilamaz.)
     And isim olarak "<FirstName>" girer
     And soy isim "<LastName>" girer
@@ -91,7 +90,6 @@ Feature: Staff Appointment
     Examples:
       | FirstName | LastName | SSN         | Email         | Phone        | AppointmentDate |
       | hasan     | fidan    | 323-43-8544 |useruser.com  | 333-545-6985 | 24042022|
-
 
 
   Scenario Outline: TC006 (Email adresinde nokta (.) isareti olmak zorunda)
@@ -129,7 +127,6 @@ Feature: Staff Appointment
       | hasan     | fidan    | 323-43-8544 |user@user.com  | 333-545-6985 | 24042022|
 
 
-
   Scenario Outline: TC008 (Telefon numarasi bos birakilamaz)
     And isim olarak "<FirstName>" girer
     And soy isim "<LastName>" girer
@@ -145,7 +142,6 @@ Feature: Staff Appointment
     Examples:
       | FirstName | LastName | SSN         | Email         | Phone        | AppointmentDate |
       | hasan     | fidan    | 323-43-8544 |user@user.com  |  | 24042022|
-
 
 
   Scenario Outline: TC009 (Telefon numarasinda 3. ve 6. rakamdan sonra tire (-) olmali ve toplam 10 rakamdan olusmali)
