@@ -42,7 +42,8 @@ public class AppointmentPage {
 @FindBy(xpath = "//div[@class='invalid-feedback']")
     public WebElement hataMesaji;
 
-
+@FindBy(xpath = "//strong[normalize-space()='Appointment registration saved!']")
+    public WebElement registerOnayMesaji;  // "Appointment registration saved! We will call you as soon as possible."
 
 
 

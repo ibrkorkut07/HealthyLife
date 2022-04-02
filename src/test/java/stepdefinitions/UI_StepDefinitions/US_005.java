@@ -75,4 +75,13 @@ public class US_005 {
     public void isimOlarakGirer(String arg0) {
         us05.firstNameBox.sendKeys(arg0);
     }
+
+    @And("{string} onay mesaji gorulur.")
+    public void onayMesajiGorulur(String arg0) {
+        Driver.wait(1);
+        String expectedText=arg0;
+        String actualtext = us05.registerOnayMesaji.getText();
+        Assert.assertEquals(expectedText,actualtext);
+
+    }
 }

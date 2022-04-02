@@ -120,7 +120,7 @@ Feature: Staff Appointment
     And Telefon numarasi olarak "<Phone>" girer
     And Appointment Date olarak "<AppointmentDate>" girer
     Then Send an Appointment Request butonuna tiklar.
-    And "This field is invalid" hata mesajini gorur.
+    And "Appointment registration saved!" onay mesaji gorulur.
 
 
 
