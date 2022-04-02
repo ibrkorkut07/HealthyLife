@@ -14,10 +14,30 @@ public class AppointmentPage {
 
 
 
+@FindBy(xpath = "//a[@class='appointment-btn scrollto']")
+    public WebElement makeAppointmentButton;
 
 
+@FindBy(xpath = "//input[@id='firstName']")
+    public WebElement firstNameBox;
 
+@FindBy(xpath = "//input[@id='lastName']")
+    public WebElement lastNameBox;
 
+@FindBy(xpath = "//input[@id='ssn']")
+    public WebElement SSNBox;
+
+@FindBy(xpath = "//input[@id='email']")
+    public WebElement emailBox;
+
+@FindBy(xpath = "//input[@id='phone']")
+    public WebElement phoneBox;
+
+@FindBy(xpath = "//input[@id='appoDate']")
+    public WebElement appointmentDateBox;
+
+@FindBy(xpath = "//button[@id='register-submit']//span")
+    public WebElement sendAnAppointmentRequestButton;
 
 
 
