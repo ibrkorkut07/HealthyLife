@@ -13,33 +13,20 @@ public class LoginPage {
     }
 
 
-
 @FindBy(xpath = "//a[@class='d-flex align-items-center dropdown-toggle nav-link']")
-    public WebElement loginButton;
+    public WebElement anaSayfaGirisIkonu;
 
+    @FindBy(xpath = "//a[@id='login-item']")
+    public WebElement anaSayfaSignIn;
 
-@FindBy(xpath = "//a[@id='login-item']")
-    public WebElement signInButton;
+    @FindBy(xpath = "//input[@id='username']")
+    public WebElement UserNameBox;
 
-
-
-@FindBy(xpath = "//a[@class='d-flex align-items-center dropdown-toggle nav-link']")
-    public WebElement loginButton;
-
-
-@FindBy(xpath = "//a[@id='login-item']")
-    public WebElement signIn;
-
-@FindBy(xpath = "//input[@id='username']")
-    public WebElement userNamebox;
-
-@FindBy(xpath = "//input[@id='password']")
+    @FindBy(xpath = "//input[@id='password']")
     public WebElement passwordBox;
 
-@FindBy(xpath = "//button[@type='submit']")
-    public WebElement signInButton;
-
-
+    @FindBy(xpath = "//button[@type='submit']")
+    public WebElement signIn;
 
 
 
