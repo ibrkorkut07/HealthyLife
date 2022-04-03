@@ -114,4 +114,14 @@ public class US011 {
           Driver.wait(1);
           select.selectByValue("CANCELLED");
     }
+
+    @And("kullanici oturumu kapatir")
+    public void kullaniciOturumuKapatir() {
+        Driver.wait(1);
+        loginPage.cikisIconu.click();
+        Driver.wait(1);
+        loginPage.signOutButton.click();
+
+
+    }
 }
