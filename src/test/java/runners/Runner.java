@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
                 "rerun:target/failedRerun.txt",
                 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
         },
-        features = "./src/test/resources/features",//MUST
+        features = "src/test/resources/features",//MUST
         glue = "stepdefinitions",//MUST
         tags = "@us11",
         dryRun = false
