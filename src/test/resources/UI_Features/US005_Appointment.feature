@@ -24,6 +24,7 @@ Feature: Staff Appointment
       |      | fidan    | 256-65-8745 | user@user.com | 333-545-6985 | 24042022|
 
 
+
   Scenario Outline: TC002 (SSN bos birakilamaz.)
     And isim olarak "<FirstName>" girer
     And soy isim "<LastName>" girer
@@ -101,7 +102,6 @@ Feature: Staff Appointment
     And Appointment Date olarak "<AppointmentDate>" girer
     Then Send an Appointment Request butonuna tiklar.
     And "This field is invalid" hata mesajini gorur.
-
 
 
 
