@@ -12,8 +12,24 @@ public class DoctorPage {
     }
 
 
-@FindBy(xpath = "//input[@id='firstName']")
+
+
+
+
+
+
+
+
+
+
+    @FindBy(xpath = "//input[@id='firstName']")
     public WebElement settingsFirstNameBox;
+
+    @FindBy(xpath = "//span[normalize-space()='MY PAGES']")
+    public WebElement myPages;
+
+    @FindBy(xpath = "//span[normalize-space()='My Appointments']")
+    public WebElement myAppointments;
 
     @FindBy(xpath = "//input[@id='lastName']")
     public WebElement settingsLastNameBox;
@@ -26,16 +42,6 @@ public class DoctorPage {
 
     @FindBy(xpath = "//strong[normalize-space()='Settings saved!']")
     public WebElement settingsSaveSavedText;
-
-
-
-
-
-
-
-
-
-
 
 
 
