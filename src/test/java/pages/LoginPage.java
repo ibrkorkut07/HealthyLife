@@ -45,6 +45,9 @@ public WebElement kullaniciMenusu;
 @FindBy(xpath = "//span[normalize-space()='Settings']")
     public WebElement kullaniciSettingsButton;
 
+@FindBy(xpath = "//span[normalize-space()='Sign out']")
+    public WebElement signOutButton;
+
 
 
 
