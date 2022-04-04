@@ -1,5 +1,7 @@
 package pages;
 
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
@@ -10,7 +12,20 @@ public class DoctorPage {
     }
 
 
+@FindBy(xpath = "//input[@id='firstName']")
+    public WebElement settingsFirstNameBox;
 
+    @FindBy(xpath = "//input[@id='lastName']")
+    public WebElement settingsLastNameBox;
+
+    @FindBy(xpath = "//input[@id='email']")
+    public WebElement settingsEmailBox;
+
+    @FindBy(xpath = "//button[@type='submit']")
+    public WebElement settingsSaveButton;
+
+    @FindBy(xpath = "//strong[normalize-space()='Settings saved!']")
+    public WebElement settingsSaveSavedText;
 
 
 

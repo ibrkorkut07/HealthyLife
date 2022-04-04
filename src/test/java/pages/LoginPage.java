@@ -28,6 +28,18 @@ public class LoginPage {
     @FindBy(xpath = "//button[@type='submit']")
     public WebElement signIn;
 
+    @FindBy(xpath = "//span[normalize-space()='Remember me']")
+    public WebElement rememberMe;
+
+    @FindBy(xpath = "//span[normalize-space()='Did you forget your password?']")
+    public WebElement forgetYourPassword;
+
+    @FindBy(xpath = "//div[@role='dialog']//div[4]")
+    public WebElement registeraNewAccount;
+
+    @FindBy(xpath = "//button[@class='btn btn-secondary']")
+    public WebElement cancelButton;
+
 
 
 
