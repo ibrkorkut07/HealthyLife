@@ -39,6 +39,9 @@ public class RegistrationPage {
     @FindBy(xpath = "//div[text()='Your FirstName is required.']")
     public WebElement firstNameRequiredMessage;
 
+    @FindBy(xpath = "//input[@class='is-touched is-dirty av-valid form-control']")
+    public WebElement firstNameValidConfirm;
+
     //input[@name='lastName']
     //div[text()='Your LastName is required.']
 

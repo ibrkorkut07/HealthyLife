@@ -17,6 +17,7 @@ public class US_001 {
     RegistrationPage register=new RegistrationPage();
     Faker faker=new Faker();
 
+
     @When("kullanici {string} sayfasina gider")
     public void kullanici_sayfasina_gider(String medunna) {
         Driver.getDriver().get(ConfigReader.getProperty("medunnaUrl"));
@@ -70,10 +71,110 @@ public class US_001 {
         String validSSN=validSSNPart1+validSSNPart2;
         register.ssnTextBox.sendKeys(validSSN+ Keys.TAB);
         Assert.assertTrue(register.ssnValidConfirm.isDisplayed());
+    }
 
+    @Then("FirstName kutucuğuna tıklar ardından boş bırakır ve {string} uyarı mesajını görüntüler")
+    public void first_name_kutucuğuna_tıklar_ardından_boş_bırakır_ve_uyarı_mesajını_görüntüler(String string) {
+        register.firstNameTextBox.click();
+        register.ssnTextBox.click();
+        Assert.assertTrue(register.firstNameRequiredMessage.isDisplayed());
+    }
 
+    @Then("herhangi bir {string} veya {string} girilir ve {string} uyarı mesajı alınmadığı görülür")
+    public void herhangi_bir_veya_girilir_ve_uyarı_mesajı_alınmadığı_görülür(String karakter, String karakterler, String string3) {
+        register.firstNameTextBox.sendKeys(karakter+Keys.TAB);
+        Assert.assertTrue(register.firstNameValidConfirm.isDisplayed());
+        Driver.getDriver().navigate().refresh();
+        ReusableMethods.waitFor(2);
 
+        register.firstNameTextBox.sendKeys(karakterler+Keys.TAB);
+        Assert.assertTrue(register.firstNameValidConfirm.isDisplayed());
+        Driver.getDriver().navigate().refresh();
+        ReusableMethods.waitFor(2);
 
     }
 
+    @Then("yalnizca harfler kullanilarak en az {int} harf olmak uzere FirstName textbox doldurulur")
+    public void yalnizca_harfler_kullanilarak_en_az_harf_olmak_uzere_first_name_textbox_doldurulur(Integer harfSayisi) {
+        String firstNameOneLetter=faker.letterify("?");
+        String firstNameTwoLetter=faker.letterify("??");
+        String firstNameNonLetter="*/*--*";
+        String firstNameValid=faker.name().firstName();
+
+        int count=1;
+        register.firstNameTextBox.sendKeys(firstNameOneLetter+Keys.TAB);
+        if (register.firstNameValidConfirm.isDisplayed()){
+           count++;
+        }
+        Driver.getDriver().navigate().refresh();
+        ReusableMethods.waitFor(2);
+
+        register.firstNameTextBox.sendKeys(firstNameTwoLetter+Keys.TAB);
+        if (register.firstNameValidConfirm.isDisplayed()){
+            count++;
+        }
+        Driver.getDriver().navigate().refresh();
+        ReusableMethods.waitFor(2);
+
+        register.firstNameTextBox.sendKeys(firstNameNonLetter+Keys.TAB);
+        if (register.firstNameValidConfirm.isDisplayed()){
+            count++;
+        }
+        Driver.getDriver().navigate().refresh();
+        ReusableMethods.waitFor(2);
+        System.out.println(count);
+        register.firstNameTextBox.sendKeys(firstNameValid+Keys.TAB);
+        Assert.assertTrue(register.firstNameValidConfirm.isDisplayed());
+
+        if (count==4){
+            Assert.fail("Tek harf, iki harf ve ozel karakter kabul ediyor, kabul etmemeli.");
+        }
+
+    }
+
+    @Then("LastName kutucuğuna tıklar ardından boş bırakır ve {string} uyarı mesajını görüntüler")
+    public void last_name_kutucuğuna_tıklar_ardından_boş_bırakır_ve_uyarı_mesajını_görüntüler(String string) {
+        register.lastNameTextBox.click();
+        register.ssnTextBox.click();
+        Assert.assertTrue(register.lastNameRequiredMessage.isDisplayed());
+    }
+
+
+    @Then("yalnizca harfler kullanilarak en az {int} harf olmak uzere LastName textbox doldurulur")
+    public void yalnizca_harfler_kullanilarak_en_az_harf_olmak_uzere_last_name_textbox_doldurulur(Integer harfSayisi) {
+        String lastNameOneLetter=faker.letterify("?");
+        String lastNameTwoLetter=faker.letterify("??");
+        String lastNameNonLetter="*/*--*";
+        String lastNameValid=faker.name().lastName();
+
+        int count=1;
+        register.firstNameTextBox.sendKeys(lastNameOneLetter+Keys.TAB);
+        if (register.firstNameValidConfirm.isDisplayed()){
+            count++;
+        }
+        Driver.getDriver().navigate().refresh();
+        ReusableMethods.waitFor(2);
+
+        register.firstNameTextBox.sendKeys(lastNameTwoLetter+Keys.TAB);
+        if (register.firstNameValidConfirm.isDisplayed()){
+            count++;
+        }
+        Driver.getDriver().navigate().refresh();
+        ReusableMethods.waitFor(2);
+
+        register.firstNameTextBox.sendKeys(lastNameNonLetter+Keys.TAB);
+        if (register.firstNameValidConfirm.isDisplayed()){
+            count++;
+        }
+        Driver.getDriver().navigate().refresh();
+        ReusableMethods.waitFor(2);
+        System.out.println(count);
+        register.firstNameTextBox.sendKeys(lastNameValid+Keys.TAB);
+        Assert.assertTrue(register.firstNameValidConfirm.isDisplayed());
+
+        if (count==4){
+            Assert.fail("Tek harf, iki harf ve ozel karakter kabul ediyor, kabul etmemeli.");
+        }
+
+    }
 }

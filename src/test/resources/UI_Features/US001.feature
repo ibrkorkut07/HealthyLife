@@ -14,8 +14,36 @@ Feature: US001_Kayıt olmak icin SSN, Firstname ve Lastname bilgileri girililebi
       |8797    |fjkd|-=*-/    |
       |594942  |dasas|*-/-\-  |
       |56465*/ad| sad564/*|+*/--sad234|
+
 @us1
   Scenario: TC_02 SSN boş bırakılmamalıdır
     When kullanici "medunnaUrl" sayfasina gider
     Then sayfada kullanici ikonu altinda yer alan register butonuna tiklar
     And SSN kutucuğuna tıklar ardından boş bırakır ve 'Your SSN is required.' uyarı mesajını görüntüler
+
+@us1 @tc03
+  Scenario Outline: TC_03 Herhangi bir karakter içeren ve boş bırakılamayan geçerli bir "First Name" olmalıdır
+    When kullanici "medunnaUrl" sayfasina gider
+    Then sayfada kullanici ikonu altinda yer alan register butonuna tiklar
+    And FirstName kutucuğuna tıklar ardından boş bırakır ve 'Your FirstName is required.' uyarı mesajını görüntüler
+    Then herhangi bir "<karakter>" veya "<karakterler>" girilir ve 'Your FirstName is required.' uyarı mesajı alınmadığı görülür
+    And yalnizca harfler kullanilarak en az 3 harf olmak uzere FirstName textbox doldurulur
+  Examples:
+    | karakter | karakterler |
+    |a         |as           |
+    |1         |12           |
+    |*         |*/           |
+
+  @us1 @tc04
+  Scenario Outline: TC_04 Herhangi bir karakter içeren ve boş bırakılamayan geçerli bir "Last Name" olmalıdır
+    When kullanici "medunnaUrl" sayfasina gider
+    Then sayfada kullanici ikonu altinda yer alan register butonuna tiklar
+    And LastName kutucuğuna tıklar ardından boş bırakır ve 'Your LastName is required.' uyarı mesajını görüntüler
+    Then herhangi bir "<karakter>" veya "<karakterler>" girilir ve 'Your FirstName is required.' uyarı mesajı alınmadığı görülür
+    And yalnizca harfler kullanilarak en az 3 harf olmak uzere LastName textbox doldurulur
+    Examples:
+      | karakter | karakterler |
+      |a         |as           |
+      |2         |23           |
+      |=         |-^           |
+
