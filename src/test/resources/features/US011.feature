@@ -50,6 +50,7 @@ Background: US011
 
 
 
+
     Scenario: TC05 ("Status" doktor tarafından "PENDING, COMPLETED veya CANCELLED" olarak seçilebilmeli)
         Given Kullanıcı(Doktor) Status dropdown elementini PENDING, COMPLETED veya CANCELLED seklinde secer
         And kullanici oturumu kapatir

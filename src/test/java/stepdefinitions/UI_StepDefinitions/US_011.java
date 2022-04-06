@@ -72,6 +72,7 @@ public class US_011 {
         loginPage.signIn.click();
     }
 
+
     @And("kullanici\\(doktor) {string} sayfasına gider")
     public void kullaniciDoktorSayfasınaGider(String arg0) {
         Driver.wait(1);
@@ -196,5 +197,6 @@ Driver.wait(1);
 
 
     }
+
 
 }
