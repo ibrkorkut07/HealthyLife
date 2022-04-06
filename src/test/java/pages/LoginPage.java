@@ -36,6 +36,24 @@ public class LoginPage {
 
 
 
+    @FindBy(xpath = "//li[@id='account-menu']//a[@class='d-flex align-items-center dropdown-toggle nav-link']")
+    public WebElement cikisButton;
+
+    @FindBy(xpath = "//a[@class='dropdown-item active']")
+    public WebElement passwordChangeButton;
+
+    @FindBy(xpath = "//input[@id='currentPassword']")
+    public WebElement cuurentPasswordBox;
+    
+    @FindBy(xpath = "//input[@id='newPassword']")
+    public WebElement newPasswordBox;
+
+    @FindBy(xpath = "//input[@id='confirmPassword']")
+    public WebElement confirmPasswordBox;
+
+    @FindBy(xpath = "//span[normalize-space()='Save']")
+    public WebElement passwordSaveButton;
+
 
 
 
