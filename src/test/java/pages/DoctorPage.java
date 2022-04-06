@@ -58,6 +58,13 @@ public class DoctorPage {
     @FindBy(xpath = "//select[@id='appointment-status']")
     public WebElement statusDropDownElementi;
 
+    @FindBy(xpath = "//textarea[@id='appointment-description']")
+    public WebElement createAppointmentDescription;
+
+    @FindBy(xpath = "//span[normalize-space()='Save']")
+    public WebElement createAppointmentSave;
+
+
 
 
 }

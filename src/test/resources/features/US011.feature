@@ -17,26 +17,40 @@ Background: US011
 
 
 
-    Scenario: TC01 (Kullanıcı(Doktor)  Yeni bir randevu oluşturulabilmeli veya mevcut bir randevu düzenlenebilmeli)
+    Scenario: TC01 (Kullanici(Doktor)  kendine oluşturulan randevuları görebilmeli)
         Given kullanici(doktor) "Create or Edit an Appointment" sayfasına gider
         And kullanici oturumu kapatir
 
 
 
 
-    Scenario: TC02 ("Bir randevu güncellendiğinde; kullanıcı (doktor), hastanın aşağıdaki bilgilerini görmelidir.
-    ""id, start and end date, Status, physician and patient""")
+    Scenario: TC02 ("Bir randevu güncellendiğinde; kullanici (doktor), hastanın aşağıdaki bilgilerini görmelidir.
+    ""id, start and end date, Status, physician and patient")
 
-        Given Kullanıcı(Doktor)hastanın id bilgilerini görür
-        And  Kullanıcı(Doktor)hastanın start and end date bilgilerini görür
-        And Kullanıcı(Doktor)hastanın Status bilgilerini görür
-        And Kullanıcı(Doktor)hastanın physician and patient bilgilerini görür
+        Given kullanici(Doktor)hastanın id bilgilerini görür
+        And  kullanici(Doktor)hastanın start and end date bilgilerini görür
+        And kullanici(Doktor)hastanın Status bilgilerini görür
+        And kullanici(Doktor)hastanın physician and patient bilgilerini görür
+        And kullanici oturumu kapatir
+
+    Scenario: TC03 (Kullanici(Doktor) gerekli alanlara "Anamnesis, Treatment ve Diagnosis" yazabilmelidir)
+        Then kullanici (Doktor)Anamnesis  textbox a bilgi girer
+        Then kullanici Treatment  textbox a bilgi girer
+        Then kullanici Diagnosis  textbox a bilgi girer
+        And kullanci(Doktor) hastanin bilgilerini kaydeder
+        And kullanici oturumu kapatir
+
+
+
+    Scenario: TC04 ("Prescription ve Description" isteğe bağlı olmalıdır.)
+        Given kullanici(Doktor) Prescription texbox daki bilgileri siler
+        And kullanici(Doktor) Desscription texbox daki bilgileri siler
+        And kullanci(Doktor) hastanin bilgilerini kaydeder
         And kullanici oturumu kapatir
 
 
 
     Scenario: TC05 ("Status" doktor tarafından "PENDING, COMPLETED veya CANCELLED" olarak seçilebilmeli)
-
         Given Kullanıcı(Doktor) Status dropdown elementini PENDING, COMPLETED veya CANCELLED seklinde secer
         And kullanici oturumu kapatir
 
