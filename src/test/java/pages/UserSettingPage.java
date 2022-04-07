@@ -46,7 +46,7 @@ public class UserSettingPage {
 
     //@FindBy(xpath = "//*[text()='Save']")
     //public WebElement passwordChangeSaveButton;
-    @FindBy(xpath = "//*[@id='password-form']/button/span")
+    @FindBy(xpath = "//button[@type='submit']")
     public WebElement passwordChangeSaveButton;
 
     @FindBy(xpath = "//*[text()='Password changed!']")
