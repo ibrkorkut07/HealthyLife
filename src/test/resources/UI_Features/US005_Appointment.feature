@@ -7,7 +7,7 @@ Feature: Staff Appointment
 
 
 
-  Scenario Outline: TC001 (First Name bos birakilamaz.) selam
+  Scenario Outline: TC001 (First Name bos birakilamaz.)
     And isim olarak "<FirstName>" girer
     And soy isim "<LastName>" girer
     And SSN numarasi olarak "<SSN>" girer
