@@ -10,7 +10,7 @@ Feature:Password Degisimi
     Then yeni sifre kutusununa "<newPassword>" girer
     And yeni sifreyi tekrar girer "<newPasswordConfirmation>"
     Then yeni sifreyi kaydetmek icin save butonuna basar
-    And kullanici "Password changed" mesajini gorur
+    And kullanici "Password changed!" mesajini gorur
 
 Examples:
 |currentPassword|newPassword|newPasswordConfirmation|

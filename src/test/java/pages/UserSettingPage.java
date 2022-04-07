@@ -29,10 +29,6 @@ public class UserSettingPage {
     @FindBy(xpath = "//ul[@id='strengthBar']")
     public WebElement strengthBar;
 
-    //@FindBy(xpath = "//*[@id='strengthBar']/li[contains(@style,'rgb(255, 0, 0)')]")
-   // public WebElement passwordStrength1;
-
-
     @FindBy(xpath = "//*[@id='strengthBar']/li[contains(@style,'rgb(255, 0, 0)')][1]")
     public WebElement strengthOne;
 
@@ -48,12 +44,13 @@ public class UserSettingPage {
     @FindBy(xpath = "//*[@id='strengthBar']/li[contains(@style,'rgb(0, 255, 0)')][5]")
     public WebElement strengthFive;
 
-    @FindBy(xpath = "//*[text()='Save']")
-    public WebElement passwordChangeSaveButton ;
+    //@FindBy(xpath = "//*[text()='Save']")
+    //public WebElement passwordChangeSaveButton;
+    @FindBy(xpath = "//*[@id='password-form']/button/span")
+    public WebElement passwordChangeSaveButton;
 
     @FindBy(xpath = "//*[text()='Password changed!']")
     public WebElement passwordChangeSuccess;
-
 
     @FindBy(xpath = "//span[normalize-space()='Sign out']")
     public WebElement signOut;
