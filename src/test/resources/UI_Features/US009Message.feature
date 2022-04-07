@@ -16,7 +16,7 @@ Feature:US009 Message
     And Sigin  tiklar
     Then My PAGES sekmesine tiklar
     And Search Patient secenegini secer
-    And Patients yazisini görür
+
 
 
       Examples:
@@ -77,6 +77,7 @@ Scenario Outline: Staff tüm bilgilerin dolduruldugunu görme testi
 
 
   Scenario Outline: Staff herhangi bir hasta bilgi silme Testi
+
 
 
 
