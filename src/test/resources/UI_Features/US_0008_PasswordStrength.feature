@@ -11,6 +11,7 @@ Feature: US008_PasswordChange
     Then cikis yapilir
 
 
+
     Examples:
       | AdminNewPassword      | Strength |
       |aaabbbc                |1         |
