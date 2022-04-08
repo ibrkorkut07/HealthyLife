@@ -12,8 +12,7 @@ import java.util.List;
 public class StaffPage {
 
 
-
-    public StaffPage(){
+    public StaffPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
@@ -24,10 +23,10 @@ public class StaffPage {
     public WebElement IlkSigIn;
 
     @FindBy(xpath = "//input[@id='username']")
-    public  WebElement UsernameBox;
+    public WebElement UsernameBox;
 
     @FindBy(xpath = "//input[@id='password']")
-    public  WebElement PasswordBox;
+    public WebElement PasswordBox;
 
     @FindBy(xpath = "//button[@type='submit']//span[contains(text(),'Sign in')]")
     public WebElement SigInButton;
@@ -38,20 +37,20 @@ public class StaffPage {
     @FindBy(xpath = "//span[normalize-space()='Search Patient']")
     public WebElement searchPatientButonu;
 
-    @FindBy(xpath ="//span[normalize-space()='Patients']")
+    @FindBy(xpath = "//span[normalize-space()='Patients']")
     public WebElement patientsYazisi;
 
     @FindBy(xpath = "//input[@name='ssn']")
-    public  WebElement patentSsnBox;
+    public WebElement patentSsnBox;
 
-    @FindBy(xpath="//*[@id=\"system\"]/td[11]/div/a[3]")
+    @FindBy(xpath = "//*[@id=\"system\"]/td[11]/div/a[3]")
     public WebElement adminDeleteButton;
 
 
     @FindBy(xpath = "//span[text()='Edit']")
     public WebElement editBox;
 
-    @FindBy(xpath = "//input[@name='firstName']")
+    @FindBy(xpath = "//input[@id='patient-firstName']")
     public WebElement firstnameTextbox;
 
     @FindBy(xpath = "//input[@id='patient-lastName']")
@@ -67,7 +66,7 @@ public class StaffPage {
     public WebElement phoneTextbox;
 
     @FindBy(xpath = "//select[@name='gender']")
-    public WebElement genderTextBox;
+    public WebElement genderDropdownElement;
 
     @FindBy(xpath = "//select[@id='patient-bloodGroup']")
     public WebElement bloodGroupDropdownElement;
@@ -82,7 +81,7 @@ public class StaffPage {
     public WebElement userBox;
 
     @FindBy(xpath = "//select[@id='patient-country']")
-    public WebElement countryButton;
+    public WebElement countryDropdownElement;
 
     @FindBy(xpath = "//select[@name='cstate.id']")
     public WebElement stateButton;
@@ -93,14 +92,6 @@ public class StaffPage {
     @FindBy(xpath = "//div[@role='alert']")
     public WebElement saveToastify;
 
-    @FindBy(xpath = "//*[@id=\"app-view-container\"]/div/div/div/div[1]/div[2]/input")
-    public WebElement ssnStaff;
-
-    @FindBy(xpath = "//a[@class='btn btn-info btn-sm']")
-    public WebElement viewButton;
-
-    @FindBy(xpath = "//b[text()='51252']")
-    public WebElement patientYaziElement;
 
     @FindBy(xpath = "(//div[text()='This field is required.'])[1]")
     public WebElement deleteHataYazisi;
@@ -108,13 +99,17 @@ public class StaffPage {
     @FindBy(id = "cancel-save")
     public WebElement backButton;
 
-    @FindBy(xpath = "(//span[@class='d-none d-md-inline'])[3]")
+    @FindBy(xpath = "//tbody/tr[1]/td[16]/div[1]")
     public WebElement deleteButton;
+
+    @FindBy(xpath = "//table[@class='table']//thead")
+    public List<WebElement> headerTable;
 
     @FindBy(xpath = "//tbody//tr[1]")
     public WebElement satirElementi;
-    public List<WebElement> tumHucreDegerleri() {
-        //  //tbody//tr//td[1] butun satırı dınamık yapıcaz
+
+    public List<WebElement> hastaBilgileri() {
+
         List<WebElement> tabloSatiri = new ArrayList<>();
         WebElement istenenHucreDegeri = null;
         for (int i = 1; i < 16; i++) {

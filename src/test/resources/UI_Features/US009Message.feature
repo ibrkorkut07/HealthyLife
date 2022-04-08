@@ -39,7 +39,7 @@ Feature:US009 Message
 
 
 
-  Scenario Outline:TC03 Staff tüm bilgilerin dolduruldugunu görme testi
+  Scenario Outline:TC03 Staff tüm bilgilerin dolduruldugunu gorme testi
 
     And Staff olarak username ve password girer
     And Sigin  tiklar
@@ -50,7 +50,7 @@ Feature:US009 Message
     And ilgili hastanin  bilgilerinin dolduruldugunu dogrular
     Examples:
       |  SSN             |
-      |  253-98-1248     |
+      |  123-56-9424     |
 
   Scenario Outline:TC04 Staff herhangi bir hasta bilgi silme Testi
 
@@ -64,28 +64,35 @@ Feature:US009 Message
     And firstname siler ve silindigini test eder
     Examples:
       |  SSN             |
-      |  253-98-1248     |
+      |  123-56-9424     |
 
 
-  Scenario:TC05:Yukarıdaki tüm seçenekler bir Admin ve Staff tarafından yapılabilir,
- ancak staff hastaları silememeli.
+  Scenario Outline: TC05:Staff hastalari silememeli testi
 
    And Staff olarak username ve password girer
    And Sigin  tiklar
    Then My PAGES sekmesine tiklar
    And Search Patient secenegini secer
    And Patientssn kutusuna "<SSN>" girer
-   Then Edit butonuna tiklar
-   And staff olarak hastaları silemedigini dogrular
+   And Hasta bilgisinde Delete butonunun olmadigi dogrulanir
+
+
+        Examples:
+     |  SSN             |
+     |  123-56-9424     |
 
 
 
 
-   Scenario: TC06:Staff,hastaları SSN kimliklerine göre arayabilir,ancak Admin arayamaz.
+  Scenario Outline:TC06:Staff,hastalari SSN kimliklerine gore arayabilir.
 
-      Given kullanici Admin olarak giris yapar
+      And Staff olarak username ve password girer
       And Sigin  tiklar
       Then My PAGES sekmesine tiklar
       And Search Patient secenegini secer
       And Patientssn kutusuna "<SSN>" girer
-      And Admin hastalari SSN kimlik numaralarina gore arama yapamadigini dogrular
+      And Staff hastalari SSN kimlik numaralarina gore arama yaptigini dogrular
+
+    Examples:
+      |  SSN             |
+      |  026-06-1990     |

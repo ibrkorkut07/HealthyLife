@@ -6,6 +6,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import pages.StaffPage;
@@ -13,13 +14,17 @@ import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 public class US_009 {
 
 
     StaffPage staffPage = new StaffPage();
     Select select;
     Actions actions = new Actions(Driver.getDriver());
-    Faker faker;
+
 
     @Given("Kullanici {string} adresine gider.")
     public void kullanici_adresine_gider(String Url) {
@@ -62,17 +67,25 @@ public class US_009 {
     @And("Patients yazisini ile listenin gorunurlulugunu test eder")
     public void patientsYazisiniIleListeninGorunurlulugunuTestEder() {
         Assert.assertTrue(staffPage.patientsYazisi.isDisplayed());
+        try {
+            ReusableMethods.getScreenshot("Patient_US009");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @And("Patientssn kutusuna {string} girer")
     public void patientssnKutusunaGirer(String ssn) {
         staffPage.patentSsnBox.sendKeys(ssn);
+        Driver.wait(1);
 
     }
 
 
     @And("Edit butonuna tiklar")
     public void editButonunaTiklar() {
+        actions.sendKeys(Keys.ARROW_RIGHT).perform();
+        Driver.wait(1);
         staffPage.editBox.click();
 
 
@@ -80,7 +93,9 @@ public class US_009 {
 
     @And("Staff hasta bilgilerinde duzenleme yapar")
     public void staffHastaBilgilerindeDuzenlemeYapar() throws InterruptedException {
-       /* actions.sendKeys(Keys.TAB).perform();
+
+
+        actions.sendKeys(Keys.TAB).sendKeys(Keys.TAB).perform();
         Thread.sleep(2000);
         staffPage.firstnameTextbox.clear();
         staffPage.firstnameTextbox.sendKeys("martin");
@@ -92,27 +107,15 @@ public class US_009 {
         //actions.sendKeys(Keys.PAGE_DOWN).perform();
         staffPage.phoneTextbox.clear();
         staffPage.phoneTextbox.sendKeys("1234567890");
-        actions.sendKeys(Keys.PAGE_DOWN).perform(); */
-        Thread.sleep(2000);
-
-        staffPage.firstnameTextbox.click();
-        staffPage.firstnameTextbox.clear();
-        //staffPage.firstnameTextbox.click();
-        actions.sendKeys(faker.name().firstName()).sendKeys(Keys.TAB)
-                .sendKeys(faker.name().lastName()).sendKeys(Keys.TAB)
-                .sendKeys("01.04.2020"+Keys.TAB).sendKeys("12:00").sendKeys(Keys.TAB)
-                .sendKeys(faker.internet().emailAddress()).sendKeys(Keys.TAB)
-                .sendKeys("123-999-9999"+Keys.TAB).perform();
-        Thread.sleep(1000);
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
 
 
 
-
-        select=new Select(staffPage.genderTextBox);
-        staffPage.genderTextBox.click();
-        select.selectByVisibleText("FEMALE");
+        select=new Select(staffPage.genderDropdownElement);
+        staffPage.genderDropdownElement.click();
         Driver.wait(1);
-        staffPage.genderTextBox.click();
+        select.selectByVisibleText("FEMALE");
+        staffPage.genderDropdownElement.click();
 
         select=new Select(staffPage.bloodGroupDropdownElement);
         staffPage.bloodGroupDropdownElement.click();
@@ -127,7 +130,6 @@ public class US_009 {
                 sendKeys(Keys.TAB).
                 sendKeys(Keys.TAB).sendKeys(Keys.TAB).perform();
 
-        //actions.sendKeys(Keys.PAGE_DOWN).perform();
 
     }
 
@@ -149,10 +151,20 @@ public class US_009 {
 
     @And("ilgili hastanin  bilgilerinin dolduruldugunu dogrular")
     public void ilgiliHastaninBilgilerininDolduruldugunuDogrular() {
-        Assert.assertTrue(staffPage.firstnameTextbox.isDisplayed());
-        Assert.assertTrue(staffPage.lastnameTextbox.isDisplayed());
-        Assert.assertTrue(staffPage.emailTextbox.isDisplayed());
-
+        //System.out.println("staffPage.firstnameTextbox.getAttribute(value) = " + staffPage.firstnameTextbox.getAttribute("value"));
+        Assert.assertFalse(staffPage.firstnameTextbox.getAttribute("value").length()==0);
+    Assert.assertFalse(staffPage.lastnameTextbox.getAttribute("value").length()==0);
+    Assert.assertFalse(staffPage.birthdateTextbox.getAttribute("value").length()==0);
+    Assert.assertFalse(staffPage.emailTextbox.getAttribute("value").length()==0);
+    actions.sendKeys(Keys.PAGE_DOWN).sendKeys(Keys.PAGE_DOWN).perform();
+    Assert.assertFalse(staffPage.phoneTextbox.getAttribute("value").length()==0);
+    Assert.assertFalse(staffPage.genderDropdownElement.getAttribute("value").length()==0);
+    Assert.assertFalse(staffPage.bloodGroupDropdownElement.getAttribute("value").length()==0);
+    Assert.assertFalse(staffPage.addressTextbox.getAttribute("value").length()==0);
+    Assert.assertFalse(staffPage.descriptionTextbox.getAttribute("value").length()==0);
+    Assert.assertFalse(staffPage.userBox.getAttribute("value").length()==0);
+    Assert.assertFalse(staffPage.countryDropdownElement.getAttribute("value").length()==0);
+    Assert.assertFalse("State box bos",staffPage.stateButton.getAttribute("value").length()==0);
 
     }
 
@@ -168,48 +180,52 @@ public class US_009 {
         staffPage.birthdateTextbox.sendKeys(Keys.TAB);
         staffPage.emailTextbox.sendKeys(Keys.TAB);
         staffPage.phoneTextbox.sendKeys(Keys.TAB);
-        staffPage.genderTextBox.sendKeys(Keys.TAB);
+        staffPage.genderDropdownElement.sendKeys(Keys.TAB);
         staffPage.bloodGroupDropdownElement.sendKeys(Keys.TAB);
         staffPage.descriptionTextbox.sendKeys(Keys.TAB);
         staffPage.userBox.sendKeys(Keys.TAB);
-        staffPage.countryButton.sendKeys(Keys.TAB);
+        staffPage.countryDropdownElement.sendKeys(Keys.TAB);
         staffPage.stateButton.sendKeys(Keys.TAB);
         staffPage.backButton.sendKeys(Keys.TAB);
         Thread.sleep(2000);
         staffPage.saveButton.click();
-        Assert.assertTrue(staffPage.deleteHataYazisi.isDisplayed());
+        String expectedText="";
+        String actualText= staffPage.deleteHataYazisi.getText();
+        Assert.assertEquals(expectedText,actualText);
+
 
 
     }
 
 
     //TC05
-
-    @And("staff olarak hastaları silemedigini dogrular")
-    public void staffOlarakHastalarıSilemediginiDogrular() {
-        Assert.assertFalse(staffPage.adminDeleteButton.isDisplayed());
+    @And("Hasta bilgisinde Delete butonunun olmadigi dogrulanir")
+    public void hastaBilgisindeDeleteButonununOlmadigiDogrulanir() {
+        //System.out.println(staffPage.deleteButton.getText());
+        Assert.assertFalse(staffPage.deleteButton.getText().contains("Delete"));
     }
+
+
 
 
     //Tc06
 
-    @Given("kullanici Admin olarak giris yapar")
-    public void kullaniciAdminOlarakGirisYapar() {
-     staffPage.UsernameBox.sendKeys("adminUsername");
-     staffPage.PasswordBox.sendKeys("adminPassword");
-    }
+
+    @And("Staff hastalari SSN kimlik numaralarina gore arama yaptigini dogrular")
+    public void staffHastalariSSNKimlikNumaralarinaGoreAramaYaptiginiDogrular() {
 
 
+        Driver.wait(2);
+        List<WebElement> hastaDegerleri=staffPage.hastaBilgileri();
+        Assert.assertTrue(hastaDegerleri.get(1).getText().equals("026-06-1990"));
 
-    @And("Admin hastalari SSN kimlik numaralarina gore arama yapamadigini dogrular")
-    public void adminHastalariSSNKimlikNumaralarinaGoreAramaYapamadiginiDogrular() {
-        Assert.assertTrue(staffPage.ssnStaff.isDisplayed());
+        System.out.println(hastaDegerleri.get(1).getText());
+        System.out.println(hastaDegerleri.get(2).getText());
+        System.out.println(hastaDegerleri.get(3).getText());
+
 
     }
 }
-
-
-
 
 
 
