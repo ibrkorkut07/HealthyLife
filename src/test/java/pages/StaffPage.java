@@ -1,9 +1,13 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class StaffPage {
 
@@ -13,10 +17,10 @@ public class StaffPage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    @FindBy(id = "account-menu")
+    @FindBy(xpath = "//li[@id='account-menu']")
     public WebElement insanFiguru;
 
-    @FindBy(id="login-item")
+    @FindBy(xpath = "//a[@id='login-item']")
     public WebElement IlkSigIn;
 
     @FindBy(xpath = "//input[@id='username']")
@@ -25,77 +29,101 @@ public class StaffPage {
     @FindBy(xpath = "//input[@id='password']")
     public  WebElement PasswordBox;
 
-    @FindBy(xpath = "//button[@class='btn btn-primary']")
-    public WebElement SigIn;
+    @FindBy(xpath = "//button[@type='submit']//span[contains(text(),'Sign in')]")
+    public WebElement SigInButton;
 
-    @FindBy(id = "entity-menu")
+    @FindBy(xpath = "//span[normalize-space()='MY PAGES']")
     public WebElement myPagesButonu;
 
-    @FindBy(name = "Search Patient")
+    @FindBy(xpath = "//span[normalize-space()='Search Patient']")
     public WebElement searchPatientButonu;
 
-    @FindBy(xpath ="//span[text()='Patients']")
+    @FindBy(xpath ="//span[normalize-space()='Patients']")
     public WebElement patientsYazisi;
 
-    @FindBy(xpath = "//input[@class='form-control']")
+    @FindBy(xpath = "//input[@name='ssn']")
     public  WebElement patentSsnBox;
 
-    @FindBy(xpath ="//a[@class='btn btn-primary btn-sm']")
+    @FindBy(xpath="//*[@id=\"system\"]/td[11]/div/a[3]")
+    public WebElement adminDeleteButton;
+
+
+    @FindBy(xpath = "//span[text()='Edit']")
     public WebElement editBox;
 
-    @FindBy(tagName = "h2")
-    public WebElement createPatientFormYazisi;
+    @FindBy(xpath = "//input[@name='firstName']")
+    public WebElement firstnameTextbox;
 
-    @FindBy(xpath = "//input[@name='id']")
-    public WebElement idBox;
+    @FindBy(xpath = "//input[@id='patient-lastName']")
+    public WebElement lastnameTextbox;
 
-    @FindBy(name="patient-firstName")
-    public  WebElement firstnameBox;
+    @FindBy(xpath = "//input[@id='patient-birthDate']")
+    public WebElement birthdateTextbox;
 
-    @FindBy(name="lastName")
-    public WebElement lastnameBox;
+    @FindBy(xpath = "//input[@id='email']")
+    public WebElement emailTextbox;
 
-    @FindBy(name = "birthDate")
-    public  WebElement birthDateBox;
+    @FindBy(xpath = "//input[@id='patient-phone']")
+    public WebElement phoneTextbox;
 
-    @FindBy(name="email")
-    public  WebElement emailBox;
+    @FindBy(xpath = "//select[@name='gender']")
+    public WebElement genderTextBox;
 
-    @FindBy(id="patient-phone")
-    public  WebElement phoneBox;
+    @FindBy(xpath = "//select[@id='patient-bloodGroup']")
+    public WebElement bloodGroupDropdownElement;
 
-    @FindBy(id="patient-gender")
-    public WebElement genderBox;
+    @FindBy(xpath = "//input[@id='patient-adress']")
+    public WebElement addressTextbox;
 
-    @FindBy(id="patient-bloodGroup")
-    public WebElement bllodGroupBox;
+    @FindBy(xpath = "//textarea[@id='patient-description']")
+    public WebElement descriptionTextbox;
 
-    @FindBy(id="patient-adress")
-    public WebElement adressBox;
+    @FindBy(xpath = "//select[@id='patient-user']")
+    public WebElement userBox;
 
-    @FindBy(id="patient-description")
-    public WebElement descriptionBox;
+    @FindBy(xpath = "//select[@id='patient-country']")
+    public WebElement countryButton;
 
-    @FindBy(className = "user.id")
-    public WebElement patientUserBox;
+    @FindBy(xpath = "//select[@name='cstate.id']")
+    public WebElement stateButton;
 
-    @FindBy(className = "country.id")
-    public WebElement countryBox;
+    @FindBy(xpath = "//button[@id='save-entity']")
+    public WebElement saveButton;
 
-    @FindBy(id="patient-cstate")
-    public WebElement patientCstateBox;
+    @FindBy(xpath = "//div[@role='alert']")
+    public WebElement saveToastify;
 
-    @FindBy(id="save-entity")
-    public WebElement patientSaveBox;
+    @FindBy(xpath = "//*[@id=\"app-view-container\"]/div/div/div/div[1]/div[2]/input")
+    public WebElement ssnStaff;
 
-    @FindBy(xpath = "//*[contains(text(), 'Registration Saved')]")
-    public WebElement toastContainerMassage;
+    @FindBy(xpath = "//a[@class='btn btn-info btn-sm']")
+    public WebElement viewButton;
+
+    @FindBy(xpath = "//b[text()='51252']")
+    public WebElement patientYaziElement;
+
+    @FindBy(xpath = "(//div[text()='This field is required.'])[1]")
+    public WebElement deleteHataYazisi;
+
+    @FindBy(id = "cancel-save")
+    public WebElement backButton;
+
+    @FindBy(xpath = "(//span[@class='d-none d-md-inline'])[3]")
+    public WebElement deleteButton;
+
+    @FindBy(xpath = "//tbody//tr[1]")
+    public WebElement satirElementi;
+    public List<WebElement> tumHucreDegerleri() {
+        //  //tbody//tr//td[1] butun satırı dınamık yapıcaz
+        List<WebElement> tabloSatiri = new ArrayList<>();
+        WebElement istenenHucreDegeri = null;
+        for (int i = 1; i < 16; i++) {
+            String dinamikSatirXpath = "//tbody//tr//td[" + i + "]";
+            istenenHucreDegeri = Driver.getDriver().findElement(By.xpath(dinamikSatirXpath));
+            tabloSatiri.add(istenenHucreDegeri);
+        }
+        return tabloSatiri;
 
 
-
-
-
-
-
-
+    }
 }

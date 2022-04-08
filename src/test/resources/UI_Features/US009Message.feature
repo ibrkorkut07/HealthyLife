@@ -2,109 +2,90 @@ Feature:US009 Message
 
 
 
-  Background:Staff hasta bilgisi görme Testi
+  Background:
 
     Given Kullanici "medunnaUrl" adresine gider.
     Then insan Figurune tiklar
     And Sig in secenegini secer
 
 
-  Scenario Outline:
+  Scenario:TC01 Staff olarak hasta bilgilerini gorme testi
 
-    And Username olarak "<StaffValidUsername>" girer
-    And Password olarak "<StaffValidPassword>" girer
+    And Staff olarak username ve password girer
     And Sigin  tiklar
     Then My PAGES sekmesine tiklar
     And Search Patient secenegini secer
-    And Patients yazisini görür
+    And Patients yazisini ile listenin gorunurlulugunu test eder
 
 
-      Examples:
-        | StaffValidUsername | StaffValidPassword |
-         |filizgl             |filiz31.           |
 
 
-    Scenario Outline:Hasta bilgilerini duzenleme testi
 
-      And Username olarak "<StaffValidUsername>" girer
-      And Password olarak "<StaffValidPassword>" girer
+    Scenario Outline:TC02:Hasta bilgilerini duzenleme testi
+
+      And Staff olarak username ve password girer
       And Sigin  tiklar
       Then My PAGES sekmesine tiklar
       And Search Patient secenegini secer
-      And "PatientSSN" girer
-      Then Edit butonuna tiklar
-      And Create or edit a Patient formunu görür
-      And id degistirir
-      And firstname degistirir
-      And lastname degistirir
-      And Birthdate degistirir
-      And Email degistirir
-      And phone degistirir
-      And gender degistirir
-      And blood group degistirir
-      And address degistirir
-      And description degistirir
-      And user degistirir
-      And country degistirir
-      And state/city degistirir
-      And save tiklar
-      And "A Patient is updated with identifier {patientid}"yazisini görür
-
-
-
+      And Patientssn kutusuna "<SSN>" girer
+      And  Edit butonuna tiklar
+      And Staff hasta bilgilerinde duzenleme yapar
+      And Save tiklar
+      And Dogrulama gozlemlenir
 
       Examples:
-        | StaffValidUsername | StaffValidPassword | PatientSSN | id |firstname|lastname|BirthDate| email |phone |
-        |filizgl  |filiz31. | 365-34-2321 |2406| martin  |lutz    |30.04.2000|dlg@gmail.com |1234567890|
+        | SSN              |
+        | 253-98-1249      |
 
 
 
+  Scenario Outline:TC03 Staff tüm bilgilerin dolduruldugunu görme testi
 
-Scenario Outline: Staff tüm bilgilerin dolduruldugunu görme testi
-    And Username olarak "<StaffValidUsername>" girer
-    And Password olarak "<StaffValidPassword>" girer
+    And Staff olarak username ve password girer
     And Sigin  tiklar
     Then My PAGES sekmesine tiklar
      And Search Patient secenegini secer
-    And PatientSSN girer
-     Then SSN ile giris yapar
-     And Create or edit a Patient formunu görür
-      And Formdaki kayitlarin dolduruldugunu görür
-
-  Examples:
-    | StaffValidUsername | StaffValidPassword |  PatientSSN |
-    |filizgl             |filiz31.           |   365-34-2321 |
-
-
-  Scenario Outline: Staff herhangi bir hasta bilgi silme Testi
-
-
-
-  And Username olarak "StaffValidUsername" girer
-  And Username olarak "StaffValidPassword" girer
-  And Sigin  tiklar
-  And  My PAGES butonuna tiklar
-    And "PatientSSN" girer
+    And Patientssn kutusuna "<SSN>" girer
     Then Edit butonuna tiklar
-    And Create or edit a Patient formunu görür
-    And id siler
-    And firstname siler
-    And lastname siler
-    And Birthdate siler
-    And Email siler
-    And phone siler
-    And gender degistirir
-    And blood group degistirir
-    And address degistirir
-    And description degistirir
-    And user degistirir
-    And country degistirir
-    And state/city degistirir
-    Then save tiklar
-    And Silme isleminden sonra "This filed is required." yazisini görür
-
-
-
+    And ilgili hastanin  bilgilerinin dolduruldugunu dogrular
     Examples:
-      | StaffValidUsername | StaffValidPassword |
-      |filizgl             |filiz31.           |
+      |  SSN             |
+      |  253-98-1248     |
+
+  Scenario Outline:TC04 Staff herhangi bir hasta bilgi silme Testi
+
+
+    And Staff olarak username ve password girer
+    And Sigin  tiklar
+    Then My PAGES sekmesine tiklar
+    And Search Patient secenegini secer
+    And Patientssn kutusuna "<SSN>" girer
+    Then Edit butonuna tiklar
+    And firstname siler ve silindigini test eder
+    Examples:
+      |  SSN             |
+      |  253-98-1248     |
+
+
+  Scenario:TC05:Yukarıdaki tüm seçenekler bir Admin ve Staff tarafından yapılabilir,
+ ancak staff hastaları silememeli.
+
+   And Staff olarak username ve password girer
+   And Sigin  tiklar
+   Then My PAGES sekmesine tiklar
+   And Search Patient secenegini secer
+   And Patientssn kutusuna "<SSN>" girer
+   Then Edit butonuna tiklar
+   And staff olarak hastaları silemedigini dogrular
+
+
+
+
+   Scenario: TC06:Staff,hastaları SSN kimliklerine göre arayabilir,ancak Admin arayamaz.
+
+      Given kullanici Admin olarak giris yapar
+      And Sigin  tiklar
+      Then My PAGES sekmesine tiklar
+      And Search Patient secenegini secer
+      And Patientssn kutusuna "<SSN>" girer
+      And Admin hastalari SSN kimlik numaralarina gore arama yapamadigini dogrular

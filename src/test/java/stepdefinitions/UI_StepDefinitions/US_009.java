@@ -1,26 +1,32 @@
 package stepdefinitions.UI_StepDefinitions;
 
+import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 import pages.StaffPage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 public class US_009 {
 
 
-    StaffPage staffPage=new StaffPage();
-
-
+    StaffPage staffPage = new StaffPage();
+    Select select;
+    Actions actions = new Actions(Driver.getDriver());
+    Faker faker;
 
     @Given("Kullanici {string} adresine gider.")
     public void kullanici_adresine_gider(String Url) {
         Driver.getDriver().get(ConfigReader.getProperty(Url));
     }
 
-   @Then("insan Figurune tiklar")
+    @Then("insan Figurune tiklar")
     public void insan_figurune_tiklar() {
         staffPage.insanFiguru.click();
     }
@@ -30,21 +36,16 @@ public class US_009 {
         staffPage.IlkSigIn.click();
     }
 
-    @Then("Username olarak {string} girer")
-    public void username_olarak_girer(String name) throws InterruptedException {
-        staffPage.wait(500);
-        staffPage.UsernameBox.sendKeys(name);
-    }
+    @And("Staff olarak username ve password girer")
+    public void staffOlarakUsernameVePasswordGirer() {
 
-    @Then("Password olarak {string} girer")
-    public void password_olarak_girer(String lastname) throws InterruptedException {
-        staffPage.wait(500);
-        staffPage.PasswordBox.sendKeys(lastname);
+        staffPage.UsernameBox.sendKeys(ConfigReader.getProperty("StaffValidUsername"));
+        staffPage.PasswordBox.sendKeys(ConfigReader.getProperty("StaffValidPassword"));
     }
 
     @Then("Sigin  tiklar")
     public void sigin_tiklar() {
-        staffPage.SigIn.click();
+        staffPage.SigInButton.click();
     }
 
     @Then("My PAGES sekmesine tiklar")
@@ -57,119 +58,146 @@ public class US_009 {
         staffPage.searchPatientButonu.click();
     }
 
-    @Then("Patients yazisini görür")
-    public void patients_yazisini_görür() throws InterruptedException {
-         staffPage.wait(500);
-        String actuelTitle=staffPage.patientsYazisi.getText();
-        String expectedTitle="Patients";
-        Assert.assertEquals(expectedTitle,actuelTitle);
+
+    @And("Patients yazisini ile listenin gorunurlulugunu test eder")
+    public void patientsYazisiniIleListeninGorunurlulugunuTestEder() {
+        Assert.assertTrue(staffPage.patientsYazisi.isDisplayed());
     }
 
-
-
-
-
-
-
-
-   //TC02
-    @And("{string} girer")
-    public void girer(String ssn) {
-
-     staffPage.patentSsnBox.sendKeys(ssn);
-    }
-
-
-    @Then("Edit butonuna tiklar")
-    public void edit_butonuna_tiklar() {
-     staffPage.editBox.click();
-    }
-
-
-    @Then("Create or edit a Patient formunu görür")
-    public void create_or_edit_a_patient_formunu_görür() {
-     Assert.assertTrue(staffPage.createPatientFormYazisi.isDisplayed());
-    }
-
-
-
-    @Then("id degistirir")
-    public void id_degistirir() {
-    staffPage.idBox.clear();
-    staffPage.idBox.sendKeys("2406");
-
-    }
-
-    @Then("firstname degistirir")
-    public void firstname_degistirir() {
-
-
-    }
-
-    @Then("lastname degistirir")
-    public void lastname_degistirir() {
-
-    }
-
-    @Then("Birthdate degistirir")
-    public void birthdate_degistirir() {
-
-    }
-
-    @Then("Email degistirir")
-    public void email_degistirir() {
-
-    }
-
-    @Then("phone degistirir")
-    public void phone_degistirir() {
-
-    }
-
-    @Then("gender degistirir")
-    public void gender_degistirir() {
-
-    }
-
-    @Then("blood group degistirir")
-    public void blood_group_degistirir() {
-
-    }
-
-    @Then("address degistirir")
-    public void address_degistirir() {
-
-    }
-
-    @Then("description degistirir")
-    public void description_degistirir() {
-
-    }
-
-    @Then("user degistirir")
-    public void user_degistirir() {
-
-    }
-
-    @Then("country degistirir")
-    public void country_degistirir() {
-
-    }
-
-    @And("state\\/city degistirir")
-    public void stateCityDegistirir() {
-    }
-
-    @Then("save tiklar")
-    public void save_tiklar() {
-
-    }
-
-    @Then("\"A Patient is updated with identifier \\{patientid}\"yazisini görür")
-    public void a_patient_is_updated_with_identifier_yazisini_görür() {
+    @And("Patientssn kutusuna {string} girer")
+    public void patientssnKutusunaGirer(String ssn) {
+        staffPage.patentSsnBox.sendKeys(ssn);
 
     }
 
 
+    @And("Edit butonuna tiklar")
+    public void editButonunaTiklar() {
+        staffPage.editBox.click();
 
+
+    }
+
+    @And("Staff hasta bilgilerinde duzenleme yapar")
+    public void staffHastaBilgilerindeDuzenlemeYapar() throws InterruptedException {
+       /* actions.sendKeys(Keys.TAB).perform();
+        Thread.sleep(2000);
+        staffPage.firstnameTextbox.clear();
+        staffPage.firstnameTextbox.sendKeys("martin");
+        staffPage.lastnameTextbox.clear();
+        staffPage.lastnameTextbox.sendKeys("lutz");
+        actions.sendKeys(Keys.TAB).perform();
+        staffPage.emailTextbox.clear();
+        staffPage.emailTextbox.sendKeys("asl@gmail.com");
+        //actions.sendKeys(Keys.PAGE_DOWN).perform();
+        staffPage.phoneTextbox.clear();
+        staffPage.phoneTextbox.sendKeys("1234567890");
+        actions.sendKeys(Keys.PAGE_DOWN).perform(); */
+        Thread.sleep(2000);
+
+        staffPage.firstnameTextbox.click();
+        staffPage.firstnameTextbox.clear();
+        //staffPage.firstnameTextbox.click();
+        actions.sendKeys(faker.name().firstName()).sendKeys(Keys.TAB)
+                .sendKeys(faker.name().lastName()).sendKeys(Keys.TAB)
+                .sendKeys("01.04.2020"+Keys.TAB).sendKeys("12:00").sendKeys(Keys.TAB)
+                .sendKeys(faker.internet().emailAddress()).sendKeys(Keys.TAB)
+                .sendKeys("123-999-9999"+Keys.TAB).perform();
+        Thread.sleep(1000);
+
+
+
+
+        select=new Select(staffPage.genderTextBox);
+        staffPage.genderTextBox.click();
+        select.selectByVisibleText("FEMALE");
+        Driver.wait(1);
+        staffPage.genderTextBox.click();
+
+        select=new Select(staffPage.bloodGroupDropdownElement);
+        staffPage.bloodGroupDropdownElement.click();
+        select.selectByIndex(0);
+        Driver.wait(1);
+        staffPage.bloodGroupDropdownElement.click();
+
+        actions.
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).sendKeys(Keys.TAB).perform();
+
+        //actions.sendKeys(Keys.PAGE_DOWN).perform();
+
+    }
+
+    @And("Save tiklar")
+    public void saveTiklar() {
+        Driver.waitAndClick(staffPage.saveButton);
+    }
+
+
+    @Then("Dogrulama gozlemlenir")
+    public void dogrulamaGozlemlenir() throws InterruptedException {
+        Thread.sleep(2000);
+        Assert.assertTrue(staffPage.saveToastify.isDisplayed());
+    }
+
+
+    //TC03
+
+
+    @And("ilgili hastanin  bilgilerinin dolduruldugunu dogrular")
+    public void ilgiliHastaninBilgilerininDolduruldugunuDogrular() {
+        Assert.assertTrue(staffPage.firstnameTextbox.isDisplayed());
+        Assert.assertTrue(staffPage.lastnameTextbox.isDisplayed());
+        Assert.assertTrue(staffPage.emailTextbox.isDisplayed());
+
+
+    }
+
+    //TC04
+
+    @And("firstname siler ve silindigini test eder")
+    public void firstnameSilerVeSilindiginiTestEder() {
+        Driver.wait(1);
+        staffPage.firstnameTextbox.clear();
+        Assert.assertTrue(staffPage.firstnameTextbox.isDisplayed());
+        Driver.wait(1);
+
+    }
+
+
+    //TC05
+
+    @And("staff olarak hastaları silemedigini dogrular")
+    public void staffOlarakHastalarıSilemediginiDogrular() {
+        Assert.assertFalse(staffPage.adminDeleteButton.isDisplayed());
+    }
+
+
+    //Tc06
+
+    @Given("kullanici Admin olarak giris yapar")
+    public void kullaniciAdminOlarakGirisYapar() {
+     staffPage.UsernameBox.sendKeys("adminUsername");
+     staffPage.PasswordBox.sendKeys("adminPassword");
+    }
+
+
+
+    @And("Admin hastalari SSN kimlik numaralarina gore arama yapamadigini dogrular")
+    public void adminHastalariSSNKimlikNumaralarinaGoreAramaYapamadiginiDogrular() {
+        Assert.assertTrue(staffPage.ssnStaff.isDisplayed());
+
+    }
 }
+
+
+
+
+
+
+
+
+
