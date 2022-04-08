@@ -8,12 +8,12 @@ import utilities.Driver;
 
 public class US004 {
     LoginPage login = new LoginPage();
-    @And("kullanici oturumu kapatir")
-    public void kullaniciOturumuKapatir() {
-        login.kullaniciMenusu.click();
-        Driver.wait(1);
-        login.signOutButton.click();
-    }
+//    @And("kullanici oturumu kapatir")
+//    public void kullaniciOturumuKapatir() {
+//        login.kullaniciMenusu.click();
+//        Driver.wait(1);
+//        login.signOutButton.click();
+//    }
 
     @Given("beni hatirla secenegini gorur")
     public void beniHatirlaSeceneginiGorur() {
