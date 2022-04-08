@@ -159,11 +159,26 @@ public class US_009 {
     //TC04
 
     @And("firstname siler ve silindigini test eder")
-    public void firstnameSilerVeSilindiginiTestEder() {
+    public void firstnameSilerVeSilindiginiTestEder() throws InterruptedException {
         Driver.wait(1);
         staffPage.firstnameTextbox.clear();
-        Assert.assertTrue(staffPage.firstnameTextbox.isDisplayed());
         Driver.wait(1);
+        staffPage.firstnameTextbox.sendKeys(Keys.TAB);
+        staffPage.lastnameTextbox.sendKeys(Keys.TAB);
+        staffPage.birthdateTextbox.sendKeys(Keys.TAB);
+        staffPage.emailTextbox.sendKeys(Keys.TAB);
+        staffPage.phoneTextbox.sendKeys(Keys.TAB);
+        staffPage.genderTextBox.sendKeys(Keys.TAB);
+        staffPage.bloodGroupDropdownElement.sendKeys(Keys.TAB);
+        staffPage.descriptionTextbox.sendKeys(Keys.TAB);
+        staffPage.userBox.sendKeys(Keys.TAB);
+        staffPage.countryButton.sendKeys(Keys.TAB);
+        staffPage.stateButton.sendKeys(Keys.TAB);
+        staffPage.backButton.sendKeys(Keys.TAB);
+        Thread.sleep(2000);
+        staffPage.saveButton.click();
+        Assert.assertTrue(staffPage.deleteHataYazisi.isDisplayed());
+
 
     }
 
