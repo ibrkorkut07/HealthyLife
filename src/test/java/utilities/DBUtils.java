@@ -22,6 +22,7 @@ public class DBUtils {
 //        String username="techprodb_user";
 //        String password="Techpro_@126";
 
+
         String url=ConfigReader.getProperty("db_credentials_url");
         String username=ConfigReader.getProperty("db_username");
         String password=ConfigReader.getProperty("db_password");

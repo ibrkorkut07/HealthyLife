@@ -64,6 +64,9 @@ public class RegistrationPage {
     @FindBy(xpath = "//div[text()='Your username is invalid.']")
     public WebElement usernameInvalidMessage;
 
+    @FindBy(xpath = "//input[@class='is-touched is-dirty av-valid form-control']")
+    public WebElement userNameValidConfirm;
+
     //input[@name='email']
     //div[text()='Your email is required.']
     //div[text()='Your email is required to be at least 5 characters.']
@@ -80,6 +83,9 @@ public class RegistrationPage {
 
     @FindBy(xpath = "//div[text()='This field is invalid']")
     public WebElement emailInvalidMessage;
+
+    @FindBy(xpath = "//input[@class='is-touched is-dirty av-valid form-control']")
+    public WebElement emailValidConfirm;
 
 
 

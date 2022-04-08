@@ -1,5 +1,6 @@
+@US01
 Feature: US001_Kayıt olmak icin SSN, Firstname ve Lastname bilgileri girililebilmelidir.
-@us1
+@us1 @deneme
   Scenario Outline:TC_01 Gecerli bir SSN, 3. ve 5. rakamdan sonra "-"  icermeli ve 9 rakamdan olusmalidir
     When kullanici "medunnaUrl" sayfasina gider
     Then sayfada kullanici ikonu altinda yer alan register butonuna tiklar
@@ -15,13 +16,13 @@ Feature: US001_Kayıt olmak icin SSN, Firstname ve Lastname bilgileri girililebi
       |594942  |dasas|*-/-\-  |
       |56465*/ad| sad564/*|+*/--sad234|
 
-@us1
+@us1 @deneme
   Scenario: TC_02 SSN boş bırakılmamalıdır
     When kullanici "medunnaUrl" sayfasina gider
     Then sayfada kullanici ikonu altinda yer alan register butonuna tiklar
     And SSN kutucuğuna tıklar ardından boş bırakır ve 'Your SSN is required.' uyarı mesajını görüntüler
 
-@us1 @tc03
+@us1 @tc03 @deneme
   Scenario Outline: TC_03 Herhangi bir karakter içeren ve boş bırakılamayan geçerli bir "First Name" olmalıdır
     When kullanici "medunnaUrl" sayfasina gider
     Then sayfada kullanici ikonu altinda yer alan register butonuna tiklar
@@ -34,7 +35,7 @@ Feature: US001_Kayıt olmak icin SSN, Firstname ve Lastname bilgileri girililebi
     |1         |12           |
     |*         |*/           |
 
-  @us1 @tc04
+  @us1 @tc04 @deneme
   Scenario Outline: TC_04 Herhangi bir karakter içeren ve boş bırakılamayan geçerli bir "Last Name" olmalıdır
     When kullanici "medunnaUrl" sayfasina gider
     Then sayfada kullanici ikonu altinda yer alan register butonuna tiklar
@@ -46,4 +47,26 @@ Feature: US001_Kayıt olmak icin SSN, Firstname ve Lastname bilgileri girililebi
       |a         |as           |
       |2         |23           |
       |=         |-^           |
+
+  @us1 @tc05 @ApiRegistrant
+  Scenario: TC_05 Swagger kullanarak tüm kayıt bilgilerini alın ve doğrulanmalıdır
+    When kullanici pathparams ayarlamasini yapar
+    Then accountlarin bilgilerini alir
+    And alinan bilgilerin dogrulamasini yapar
+
+  @tc06 @deneme
+  Scenario: TC_06  API kullanarak kayıtlı kişiler oluşturulup doğrulanmalıdır
+    When kullanici gerekli path params ayarlar
+    Then expected datalari girer
+    And kullanici request gonderir ve response alir
+    Then kullamici api kayitlarini dosyaya kaydeder
+    And kullanici api kayitlarini dogrular
+
+  @tc07 @deneme
+  Scenario: TC_07 DB ile SSN kimliklerini doğrulanmalıdır
+    When kullanici tablodan gerekli sutunu alir
+    Then ssn dogrulamasini yapar
+
+
+
 
