@@ -34,11 +34,6 @@ public class LoginPage {
     @FindBy(xpath = "//span[normalize-space()='Sign out']")
     public WebElement signOutButton;
 
-
-
-
-
-
     @FindBy(xpath = "//span[normalize-space()='Remember me']")
     public WebElement rememberMe;
 
@@ -50,14 +45,11 @@ public class LoginPage {
 
     @FindBy(xpath = "//button[@class='btn btn-secondary']")
     public WebElement cancelButton;
-@FindBy(xpath = "//li[@id='account-menu']//a[@class='d-flex align-items-center dropdown-toggle nav-link']")
-public WebElement kullaniciMenusu;
+    @FindBy(xpath = "//li[@id='account-menu']//a[@class='d-flex align-items-center dropdown-toggle nav-link']")
+    public WebElement kullaniciMenusu;
 
-@FindBy(xpath = "//span[normalize-space()='Settings']")
+    @FindBy(xpath = "//span[normalize-space()='Settings']")
     public WebElement kullaniciSettingsButton;
-
-@FindBy(xpath = "//span[normalize-space()='Sign out']")
-    public WebElement signOutButton;
 
 
     @FindBy(xpath = "//li[@id='account-menu']//a[@class='d-flex align-items-center dropdown-toggle nav-link']")

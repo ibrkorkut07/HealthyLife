@@ -18,7 +18,6 @@ public class DoctorPage {
     public WebElement settingsFirstNameBox;
 
     @FindBy(xpath = "//span[normalize-space()='MY PAGES']")
-@FindBy(xpath = "//span[normalize-space()='MY PAGES']")
     public WebElement myPages;
 
     @FindBy(xpath = "//span[normalize-space()='My Appointments']")
