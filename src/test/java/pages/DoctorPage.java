@@ -11,6 +11,13 @@ public class DoctorPage {
     public DoctorPage() {
         PageFactory.initElements(Driver.getDriver(),this);
     }
+
+
+
+    @FindBy(xpath = "//input[@id='firstName']")
+    public WebElement settingsFirstNameBox;
+
+    @FindBy(xpath = "//span[normalize-space()='MY PAGES']")
 @FindBy(xpath = "//span[normalize-space()='MY PAGES']")
     public WebElement myPages;
 
@@ -43,13 +50,21 @@ public class DoctorPage {
 
     @FindBy(xpath = "//select[@id='appointment-physician']")
     public WebElement createAppointmentPhysician;
+    @FindBy(xpath = "//input[@id='lastName']")
+    public WebElement settingsLastNameBox;
 
+    @FindBy(xpath = "//input[@id='email']")
+    public WebElement settingsEmailBox;
     @FindBy(xpath = "//textarea[@id='appointment-anamnesis']")
     public WebElement createAppointmentAnamnesisBox;
 
+    @FindBy(xpath = "//button[@type='submit']")
+    public WebElement settingsSaveButton;
     @FindBy(xpath = "//textarea[@id='appointment-treatment']")
     public WebElement createAppointmentTreatmentBox;
 
+    @FindBy(xpath = "//strong[normalize-space()='Settings saved!']")
+    public WebElement settingsSaveSavedText;
     @FindBy(xpath = "//textarea[@id='appointment-diagnosis']")
     public WebElement createAppointmentDiagnosisBox;
 
