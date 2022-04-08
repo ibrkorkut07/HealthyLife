@@ -28,6 +28,12 @@ public class LoginPage {
     @FindBy(xpath = "//button[@type='submit']")
     public WebElement signIn;
 
+    @FindBy(xpath = "//li[@id='account-menu']//a[@class='d-flex align-items-center dropdown-toggle nav-link']")
+    public WebElement cikisIconu;
+
+    @FindBy(xpath = "//span[normalize-space()='Sign out']")
+    public WebElement signOutButton;
+
 
 
 
