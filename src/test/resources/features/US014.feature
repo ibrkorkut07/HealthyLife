@@ -46,7 +46,7 @@ Feature: US0014_medunna
 
 
 
-  Scenario: TC 005("Status" doktor tarafından "UNAPPROVED, DISCHARGED, STILL STAYING veya CANCELLED" olarak guncelleyebilmeli)
+  Scenario: TC 005("Status" doktor tarafindan "UNAPPROVED, DISCHARGED, STILL STAYING veya CANCELLED" olarak guncelleyebilmeli)
     Given status doktor tarafindan UNAPPROVED olarak gunceller
   And status doktor tarafindan DISCHARGED olarak gunceller
   And  status doktor tarafindan STAYING olarak gunceller
@@ -55,7 +55,7 @@ Feature: US0014_medunna
 
 
 
-  Scenario: TC 006 kullanici(doktor) rezerve edilmiş odayı guncelleyebilmeli
+  Scenario: TC 006 kullanici(doktor) rezerve edilmis odayi guncelleyebilmeli
     Given kullanici(doktor) rezerve edilmiş odayı gunceller
 
 

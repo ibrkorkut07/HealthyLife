@@ -1,18 +1,15 @@
 package stepdefinitions.UI_StepDefinitions;
 
-import com.beust.ah.A;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import pages.DoctorPage;
 import utilities.Driver;
-import utilities.ReusableMethods;
 
 public class US_014 {
     DoctorPage doctorPage = new DoctorPage();
