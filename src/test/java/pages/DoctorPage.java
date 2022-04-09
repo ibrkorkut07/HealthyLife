@@ -9,7 +9,7 @@ import utilities.Driver;
 public class DoctorPage {
 
     public DoctorPage() {
-        PageFactory.initElements(Driver.getDriver(),this);
+        PageFactory.initElements(Driver.getDriver(), this);
     }
 
 
@@ -101,56 +101,56 @@ public class DoctorPage {
     //   public WebElement StartDate;
     @FindBy(xpath = "//span[.='01/04/22 16:56']")
     public WebElement StartDate;
+    @FindBy(xpath = "//input[@id='in-patient-id']")
+    public WebElement inPatientsIdBox;
 
+    @FindBy(xpath = "//input[@id='in-patient-startDate']")
+    public WebElement inPatientStartDateBox;
 
-    //  @FindBy(xpath = "//*[text()='End Date']")
-    // public WebElement EndDate;
-    @FindBy(xpath = "//span[.='01/04/22 16:56']")
-    public WebElement EndDate;
+    @FindBy(xpath = "//div[@role='alert']")
+    public WebElement saveButtonAlertYazisi;
 
-    @FindBy(xpath = "//*[text()='Status']")
-    public WebElement Status;
-
-    @FindBy(xpath = "//*[text()='Description']")
-    public WebElement Description1;
-
-    @FindBy(xpath = "  (//*[text()='01/04/22 01:21'])[2]")
-    public WebElement CreatedDate;
-
-    @FindBy(xpath = "//*[text()='Room']")
-    public WebElement Room;
-
-    @FindBy(xpath = "//*[text()='Appointment']")
-    public WebElement Appointment;
-
-    @FindBy(xpath = "//*[text()='Patient']")
-    public WebElement Patient;
-
-
-
-    @FindBy(xpath = "//input[@name='id']")
-    public WebElement EditPageID;
-
-    @FindBy(xpath = "//input[@name='startDate']")
-    public WebElement EditPageStartDate;
-
-    @FindBy(xpath = "//input[@name='endDate']")
-    public WebElement EditPageEndDate;
+    @FindBy(xpath = "//input[@id='in-patient-endDate']")
+    public WebElement inPatientEndDateBox;
 
     @FindBy(xpath = "//input[@id='in-patient-description']")
-    public WebElement EditPageDescription;
+    public WebElement inPatientDescriptionBox;
 
     @FindBy(xpath = "//input[@id='in-patient-createdDate']")
-    public WebElement EditPageCreatedDate;
+    public WebElement inPatientCreatedDateBox;
 
-    @FindBy(xpath = "//select[@name='status']")
-    public WebElement EditPageStatus;
+    @FindBy(xpath = "//select[@id='in-patient-appointment']")
+    public WebElement inPatientAppointmentBox;
 
-    @FindBy(xpath = "//select[@name='room.id']")
-    public WebElement EditPageroom;
+    @FindBy(xpath = "//select[@id='in-patient-status']")
+    public WebElement inPatientStatusBox;
 
-    @FindBy(id = "save-entity")
-    public WebElement Save;
+    @FindBy(xpath = "//select[@id='in-patient-room']")
+    public WebElement inPatientRoomBox;
+
+    @FindBy(xpath = "//select[@id='in-patient-patient']")
+    public WebElement inPatientPatientBox;
+
+    @FindBy(xpath = "//span[text()='Save']")
+    public WebElement inPatientSaveButton;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -24,13 +24,13 @@ Background: US011
 
 
 
-    Scenario: TC02 ("Bir randevu güncellendiğinde; kullanici (doktor), hastanın aşağıdaki bilgilerini görmelidir.
+    Scenario: TC02 ("Bir randevu güncellendiğinde; kullanici (doktor), hastanin aşağıdaki bilgilerini görmelidir.
     ""id, start and end date, Status, physician and patient")
 
-        Given kullanici(Doktor)hastanın id bilgilerini görür
-        And  kullanici(Doktor)hastanın start and end date bilgilerini görür
-        And kullanici(Doktor)hastanın Status bilgilerini görür
-        And kullanici(Doktor)hastanın physician and patient bilgilerini görür
+        Given kullanici(Doktor)hastanin id bilgilerini gorur
+        And  kullanici(Doktor)hastanin start and end date bilgilerini gorur
+        And kullanici(Doktor)hastanin Status bilgilerini gorur
+        And kullanici(Doktor)hastanin physician and patient bilgilerini gorur
         And kullanici oturumu kapatir
 
     Scenario: TC03 (Kullanici(Doktor) gerekli alanlara "Anamnesis, Treatment ve Diagnosis" yazabilmelidir)
