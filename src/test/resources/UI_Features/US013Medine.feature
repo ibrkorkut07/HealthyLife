@@ -41,3 +41,4 @@ Feature: Doktor_Test_Result_islemleri_yapabilmeli
     And My Pages sekmesine tiklar
     And My Inpatients secenegini secer ve tiklar
     And In patients sayfasinda hastayi gordugunu test eder
+    And in patient gider
