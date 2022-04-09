@@ -6,10 +6,12 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import pages.DoctorPage;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 public class US_014 {
     DoctorPage doctorPage = new DoctorPage();
@@ -39,75 +41,184 @@ public class US_014 {
         doctorPage.InPatientEditbutonu.click();
     }
 
-    @Given("kullanici\\(doktor) {string} bilgilerini goruntuler")
-    public void kullaniciDoktorBilgileriniGoruntuler(String arg0) {
-        Assert.assertTrue(doctorPage.inPatientsIdBox.isDisplayed());
-        Assert.assertTrue(doctorPage.inPatientStartDateBox.isDisplayed());
-        Assert.assertTrue(doctorPage.inPatientEndDateBox.isDisplayed());
-        Assert.assertTrue(doctorPage.inPatientDescriptionBox.isDisplayed());
-        Assert.assertTrue(doctorPage.inPatientCreatedDateBox.isDisplayed());
-        Assert.assertTrue(doctorPage.inPatientAppointmentBox.isDisplayed());
-        Assert.assertTrue(doctorPage.inPatientStatusBox.isDisplayed());
-        Assert.assertTrue(doctorPage.inPatientRoomBox.isDisplayed());
-        Assert.assertTrue(doctorPage.inPatientPatientBox.isDisplayed());
 
-    }
-
-    @Given("kullanici\\(doktor) {string} bilgilerini gunceller")
-    public void kullaniciDoktorBilgileriniGunceller(String arg0) {
-         Assert.assertTrue(doctorPage.inPatientsIdBox.isSelected());
-         Assert.assertTrue(doctorPage.inPatientStartDateBox.isSelected());
-        Assert.assertTrue(doctorPage.inPatientEndDateBox.isSelected());
-        Assert.assertTrue(doctorPage.inPatientDescriptionBox.isSelected());
-        Assert.assertTrue(doctorPage.inPatientCreatedDateBox.isSelected());
-        Assert.assertTrue(doctorPage.inPatientAppointmentBox.isSelected());
-        Assert.assertTrue(doctorPage.inPatientStatusBox.isSelected());
-        Assert.assertTrue(doctorPage.inPatientRoomBox.isSelected());
-        Assert.assertTrue(doctorPage.inPatientPatientBox.isSelected());
-
-    }
-
-    @Given("status doktor tarafından {string} olarak gunceller")
-    public void statusDoktorTarafındanOlarakGunceller(String arg0) {
-        select= new Select(doctorPage.inPatientStatusBox);
-       // select.selectByIndex(0);
-       // select.selectByIndex(1);
-        //select.selectByIndex(2);
-       // select.selectByIndex(3);
-        doctorPage.inPatientStatusBox.click();
-        Driver.wait(1);
-        select.selectByValue("STAYING");
-        Driver.wait(1);
-        select.selectByValue("DISCHARGED");
-        Driver.wait(1);
-        select.selectByValue("CANCELLED");
-        Driver.wait(1);
-        select.selectByValue("UNAPPROVED");
-        Driver.wait(1);
-
-
-
-
-
-    }
 
     @Given("kullanici\\(doktor) rezerve edilmiş odayı gunceller")
     public void kullaniciDoktorRezerveEdilmişOdayıGunceller() {
         select= new Select(doctorPage.inPatientRoomBox);
-        doctorPage.inPatientRoomBox.click();
+        //doctorPage.inPatientRoomBox.click();
         select.selectByIndex(4);
+        Driver.wait(1);
+      actions.sendKeys(Keys.END).sendKeys(Keys.END).perform();
         Driver.wait(2);
-        actions.sendKeys(Keys.PAGE_DOWN).sendKeys(Keys.PAGE_DOWN).sendKeys(Keys.PAGE_DOWN).perform();
+
         doctorPage.inPatientSaveButton.click();
-        Driver.wait(2);
 
     }
 
 
+    @Given("kullanici\\(doktor) Id bilgilerini goruntuler")
+    public void kullaniciDoktorIdBilgileriniGoruntuler() {
+        Assert.assertTrue(doctorPage.inPatientsIdBox.isDisplayed());
+
+    }
+
+    @Then("kullanici\\(doktor) Start date bilgilerini goruntuler")
+    public void kullaniciDoktorStartDateBilgileriniGoruntuler() {
+                Assert.assertTrue(doctorPage.inPatientStartDateBox.isDisplayed());
+
+    }
+
+    @And("kullanici\\(doktor) End date bilgilerini goruntuler")
+    public void kullaniciDoktorEndDateBilgileriniGoruntuler() {
+                Assert.assertTrue(doctorPage.inPatientEndDateBox.isDisplayed());
+
+    }
+
+    @And("kullanici\\(doktor) Description bilgilerini goruntuler")
+    public void kullaniciDoktorDescriptionBilgileriniGoruntuler() {
+               Assert.assertTrue(doctorPage.inPatientDescriptionBox.isDisplayed());
+
+
+    }
+
+    @And("kullanici\\(doktor) Created Date bilgilerini goruntuler")
+    public void kullaniciDoktorCreatedDateBilgileriniGoruntuler() {
+               Assert.assertTrue(doctorPage.inPatientCreatedDateBox.isDisplayed());
+    }
+
+    @Given("kullanici\\(doktor) Appointment bilgilerini goruntuler")
+    public void kullaniciDoktorAppointmentBilgileriniGoruntuler() {
+               Assert.assertTrue(doctorPage.inPatientAppointmentBox.isDisplayed());
+
+
+    }
+
+    @Then("kullanici\\(doktor) Status bilgilerini goruntuler")
+    public void kullaniciDoktorStatusBilgileriniGoruntuler() {
+               Assert.assertTrue(doctorPage.inPatientStatusBox.isDisplayed());
+
+    }
+
+    @And("kullanici\\(doktor) Room bilgilerini goruntuler")
+    public void kullaniciDoktorRoomBilgileriniGoruntuler() {
+                Assert.assertTrue(doctorPage.inPatientRoomBox.isDisplayed());
+    }
+
+    @And("kullanici\\(doktor) Patient bilgilerini goruntuler")
+    public void kullaniciDoktorPatientBilgileriniGoruntuler() {
+                Assert.assertTrue(doctorPage.inPatientPatientBox.isDisplayed());
+
+    }
+
+    @Given("kullanici\\(doktor) Id bilgilerini gunceller")
+    public void kullaniciDoktorIdBilgileriniGunceller() {
+
+        String text=doctorPage.inPatientsIdBox.getAttribute("value");
+        doctorPage.inPatientsIdBox.clear();
+        doctorPage.inPatientsIdBox.sendKeys(text);
+       // Assert.assertTrue(doctorPage.inPatientsIdBox.isEnabled());
+
+
+    }
+
+    @Then("kullanici\\(doktor) Start date bilgilerini gunceller")
+    public void kullaniciDoktorStartDateBilgileriniGunceller() {
+
+        String text=doctorPage.inPatientStartDateBox.getAttribute("value");
+        doctorPage.inPatientStartDateBox.clear();
+
+        doctorPage.inPatientStartDateBox.sendKeys(text);
+
+       // Assert.assertTrue(doctorPage.inPatientStartDateBox.isEnabled());
+
+    }
+
+    @And("kullanici\\(doktor) End date bilgilerini gunceller")
+    public void kullaniciDoktorEndDateBilgileriniGunceller() {
+        Assert.assertTrue(doctorPage.inPatientEndDateBox.isEnabled());
+
+    }
+
+    @And("kullanici\\(doktor) Appoinment bilgilerini gunceller")
+    public void kullaniciDoktorAppoinmentBilgileriniGunceller() {
+        Assert.assertTrue(doctorPage.inPatientAppointmentBox.isEnabled());
+
+
+    }
+
+    @And("kullanici\\(doktor) Patient bilgilerini gunceller")
+    public void kullaniciDoktorPatientBilgileriniGunceller() {
+        Assert.assertTrue(doctorPage.inPatientPatientBox.isEnabled());
+
+
+    }
+
+    @Given("kullanici\\(doktor) Description bilgilerini gunceller")
+    public void kullaniciDoktorDescriptionBilgileriniGunceller() {
+        String text=doctorPage.inPatientDescriptionBox.getAttribute("value");
+        doctorPage.inPatientDescriptionBox.clear();
+        Driver.wait(1);
+        doctorPage.inPatientDescriptionBox.sendKeys(text);
+        Assert.assertTrue(doctorPage.inPatientDescriptionBox.isEnabled());
+
+
+    }
+
+    @Then("kullanici\\(doktor) Created date bilgilerini gunceller")
+    public void kullaniciDoktorCreatedDateBilgileriniGunceller() {
+        Assert.assertTrue(doctorPage.inPatientCreatedDateBox.isEnabled());
+
+
+    }
+
+    @And("kullanici\\(doktor) Status bilgilerini gunceller")
+    public void kullaniciDoktorStatusBilgileriniGunceller() {
+        Assert.assertTrue(doctorPage.inPatientStatusBox.isEnabled());
+
+    }
+
+    @And("kullanici\\(doktor) Room bilgilerini gunceller")
+    public void kullaniciDoktorRoomBilgileriniGunceller() {
+        Assert.assertTrue(doctorPage.inPatientRoomBox.isEnabled());
+
+    }
+
+    @Given("status doktor tarafindan UNAPPROVED olarak gunceller")
+    public void statusDoktorTarafindanUNAPPROVEDOlarakGunceller() {
+        select= new Select(doctorPage.inPatientStatusBox);
+        select.selectByValue("UNAPPROVED");
+        Driver.wait(1);
+
+    }
+
+    @And("status doktor tarafindan DISCHARGED olarak gunceller")
+    public void statusDoktorTarafindanDISCHARGEDOlarakGunceller() {
+        select= new Select(doctorPage.inPatientStatusBox);
+
+
+        Driver.wait(1);
+        select.selectByValue("DISCHARGED");
+
+    }
+
+    @And("status doktor tarafindan STAYING olarak gunceller")
+    public void statusDoktorTarafindanSTAYINGOlarakGunceller() {
+        select= new Select(doctorPage.inPatientStatusBox);
+
+        Driver.wait(1);
+        select.selectByValue("STAYING");
 
 
 
+    }
+
+    @And("status doktor tarafindan CANCELLED olarak gunceller")
+    public void statusDoktorTarafindanCANCELLEDOlarakGunceller() {
+        select= new Select(doctorPage.inPatientStatusBox);
 
 
-
+        Driver.wait(1);
+        select.selectByValue("CANCELLED");
+    }
 }
