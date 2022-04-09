@@ -5,6 +5,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -51,8 +52,13 @@ public class US_014 {
         Driver.wait(1);
       actions.sendKeys(Keys.END).sendKeys(Keys.END).perform();
         Driver.wait(2);
+        JavascriptExecutor jsexecutor = ((JavascriptExecutor) Driver.getDriver());
+        jsexecutor.executeScript("arguments[0].scrollIntoView(true);", doctorPage.inPatientSaveButton);
 
-        doctorPage.inPatientSaveButton.click();
+        jsexecutor.executeScript("arguments[0].click();", doctorPage.inPatientSaveButton);
+
+
+      //  doctorPage.inPatientSaveButton.click();
 
     }
 
@@ -110,14 +116,14 @@ public class US_014 {
                 Assert.assertTrue(doctorPage.inPatientPatientBox.isDisplayed());
 
     }
-
+        //***************************************************************************
     @Given("kullanici\\(doktor) Id bilgilerini gunceller")
     public void kullaniciDoktorIdBilgileriniGunceller() {
 
-        String text=doctorPage.inPatientsIdBox.getAttribute("value");
-        doctorPage.inPatientsIdBox.clear();
-        doctorPage.inPatientsIdBox.sendKeys(text);
-       // Assert.assertTrue(doctorPage.inPatientsIdBox.isEnabled());
+        //String text=doctorPage.inPatientsIdBox.getAttribute("value");
+        //doctorPage.inPatientsIdBox.clear();
+        //doctorPage.inPatientsIdBox.sendKeys(text);
+        Assert.assertTrue(doctorPage.inPatientsIdBox.isEnabled());
 
 
     }
@@ -125,12 +131,12 @@ public class US_014 {
     @Then("kullanici\\(doktor) Start date bilgilerini gunceller")
     public void kullaniciDoktorStartDateBilgileriniGunceller() {
 
-        String text=doctorPage.inPatientStartDateBox.getAttribute("value");
-        doctorPage.inPatientStartDateBox.clear();
+        //String text=doctorPage.inPatientStartDateBox.getAttribute("value");
+       // doctorPage.inPatientStartDateBox.clear();
 
-        doctorPage.inPatientStartDateBox.sendKeys(text);
+        //doctorPage.inPatientStartDateBox.sendKeys(text);
 
-       // Assert.assertTrue(doctorPage.inPatientStartDateBox.isEnabled());
+        Assert.assertTrue(doctorPage.inPatientStartDateBox.isEnabled());
 
     }
 
@@ -139,19 +145,19 @@ public class US_014 {
         Assert.assertTrue(doctorPage.inPatientEndDateBox.isEnabled());
 
     }
-
+        //**********************************************************************
     @And("kullanici\\(doktor) Appoinment bilgilerini gunceller")
     public void kullaniciDoktorAppoinmentBilgileriniGunceller() {
-        Assert.assertTrue(doctorPage.inPatientAppointmentBox.isEnabled());
+        Assert.assertFalse(doctorPage.inPatientAppointmentBox.isEnabled());
 
 
     }
 
     @And("kullanici\\(doktor) Patient bilgilerini gunceller")
     public void kullaniciDoktorPatientBilgileriniGunceller() {
-        Assert.assertTrue(doctorPage.inPatientPatientBox.isEnabled());
+        Assert.assertFalse(doctorPage.inPatientPatientBox.isEnabled());
 
-
+//**********************************************************************************************************
     }
 
     @Given("kullanici\\(doktor) Description bilgilerini gunceller")

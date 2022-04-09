@@ -30,13 +30,12 @@ Feature: US0014_medunna
         And kullanici(doktor) Patient bilgilerini goruntuler
         And kullanici oturumu kapatir
 
-    Scenario: TC 003 kullanici(doktor) hastanin "id, start date, end date,appoinment, patient" bilgilerini guncelleyebilmeli
+    Scenario: TC 003 kullanici(doktor) hastanin "id, start date, end date," bilgilerini guncelleyebilmeli
       Given kullanici(doktor) Id bilgilerini gunceller
       Then kullanici(doktor) Start date bilgilerini gunceller
       And kullanici(doktor) End date bilgilerini gunceller
-      And kullanici(doktor) Appoinment bilgilerini gunceller
-      And kullanici(doktor) Patient bilgilerini gunceller
-      And kullanici oturumu kapatir
+
+
 
   Scenario: TC 004 kullanici(doktor) hastanin "description, created date, status, room" bilgilerini guncelleyebilmeli
     Given kullanici(doktor) Description bilgilerini gunceller
@@ -60,4 +59,7 @@ Feature: US0014_medunna
     Given kullanici(doktor) rezerve edilmiş odayı gunceller
 
 
-
+  Scenario: TC 007 kullanici(doktor)hastanin "appoinment, patient" bilgilerini guncelleyebilmeli
+   Given kullanici(doktor) Appoinment bilgilerini gunceller
+   And kullanici(doktor) Patient bilgilerini gunceller
+   And kullanici oturumu kapatir

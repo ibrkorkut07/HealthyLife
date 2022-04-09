@@ -103,7 +103,7 @@ public class DoctorPage {
     @FindBy(xpath = "//select[@id='in-patient-patient']")
     public WebElement inPatientPatientBox;
 
-    @FindBy(xpath = "//button[@id='save-entity']")
+    @FindBy(xpath = "//span[text()='Save']")
     public WebElement inPatientSaveButton;
 
 
