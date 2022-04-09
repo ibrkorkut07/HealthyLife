@@ -76,8 +76,63 @@ public class US012MedinePage {
     @FindBy(xpath = "//span[.='Medine Anna']")
     public WebElement medineAnnaIkonButtonu;
 
-
     @FindBy(xpath = "//span[.='Sign out']")
     public WebElement signOutButtonu;
+
+    @FindBy(xpath = "//span[.='Search Patient']")
+    public WebElement myPagesdekiSearchPatientButtonu;
+
+    @FindBy(xpath = "//input[@name='ssn']")
+    public WebElement hastaSsnNumarasiIleAramaButtonu;
+
+    @FindBy(xpath = "(//span[.='Show Appointments'])[1]")
+    public WebElement ssndekiShowAppointmentsButton;
+
+    @FindBy(xpath = "(//span[.='Show Tests'])[1]")
+    public WebElement showAppointmentSonraShowTest;
+
+    @FindBy(xpath = "(//span[.='View Results'])[1]")
+    public WebElement showTestSonraViewResult;
+
+    @FindBy(xpath = "(//span[.='Edit'])[1]")
+    public WebElement viewResultSonraEditButtonu;
+
+    @FindBy(xpath = "//span[.='Save']")
+    public WebElement testResulttekiSaveButtonu;
+
+    @FindBy(xpath = "//a[.='Show Test Results']")
+    public WebElement hastadakiEditSonraShowTestResult;
+
+    @FindBy(xpath = "(//span[.='View Results'])[1]")
+    public WebElement testViewResultButtonu;
+
+    @FindBy(xpath = "//td[.='Potassium']")
+    public WebElement potassium;
+
+    @FindBy(xpath = "//td[.='Total protein']")
+    public WebElement totalProtein;
+
+    @FindBy(xpath = "//td[.='Creatinine']")
+    public WebElement creatinine;
+
+    @FindBy(xpath = "//td[.='Hemoglobin']")
+    public WebElement hemoglobin;
+
+    @FindBy(xpath = "//td[.='Urea']")
+    public WebElement urea;
+
+    @FindBy(xpath = "//td[.='Sodium']")
+    public WebElement sodium;
+
+    @FindBy(xpath = "//button[.='Request Inpatient']")
+    public WebElement myPatientstekiRequesInpatientButton;
+
+    @FindBy(xpath = "//span[.='My Inpatients']")
+    public WebElement myPatientstekiMyInpatients;
+
+    @FindBy(xpath = " //span[.='In Patients']")
+    public WebElement myInpatientsSonraInPatientsButton;
+
+
 
 }
