@@ -7,7 +7,7 @@ Feature: US003 Registration password
     And kullanici giris ikonunu tiklar
     Then RegisterLinki ni tiklar
 
-  Scenario Outline: (Guclu bir parola icin sifre en az 7 karakterden olusmalıdır)
+  Scenario Outline: TC001 (Guclu bir parola icin sifre en az 7 karakterden olusmalıdır)
     When Hepsi kucuk, buyuk, rakam veya ozel olan ayni gruptan en az <arg0> karakterli bir sifreyi New password Box'a girer
     And <arg01> passwordstregnth seviyesinin degismedigini ve color<arg1> seviyesinde kaldigini gorur.
 
