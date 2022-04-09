@@ -17,7 +17,7 @@ Feature: US003 Registration password
 
 
   Scenario Outline: TC002 (Daha guclu bir sifre icin en az 1 kucuk harf olmalı ve
-                    "Password strength:" seviyesinin degistigi gorulebilmelidir)
+  "Password strength:" seviyesinin degistigi gorulebilmelidir)
     Given Kullanici en az <arg0> en fazla <arg1> kucuk harf kullanarak <arg2> karakterli bir sifre girer
     And <arg01> passwordstregnth seviyesinin degistigini gorur.
 
@@ -26,7 +26,7 @@ Feature: US003 Registration password
       | 1    | 6    | 7    | "Password strength:" |
 
   Scenario Outline: TC003 (Daha guclu sifre icin en az 1 buyuk harf olmalı ve
-                          "Password strength:" seviyesinin degistigi gorulebilmelidir)
+  "Password strength:" seviyesinin degistigi gorulebilmelidir)
     Given Kullanici en az <arg0> en fazla <arg1> buyuk harf kullanarak <arg2> karakterli sifre girer
     And <arg01> passwordstregnth seviyesinin degistigini gorur.
 
@@ -35,7 +35,7 @@ Feature: US003 Registration password
       | 1    | 6    | 7    | "Password strength:" |
 
   Scenario Outline: TC004 (Daha guclu sifre icin  en az 1 rakam olmalı ve
-                    "Password strength:" seviyesinin degistigi gorulebilmelidir)
+  "Password strength:" seviyesinin degistigi gorulebilmelidir)
     Given Kullanici en az <arg0> en fazla <arg1> rakam harf kullanarak <arg2> karakterli sifre girer
     And <arg01> passwordstregnth seviyesinin degistigini gorur.
 
@@ -44,7 +44,7 @@ Feature: US003 Registration password
       | 1    | 6    | 7    | "Password strength:" |
 
   Scenario Outline: TC005 (Daha guclu sifre icin en az 1 ozel karakter olmalı
-                    ve "Password strength:" seviyesinin degistigi gorulebilmelidir)
+  ve "Password strength:" seviyesinin degistigi gorulebilmelidir)
     Given Kullanici en az <arg0> en fazla <arg1> ozel karakter kullanarak <arg2> karakterli sifre girer
     And <arg01> passwordstregnth seviyesinin degistigini gorur.
 
@@ -53,7 +53,7 @@ Feature: US003 Registration password
       | 1    | 6    | 7    | "Password strength:" |
 
   Scenario Outline: Extra1 (Daha guclu sifre icin 2 farkli gruptan (kucuk harf, buyuk harf, rakam veya ozel sembol)
-                    karakter kullanildiginda "Password strength:" seviyesinin color2 oldugu gorulebilmelidir)
+  karakter kullanildiginda "Password strength:" seviyesinin color2 oldugu gorulebilmelidir)
     Given Kullanici <arg0> farkli gruptan karakter kullanarak <arg1> karakterli sifre girer
     And <arg01> passwordstregnth seviyesinin color<arg11> seviyesine degistigini gorur.
 
@@ -62,7 +62,7 @@ Feature: US003 Registration password
       | 2    | 7    | "Password strength:" | 2     |
 
   Scenario Outline: Extra2 (Daha guclu sifre icin 3 farkli gruptan (kucuk harf, buyuk harf, rakam veya ozel sembol)
-                    karakter kullanildiginda "Password strength:" seviyesinin color4 oldugu gorulebilmelidir)
+  karakter kullanildiginda "Password strength:" seviyesinin color4 oldugu gorulebilmelidir)
     Given Kullanici <arg0> farkli gruptan karakterler kullanarak <arg1> karakterli sifre girer
     And <arg01> passwordstregnth seviyesinin color<arg11> ve color<arg2> seviyesine degistigini gorur.
 
@@ -71,7 +71,7 @@ Feature: US003 Registration password
       | 3    | 7    | "Password strength:" | 3     | 4    |
 
   Scenario Outline: Extra3 (Daha guclu sifre icin 4 farkli gruptan (kucuk harf, buyuk harf, rakam veya ozel sembol)
-                    karakter kullanildiginda "Password strength:" seviyesinin color5 oldugu gorulebilmelidir)
+  karakter kullanildiginda "Password strength:" seviyesinin color5 oldugu gorulebilmelidir)
     Given Kullanici <arg0> farkli gruptan da karakterler kullanarak <arg1> karakterli sifre girer
     And <arg01> passwordstregnth seviyesinin de color<arg11> seviyesine degistigini gorur.
 
