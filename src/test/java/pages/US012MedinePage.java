@@ -67,62 +67,17 @@ public class US012MedinePage {
     @FindBy(id = "1408")
     public WebElement hemoglobinCheck;
 
-    @FindBy(id = "8161")
-    public WebElement cholesterol8Check;
-
-    @FindBy(id = "8162")
-    public WebElement cholesterol9Check;
-
-    @FindBy(id = "8163")
-    public WebElement vitaminDCheck;
-
-    @FindBy(id = "8165")
-    public WebElement albimoCheck;
-
-    @FindBy(xpath = "(//td)[65]")
-    public WebElement glucoseCheckBox;
-
-    @FindBy(xpath = "(//td)[2]")
-    public WebElement ureaCheckBox;
-
-    @FindBy(xpath = "(//td)[11]")
-    public WebElement creatinineCheckBox;
-
-    @FindBy(xpath = "(//td)[20]")
-    public WebElement sodiumCheckBox;
-
-    @FindBy(xpath = "(//td)[29]")
-    public WebElement potassiumCheckBox;
-
-    @FindBy(xpath = "(//td)[38]")
-    public WebElement totalProteinCheckBox;
-
-    @FindBy(xpath = "(//td)[47]")
-    public WebElement albuminCheckBox;
-
-    @FindBy(xpath = "(//td)[56]")
-    public WebElement hemoglobinCheckBox;
-
-    @FindBy(xpath = "(//td)[74]")
-    public WebElement cholesterol8CheckBox;
-
-    @FindBy(xpath = "(//td)[83]")
-    public WebElement cholesterol9CheckBox;
-
-    @FindBy(xpath = "(//td)[92]")
-    public WebElement vitaminDCheckBox;
-
-    @FindBy(xpath = "(//td)[101]")
-    public WebElement albimoCheckBox;
-
-    @FindBy(id="save-entity")
+    @FindBy(xpath = "//button[@type='submit']")
     public WebElement saveButton;
 
-    @FindBy(className = "Toastify__toast-body")
-    public WebElement alertElement;
+    @FindBy(className = "Toastify")
+    public WebElement toastContainerSuccessMessage;
 
-    @FindAll({
-            @FindBy(tagName = "input")})
-    public List<WebElement> allCheckMarks;
+    @FindBy(xpath = "//span[.='Medine Anna']")
+    public WebElement medineAnnaIkonButtonu;
+
+
+    @FindBy(xpath = "//span[.='Sign out']")
+    public WebElement signOutButtonu;
 
 }

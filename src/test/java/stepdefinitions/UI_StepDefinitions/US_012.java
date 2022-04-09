@@ -71,51 +71,36 @@ public class US_012 {
 
     @And("Test Item texti altinda, Glucose, Urea, Creatinine, Sodium, Potassium, Total protein, Albumin, Hemoglobin testlerin sagindaki check boxu tiklar")
     public void testItemTextiAltindaTestlerinSagindakiCheckBoxuTiklar() {
+        Driver.wait(2);
+        us012MedinePage.ureaCheck.click();
+        us012MedinePage.creatinineCheck.click();
+        us012MedinePage.sodiumCheck.click();
+        us012MedinePage.potassiumCheck.click();
+        us012MedinePage.totalProteinCheck.click();
+        us012MedinePage.hemoglobinCheck.click();
+
+        Actions actions = new Actions(Driver.getDriver());
+        actions.click(us012MedinePage.albuminCheck);
+        //us012MedinePage.albuminCheck.click();
         Driver.wait(1);
-        Faker faker=new Faker();
-        int random=faker.number().numberBetween(1,9);
-        switch (random){
-            case 1:
-                Driver.waitAndClick(us012MedinePage.hemoglobinCheck);
-                break;
-            case 2:
-                Driver.waitAndClick(us012MedinePage.albuminCheck);
-                break;
-            case 3:
-                Driver.waitAndClick(us012MedinePage.totalProteinCheck);
-                break;
-            case 4:
-                Driver.waitAndClick(us012MedinePage.sodiumCheck);
-                break;
-            case 5:
-                Driver.waitAndClick(us012MedinePage.potassiumCheck);
-                break;
-            case 6:
-                Driver.waitAndClick(us012MedinePage.ureaCheck);
-                break;
-            case 7:
-                Driver.waitAndClick(us012MedinePage.creatinineCheck);
-                break;
-            case 8:
-                Driver.waitAndClick(us012MedinePage.glucoseCheck);
-                break;
-            case 9:
-                Driver.waitAndClick(us012MedinePage.albimoCheck);
-                break;
-        }
     }
     @Then("Save buttonu gorunene kadar asagiya inilir ve tiklar")
     public void buttonu_gorunene_kadar_asagiya_inilir_ve_tiklar() {
-        Actions action=new Actions(Driver.getDriver());
-        action.sendKeys(Keys.PAGE_DOWN).perform();
-       // us012MedinePage
+        Actions actions = new Actions(Driver.getDriver());
+        actions.moveToElement(us012MedinePage.saveButton);
+        actions.doubleClick(us012MedinePage.saveButton);
+        Driver.waitAndClick(us012MedinePage.saveButton,3);
     }
-    @And("A new is created yazisi test edilir")
+    @And("A new is created with identifier yazisi test edilir")
     public void aNewIsCreatedYazisiTestEdilir() {
-
+        Driver.wait(1);
+        Assert.assertTrue(us012MedinePage.toastContainerSuccessMessage.isDisplayed());
     }
-
-    @When("Sign out sekmesine tiklar")
+    @When("Login ikonuna tklar ve Sign out sekmesine tiklar")
     public void signOutSekmesineTiklar() {
+        Driver.wait(1);
+        us012MedinePage.medineAnnaIkonButtonu.click();
+        us012MedinePage.signOutButtonu.click();
+        Driver.closeDriver();
     }
 }
