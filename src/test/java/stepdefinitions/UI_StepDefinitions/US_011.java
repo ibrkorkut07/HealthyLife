@@ -19,7 +19,7 @@ public class US_011 {
     Select select;
 
 
-    @Given("kullanici\\(doktor){string} sayfasına gider")
+    @Given("kullanici\\(doktor){string} sayfasina gider")
     public void kullaniciDoktorSayfasnaGider(String arg0) {
         Driver.getDriver().get(ConfigReader.getProperty(arg0));
     }
@@ -36,19 +36,19 @@ public class US_011 {
         loginPage.anaSayfaSignIn.click();
     }
 
-    @And("kullanici\\(doktor){string} textbox'a  geçerli bir username girer")
+    @And("kullanici\\(doktor){string} textbox'a  gecerli bir username girer")
     public void kullaniciDoktorTextboxAGecerliBirUsernameGirer(String arg0) {
         Driver.wait(1);
         loginPage.UserNameBox.sendKeys(ConfigReader.getProperty(arg0));
     }
 
-    @And("kullanici\\(doktor){string} textbox'a geçerli bir password girer")
+    @And("kullanici\\(doktor){string} textbox'a gecerli bir password girer")
     public void kullaniciDoktorTextboxAGecerliBirPasswordGirer(String arg0) {
         Driver.wait(1);
         loginPage.passwordBox.sendKeys(ConfigReader.getProperty(arg0));
     }
 
-    @Then("kullanici\\(doktor)My Pages menu butonuna tıklar")
+    @Then("kullanici\\(doktor)My Pages menu butonuna tiklar")
     public void kullaniciDoktorMyPagesMenuButonunaTiklar() {
         Driver.wait(1);
         doctorPage.myPagesButton.click();

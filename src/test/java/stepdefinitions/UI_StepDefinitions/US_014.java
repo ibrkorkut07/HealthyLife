@@ -27,8 +27,8 @@ public class US_014 {
         doctorPage.myInpatientsSeceneği.click();
 
     }
-    @And("kullanici\\(Doktor) {string} sayfasına gelir")
-    public void kullaniciDoktorSayfasınaGelir(String arg0) {
+    @And("kullanici\\(Doktor) {string} sayfasina gelir")
+    public void kullaniciDoktorSayfasinaGelir(String arg0) {
         Driver.wait(1);
         String expectedText=arg0;
         String actualText=doctorPage.InPatientsYazisi.getText();
@@ -44,8 +44,8 @@ public class US_014 {
 
 
 
-    @Given("kullanici\\(doktor) rezerve edilmiş odayı gunceller")
-    public void kullaniciDoktorRezerveEdilmişOdayıGunceller() {
+    @Given("kullanici\\(doktor) rezerve edilmis odayi gunceller")
+    public void kullaniciDoktorRezerveEdilmisOdayiGunceller() {
         select= new Select(doctorPage.inPatientRoomBox);
         //doctorPage.inPatientRoomBox.click();
         select.selectByIndex(4);
@@ -145,7 +145,7 @@ public class US_014 {
         Assert.assertTrue(doctorPage.inPatientEndDateBox.isEnabled());
 
     }
-        //**********************************************************************
+        //*********************************************************************************
     @And("kullanici\\(doktor) Appoinment bilgilerini gunceller")
     public void kullaniciDoktorAppoinmentBilgileriniGunceller() {
         Assert.assertFalse(doctorPage.inPatientAppointmentBox.isEnabled());

@@ -4,15 +4,15 @@ Feature: US0014_medunna
 
   Background:  US014
 
-    Given kullanici(doktor)"MDNUrl" sayfasına gider
+    Given kullanici(doktor)"MDNUrl" sayfasina gider
     And kullanici(doktor)giris ikonunu tiklar
     Then kullanici(doktor) Sign in i secer
-    And kullanici(doktor)"Username" textbox'a  geçerli bir username girer
-    And kullanici(doktor)"Password" textbox'a geçerli bir password girer
+    And kullanici(doktor)"Username" textbox'a  gecerli bir username girer
+    And kullanici(doktor)"Password" textbox'a gecerli bir password girer
     And kullanici(doktor) sign in butonunu tiklar
-    Then kullanici(doktor)My Pages menu butonuna tıklar
+    Then kullanici(doktor)My Pages menu butonuna tiklar
     And kullanici(Doktor)InPaients secenegini tiklar
-    And kullanici(Doktor) "In Patients" sayfasına gelir
+    And kullanici(Doktor) "In Patients" sayfasina gelir
     Then kullanici(Doktor) hastanin edit butonuna tiklar
 
     Scenario: TC 001 kullanici(doktor) hastanin "id, start date, end date,appoinment, patient" bilgilerini goruntuleyebilmeli
@@ -34,6 +34,8 @@ Feature: US0014_medunna
       Given kullanici(doktor) Id bilgilerini gunceller
       Then kullanici(doktor) Start date bilgilerini gunceller
       And kullanici(doktor) End date bilgilerini gunceller
+      And kullanici oturumu kapatir
+
 
 
 
@@ -48,15 +50,17 @@ Feature: US0014_medunna
 
   Scenario: TC 005("Status" doktor tarafından "UNAPPROVED, DISCHARGED, STILL STAYING veya CANCELLED" olarak guncelleyebilmeli)
     Given status doktor tarafindan UNAPPROVED olarak gunceller
-  And status doktor tarafindan DISCHARGED olarak gunceller
-  And  status doktor tarafindan STAYING olarak gunceller
-  And status doktor tarafindan CANCELLED olarak gunceller
+    And status doktor tarafindan DISCHARGED olarak gunceller
+    And  status doktor tarafindan STAYING olarak gunceller
+    And status doktor tarafindan CANCELLED olarak gunceller
     And kullanici oturumu kapatir
 
 
 
-  Scenario: TC 006 kullanici(doktor) rezerve edilmiş odayı guncelleyebilmeli
-    Given kullanici(doktor) rezerve edilmiş odayı gunceller
+  Scenario: TC 006 kullanici(doktor) rezerve edilmis odayi guncelleyebilmeli
+    Given kullanici(doktor) rezerve edilmis odayi gunceller
+    And kullanici oturumu kapatir
+
 
 
   Scenario: TC 007 kullanici(doktor)hastanin "appoinment, patient" bilgilerini guncelleyebilmeli
