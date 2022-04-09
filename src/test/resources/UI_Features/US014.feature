@@ -4,15 +4,15 @@ Feature: US0014_medunna
 
   Background:  US014
 
-    Given kullanici(doktor)"MDNUrl" sayfasına gider
+    Given kullanici(doktor)"MDNUrl" sayfasina gider
     And kullanici(doktor)giris ikonunu tiklar
     Then kullanici(doktor) Sign in i secer
-    And kullanici(doktor)"Username" textbox'a  geçerli bir username girer
-    And kullanici(doktor)"Password" textbox'a geçerli bir password girer
+    And kullanici(doktor)"Username" textbox'a  gecerli bir username girer
+    And kullanici(doktor)"Password" textbox'a gecerli bir password girer
     And kullanici(doktor) sign in butonunu tiklar
-    Then kullanici(doktor)My Pages menu butonuna tıklar
+    Then kullanici(doktor)My Pages menu butonuna tiklar
     And kullanici(Doktor)InPaients secenegini tiklar
-    And kullanici(Doktor) "In Patients" sayfasına gelir
+    And kullanici(Doktor) "In Patients" sayfasina gelir
     Then kullanici(Doktor) hastanin edit butonuna tiklar
 
     Scenario: TC 001 kullanici(doktor) hastanin "id, start date, end date,appoinment, patient" bilgilerini goruntuleyebilmeli

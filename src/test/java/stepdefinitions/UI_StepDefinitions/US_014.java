@@ -24,7 +24,7 @@ public class US_014 {
         doctorPage.myInpatientsSeceneği.click();
 
     }
-    @And("kullanici\\(Doktor) {string} sayfasına gelir")
+    @And("kullanici\\(Doktor) {string} sayfasina gelir")
     public void kullaniciDoktorSayfasınaGelir(String arg0) {
         Driver.wait(1);
         String expectedText=arg0;
