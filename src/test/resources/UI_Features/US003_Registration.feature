@@ -74,6 +74,7 @@ Feature: US003 Registration password
   karakter kullanildiginda "Password strength:" seviyesinin color5 oldugu gorulebilmelidir)
     Given Kullanici <arg0> farkli gruptan da karakterler kullanarak <arg1> karakterli sifre girer
     And <arg01> passwordstregnth seviyesinin de color<arg11> seviyesine degistigini gorur.
+    Then sayfayi kapatir
 
     Examples:
       | arg0 | arg1 | arg01                | arg11 |
