@@ -25,6 +25,7 @@ public class US_003 {
     public void kullaniciGirisIkonunuTiklar() {
         registrationPage.SigninObjeLinki.click();
         Driver.wait(1);
+
     }
 
     @Then("RegisterLinki ni tiklar")

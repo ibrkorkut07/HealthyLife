@@ -7,7 +7,7 @@ Feature: US003 Registration password
     And kullanici giris ikonunu tiklar
     Then RegisterLinki ni tiklar
 
-  Scenario Outline: TC001 (Guclu bir parola icin sifre en az 7 karakterden olusmalıdır)
+  Scenario Outline: TC001 (Guclu bir parola icin sifre en az 7 karakterden olusmalidir)
     When Hepsi kucuk, buyuk, rakam veya ozel olan ayni gruptan en az <arg0> karakterli bir sifreyi New password Box'a girer
     And <arg01> passwordstregnth seviyesinin degismedigini ve color<arg1> seviyesinde kaldigini gorur.
 
@@ -16,7 +16,7 @@ Feature: US003 Registration password
       | 7    | "Password strength:" | 1    |
 
 
-  Scenario Outline: TC002 (Daha guclu bir sifre icin en az 1 kucuk harf olmalı ve
+  Scenario Outline: TC002 (Daha guclu bir sifre icin en az 1 kucuk harf olmali ve
   "Password strength:" seviyesinin degistigi gorulebilmelidir)
     Given Kullanici en az <arg0> en fazla <arg1> kucuk harf kullanarak <arg2> karakterli bir sifre girer
     And <arg01> passwordstregnth seviyesinin degistigini gorur.
@@ -25,7 +25,7 @@ Feature: US003 Registration password
       | arg0 | arg1 | arg2 | arg01                |
       | 1    | 6    | 7    | "Password strength:" |
 
-  Scenario Outline: TC003 (Daha guclu sifre icin en az 1 buyuk harf olmalı ve
+  Scenario Outline: TC003 (Daha guclu sifre icin en az 1 buyuk harf olmali ve
   "Password strength:" seviyesinin degistigi gorulebilmelidir)
     Given Kullanici en az <arg0> en fazla <arg1> buyuk harf kullanarak <arg2> karakterli sifre girer
     And <arg01> passwordstregnth seviyesinin degistigini gorur.
@@ -34,7 +34,7 @@ Feature: US003 Registration password
       | arg0 | arg1 | arg2 | arg01                |
       | 1    | 6    | 7    | "Password strength:" |
 
-  Scenario Outline: TC004 (Daha guclu sifre icin  en az 1 rakam olmalı ve
+  Scenario Outline: TC004 (Daha guclu sifre icin  en az 1 rakam olmali ve
   "Password strength:" seviyesinin degistigi gorulebilmelidir)
     Given Kullanici en az <arg0> en fazla <arg1> rakam harf kullanarak <arg2> karakterli sifre girer
     And <arg01> passwordstregnth seviyesinin degistigini gorur.
@@ -43,7 +43,7 @@ Feature: US003 Registration password
       | arg0 | arg1 | arg2 | arg01                |
       | 1    | 6    | 7    | "Password strength:" |
 
-  Scenario Outline: TC005 (Daha guclu sifre icin en az 1 ozel karakter olmalı
+  Scenario Outline: TC005 (Daha guclu sifre icin en az 1 ozel karakter olmali
   ve "Password strength:" seviyesinin degistigi gorulebilmelidir)
     Given Kullanici en az <arg0> en fazla <arg1> ozel karakter kullanarak <arg2> karakterli sifre girer
     And <arg01> passwordstregnth seviyesinin degistigini gorur.
