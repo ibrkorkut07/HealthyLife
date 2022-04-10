@@ -17,7 +17,7 @@ Background: US011
 
 
 
-    Scenario: TC01 (Kullanici(Doktor)  kendine oluşturulan randevuları görebilmeli)
+    Scenario: TC01 (Kullanici(Doktor)  kendine olusturulan randevuları gorebilmeli)
         Given kullanici(doktor) "Create or Edit an Appointment" sayfasına gider
         And kullanici oturumu kapatir
 
@@ -54,6 +54,7 @@ Background: US011
     Scenario: TC05 ("Status" doktor tarafından "PENDING, COMPLETED veya CANCELLED" olarak seçilebilmeli)
         Given Kullanıcı(Doktor) Status dropdown elementini PENDING, COMPLETED veya CANCELLED seklinde secer
         And kullanici oturumu kapatir
+        And kullanici browseri kapatir
 
 
 
