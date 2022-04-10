@@ -1,3 +1,4 @@
+@demo
 Feature:US009 Message
 
 
@@ -16,6 +17,7 @@ Feature:US009 Message
     Then My PAGES sekmesine tiklar
     And Search Patient secenegini secer
     And Patients yazisini ile listenin gorunurlulugunu test eder
+    And kullanici oturumu kapatir
 
 
 
@@ -32,10 +34,11 @@ Feature:US009 Message
       And Staff hasta bilgilerinde duzenleme yapar
       And Save tiklar
       And Dogrulama gozlemlenir
+      And kullanici oturumu kapatir
 
       Examples:
         | SSN              |
-        | 253-98-1249      |
+        | 894-29-1978      |
 
 
 
@@ -48,6 +51,9 @@ Feature:US009 Message
     And Patientssn kutusuna "<SSN>" girer
     Then Edit butonuna tiklar
     And ilgili hastanin  bilgilerinin dolduruldugunu dogrular
+    And kullanici oturumu kapatir
+
+
     Examples:
       |  SSN             |
       |  123-56-9424     |
@@ -62,6 +68,9 @@ Feature:US009 Message
     And Patientssn kutusuna "<SSN>" girer
     Then Edit butonuna tiklar
     And firstname siler ve silindigini test eder
+    And kullanici oturumu kapatir
+
+
     Examples:
       |  SSN             |
       |  123-56-9424     |
@@ -75,9 +84,11 @@ Feature:US009 Message
    And Search Patient secenegini secer
    And Patientssn kutusuna "<SSN>" girer
    And Hasta bilgisinde Delete butonunun olmadigi dogrulanir
+    And kullanici oturumu kapatir
 
 
-        Examples:
+
+    Examples:
      |  SSN             |
      |  123-56-9424     |
 
@@ -92,6 +103,8 @@ Feature:US009 Message
       And Search Patient secenegini secer
       And Patientssn kutusuna "<SSN>" girer
       And Staff hastalari SSN kimlik numaralarina gore arama yaptigini dogrular
+    And kullanici oturumu kapatir
+
 
     Examples:
       |  SSN             |

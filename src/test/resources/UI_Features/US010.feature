@@ -1,4 +1,4 @@
-@deneme
+@demo
 Feature: US010
 
   Scenario Outline: TC 01 Kullanici, randevu listesini ve zaman dilimlerini "My Appointments" sekmesinden gorebilmelidir.

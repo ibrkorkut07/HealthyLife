@@ -43,9 +43,12 @@ public class US_009 {
 
     @And("Staff olarak username ve password girer")
     public void staffOlarakUsernameVePasswordGirer() {
-
+        Driver.wait(1);
         staffPage.UsernameBox.sendKeys(ConfigReader.getProperty("StaffValidUsername"));
+        Driver.wait(1);
         staffPage.PasswordBox.sendKeys(ConfigReader.getProperty("StaffValidPassword"));
+        Driver.wait(1);
+
     }
 
     @Then("Sigin  tiklar")
@@ -55,11 +58,15 @@ public class US_009 {
 
     @Then("My PAGES sekmesine tiklar")
     public void my_pages_sekmesine_tiklar() {
+        Driver.wait(1);
+
         staffPage.myPagesButonu.click();
     }
 
     @Then("Search Patient secenegini secer")
     public void search_patient_secenegini_secer() {
+        Driver.wait(1);
+
         staffPage.searchPatientButonu.click();
     }
 

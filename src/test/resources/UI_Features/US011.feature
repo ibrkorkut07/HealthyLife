@@ -1,3 +1,4 @@
+@demo
 Feature: US0011_medunna
 
 
@@ -17,14 +18,14 @@ Background: US011
 
 
 
-    Scenario: TC01 (Kullanici(Doktor)  kendine olusturulan randevuları gorebilmeli)
+    Scenario: TC01 (Kullanici(Doktor)  kendine olusturulan randevulari gorebilmeli)
         Given kullanici(doktor) "Create or Edit an Appointment" sayfasına gider
         And kullanici oturumu kapatir
 
 
 
 
-    Scenario: TC02 ("Bir randevu güncellendiğinde; kullanici (doktor), hastanin aşağıdaki bilgilerini görmelidir.
+    Scenario: TC02 ("Bir randevu guncellendiginde; kullanici (doktor), hastanin asagidaki bilgilerini gormelidir.
     ""id, start and end date, Status, physician and patient")
 
         Given kullanici(Doktor)hastanin id bilgilerini gorur
@@ -42,7 +43,7 @@ Background: US011
 
 
 
-    Scenario: TC04 ("Prescription ve Description" isteğe bağlı olmalıdır.)
+    Scenario: TC04 ("Prescription ve Description" istege bagli olmalidir.)
         Given kullanici(Doktor) Prescription texbox daki bilgileri siler
         And kullanici(Doktor) Desscription texbox daki bilgileri siler
         And kullanci(Doktor) hastanin bilgilerini kaydeder
@@ -51,7 +52,7 @@ Background: US011
 
 
 
-    Scenario: TC05 ("Status" doktor tarafından "PENDING, COMPLETED veya CANCELLED" olarak seçilebilmeli)
+    Scenario: TC05 ("Status" doktor tarafindan "PENDING, COMPLETED veya CANCELLED" olarak secilebilmeli)
         Given Kullanıcı(Doktor) Status dropdown elementini PENDING, COMPLETED veya CANCELLED seklinde secer
         And kullanici oturumu kapatir
         And kullanici browseri kapatir

@@ -1,3 +1,4 @@
+@demo
 Feature: Staff Appointment
 
 

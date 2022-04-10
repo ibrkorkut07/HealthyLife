@@ -1,4 +1,4 @@
-@deneme
+@demo
 Feature: US003 Registration password
 
 
