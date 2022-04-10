@@ -42,6 +42,7 @@ public class US_007 {
 
     @And("randevunun basari ile kaydedildigini gorur")
     public void randevununBasariIleKaydedildiginiGorur() {
+        Driver.wait(1);
         Assert.assertTrue(us07.registerOnayMesaji.isDisplayed());
     }
 }
