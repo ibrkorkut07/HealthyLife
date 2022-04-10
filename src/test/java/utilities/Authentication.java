@@ -1,35 +1,50 @@
 package utilities;
 
+import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import static Hooks.Hooks.spec;
 import static io.restassured.RestAssured.given;
 
 public class Authentication {
 
+
+    public static String generateToken() {
+
+        //Set the base url
+        //api/authenticate
+        RequestSpecification spec;
+        spec = new RequestSpecBuilder().setBaseUri(ConfigReader.getProperty("base_url")).build();
+
+        spec.pathParams("first", "api", "second", "authenticate");
+
+        //Set the expected data
+
+        Map<String, Object> expectedData = new HashMap<>();
+        expectedData.put("username", "Team94Admin");
+        expectedData.put("password", "Batch44+");
+        expectedData.put("rememberMe", "true");
+
+        //Send the Post request and get the data
+        Response response = given().spec(spec).contentType(ContentType.JSON).
+                body(expectedData).when().post("/{first}/{second}");
+
+       // response.prettyPrint();
+        JsonPath json = response.jsonPath();
+
+
+        return json.getString("id_token");
+
+    }
+
     public static void main(String[] args) {
-        System.out.println(generateToken("Team94admin","Batch44+"));
-
+        System.out.println(generateToken());
     }
 
-
-    public static String generateToken(String username, String password) {
-
-        Map <String, Object> map = new HashMap<>();
-        map.put("username", username);
-        map.put("password",password);
-        map.put("rememberme","true");
-
-        String endPoint = "https://www.medunna.com/api/authenticate";
-
-        Response response1 = given().contentType(ContentType.JSON).body(map).when().post(endPoint);
-
-        JsonPath token = response1.jsonPath();
-
-        return token.getString("id_token");
-    }
 }
