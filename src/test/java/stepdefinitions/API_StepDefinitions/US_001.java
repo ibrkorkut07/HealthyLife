@@ -34,7 +34,8 @@ public class US_001 {
         spec = new RequestSpecBuilder().setBaseUri(ConfigReader.getProperty("base_url")).build();
         spec.pathParams("first", "api", "second", "user","third","ssn=356-58-9632");
         /*
-        *
+
+c
         *  {
     "id": 44173,
     "login": "casper",

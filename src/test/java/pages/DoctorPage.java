@@ -6,6 +6,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import utilities.Driver;
 
+import java.util.List;
+
 public class DoctorPage {
 
     public DoctorPage() {
@@ -152,6 +154,23 @@ public class DoctorPage {
 
 
 
+    @FindBy(xpath = "//input[@id='fromDate']")
+    public WebElement fromDate;
+
+    @FindBy(id = "toDate")
+    public WebElement todate;
+
+    @FindBy(xpath = "//*[span='My Inpatients']" )
+    public WebElement myInpatientsDropdown;
+
+    @FindBy(xpath="//th[1]")
+    public WebElement appointmentIdBox;
+
+    @FindBy(id = "//th[4]")
+    public WebElement appointmentStatusBox;
+
+    @FindBy(xpath = "//tr//td[8]")
+    public List <WebElement> appoinmentList ;
 
 
 
