@@ -1,7 +1,7 @@
 @deneme
 Feature: US010
 
-  Scenario Outline: TC 01 Kullanıcı, randevu listesini ve zaman dilimlerini "My Appointments" sekmesinden gorebilmelidir.
+  Scenario Outline: TC 01 Kullanici, randevu listesini ve zaman dilimlerini "My Appointments" sekmesinden gorebilmelidir.
 
     Given kullanici "medunnaUrl" adresine gider
     And giris icin giris ikonuna tiklar
@@ -17,7 +17,7 @@ Feature: US010
 
     Examples:
       |  fromDate   | toDate     |
-      |  04/01/2022 | 04/15/2022 |
+      |  01.04.2022 | 15.04.2022 |
 
 
     Scenario: TC 02 Kullanici "patient id, start date, end date, status" bilgilerini gorebilir
