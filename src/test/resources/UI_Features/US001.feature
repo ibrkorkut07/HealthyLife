@@ -17,7 +17,7 @@ Feature: US001_Kayıt olmak icin SSN, Firstname ve Lastname bilgileri girililebi
       |56465*/ad| sad564/*|+*/--sad234|
 
 @us1 @deneme
-  Scenario: TC_02 SSN boş bırakılmamalıdır
+  Scenario: TC_02 SSN bos birakilmamalidir
     When kullanici "medunnaUrl" sayfasina gider
     Then sayfada kullanici ikonu altinda yer alan register butonuna tiklar
     And SSN kutucuğuna tıklar ardından boş bırakır ve 'Your SSN is required.' uyarı mesajını görüntüler

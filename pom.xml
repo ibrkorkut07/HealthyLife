@@ -128,7 +128,16 @@
             <artifactId>extentreports-cucumber4-adapter</artifactId>
             <version>1.2.1</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.5</version>
+        </dependency>
 
 
 
@@ -144,7 +153,7 @@
                     <testFailureIgnore>true</testFailureIgnore>
                     <skipTests>false</skipTests>
                     <includes>
-                        <include>**/runners/*Runner*.java</include>
+                        <include>**/runners/*TestRunner*.java</include>
                     </includes>
                 </configuration>
             </plugin>
@@ -163,7 +172,7 @@
                     <argLine>-Dfile.encoding=UTF-8</argLine>
                     <useFile>false</useFile>
                     <includes>
-                        <include>**/runners/*Runner*.java</include>
+                        <include>**/runners/*TestRunner*.java</include>
                     </includes>
                     <testFailureIgnore>true</testFailureIgnore>
                 </configuration>
@@ -188,6 +197,31 @@
                                 <param>**/json-reports/*.json</param>
                             </jsonFiles><classificationFiles>->
                             <param>sample.properties</param>pom.xml update
+                            <param>other.properties</param>
+                        </classificationFiles>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>net.masterthought</groupId>
+                <artifactId>maven-cucumber-reporting</artifactId>
+                <version>5.0.0</version>
+                <executions>
+                    <execution>
+                        <id>execution</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <projectName>cucumber-jvm-example</projectName>
+                            <outputDirectory>${project.build.directory}</outputDirectory>
+                            <inputDirectory>${project.build.directory}</inputDirectory>
+                            <jsonFiles>
+                                <param>**/json-reports/*.json</param>
+                            </jsonFiles><classificationFiles>->
+                            <param>sample.properties</param>
                             <param>other.properties</param>
                         </classificationFiles>
                         </configuration>
