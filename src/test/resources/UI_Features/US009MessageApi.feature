@@ -1,4 +1,4 @@
-Feature: US009 Api Test
+Feature: Api Test
 
   @staffApi
   Scenario: Hasta bilgisini dogrulama testi
