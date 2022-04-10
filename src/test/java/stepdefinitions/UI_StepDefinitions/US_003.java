@@ -25,6 +25,7 @@ public class US_003 {
     public void kullaniciGirisIkonunuTiklar() {
         registrationPage.SigninObjeLinki.click();
         Driver.wait(1);
+
     }
 
     @Then("RegisterLinki ni tiklar")
@@ -42,6 +43,7 @@ public class US_003 {
     @And("{string} passwordstregnth seviyesinin degismedigini ve color{int} seviyesinde kaldigini gorur.")
     public void passwordstregnthSeviyesininDegismediginiVeColorSeviyesindeKaldiginiGorur(String arg0, int arg1) {
         Assert.assertTrue(registrationPage.color1.isDisplayed());
+        Driver.wait(1);
     }
 
     @Given("Kullanici en az {int} en fazla {int} kucuk harf kullanarak {int} karakterli bir sifre girer")
@@ -54,6 +56,7 @@ public class US_003 {
     @And("{string} passwordstregnth seviyesinin degistigini gorur.")
     public void passwordstregnthSeviyesininDegistiginiGorur(String arg0) {
         Assert.assertTrue(registrationPage.color2.isDisplayed());
+        Driver.wait(1);
     }
 
     @Given("Kullanici en az {int} en fazla {int} buyuk harf kullanarak {int} karakterli sifre girer")
@@ -84,6 +87,7 @@ public class US_003 {
     @And("{string} passwordstregnth seviyesinin color{int} seviyesine degistigini gorur.")
     public void passwordstregnthSeviyesininColor2SeviyesineDegistiginiGorur(String arg0, int arg1) {
         Assert.assertTrue(registrationPage.color2.isDisplayed());
+        Driver.wait(1);
     }
 
     @Given("Kullanici {int} farkli gruptan karakterler kullanarak {int} karakterli sifre girer")
@@ -96,6 +100,7 @@ public class US_003 {
     public void passwordstregnthSeviyesininColorVeColorSeviyesineDegistiginiGorur(String arg0, int arg1, int arg2) {
         Assert.assertTrue(registrationPage.color3.isDisplayed());
         Assert.assertTrue(registrationPage.color4.isDisplayed());
+        Driver.wait(1);
     }
 
     @Given("Kullanici {int} farkli gruptan da karakterler kullanarak {int} karakterli sifre girer")
@@ -107,5 +112,11 @@ public class US_003 {
     @And("{string} passwordstregnth seviyesinin de color{int} seviyesine degistigini gorur.")
     public void passwordstregnthSeviyesininDeColorSeviyesineDegistiginiGorur(String arg0, int arg1) {
         Assert.assertTrue(registrationPage.color5.isDisplayed());
+        Driver.wait(1);
+    }
+
+    @Then("sayfayi kapatir")
+    public void sayfayiKapatir() {
+        Driver.closeDriver();
     }
 }
