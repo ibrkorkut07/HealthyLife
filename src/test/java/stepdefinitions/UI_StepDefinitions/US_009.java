@@ -193,7 +193,7 @@ public class US_009 {
         String actualText= staffPage.deleteHataYazisi.getText();
         Assert.assertEquals(expectedText,actualText);
 
-
+        System.out.println(actualText);
 
     }
 
@@ -225,9 +225,17 @@ public class US_009 {
 
 
     }
+
+
+  
+
 }
 
 
+//db_credentials_url=jdbc:postgresql://medunna.com:5432/medunna_db
+//db_username=medunnadb_user
+//db_password=Medunnadb_@129
+//https://app.swaggerhub.com/apis/MuratTANC/medunna-api/0.0.1  api icin
 
 
 
