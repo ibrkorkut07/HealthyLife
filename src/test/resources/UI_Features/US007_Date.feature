@@ -1,6 +1,7 @@
-Feature:US007
+Feature:  US007
 
-  Scenario Outline: TC01 Kullanıcı gecerli tarih girmelidir. (guncel tarihi veya gelecekteki tarihleri secebilmelidir)
+
+  Scenario Outline:   TC01 Kullanici gecerli tarih girmelidir. (guncel tarihi veya gelecekteki tarihleri secebilmelidir)
     Given kullanici "medunnaUrl" adresine gider
     And giris icin giris ikonuna tiklar
     And ana sayfa Sign In butonuna tiklar
@@ -12,11 +13,15 @@ Feature:US007
     And kullanici  "<appointmentdatetime>" eski tarihi girer
     Then kullanici Appointment date can not be past date! yazisini gorur
     And kullanici oturumu kapatir
+
     Examples:
       | phone      | appointmentdatetime |
       | 1732561100 | 12-01-2021          |
 
-  Scenario Outline: TC02 Tarih sırası gun/ay/yıl (ay/gun/yıl) seklinde randevu olusturmalidir
+
+
+
+  Scenario Outline:   TC02 Tarih sirasi gun/ay/yil (ay/gun/yil) seklinde randevu olusturmalidir
     Given kullanici "medunnaUrl" adresine gider
     And giris icin giris ikonuna tiklar
     And ana sayfa Sign In butonuna tiklar
@@ -28,11 +33,15 @@ Feature:US007
     And kullanici  "<appointmentdatetime>" tarihi girer
     Then sendAnAppointmentRequestButton a tiklar
     And randevunun basari ile kaydedildigini gorur
+
     Examples: test data
       | phone      | appointmentdatetime |
       | 1732561100 | 12-05-2022          |
 
-  Scenario Outline: TC03 Randevuyu Api ile olusturup Dogrular
+
+
+
+  Scenario Outline:   TC03 Randevuyu Api ile olusturup dogrular
     Given kullanici randevu icin pathparams ayarlamasini yapar
     And randevu icin expected datalari girer "<firstname>", "<lastname>" "<SSN>" "<email>" "<phone>"  and "<date>"
     Then request gonderir ve response alir

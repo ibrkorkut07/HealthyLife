@@ -170,6 +170,7 @@ Feature: Staff Appointment
     And Appointment Date olarak "<AppointmentDate>" girer
     Then Send an Appointment Request butonuna tiklar.
     And "Phone number is invalid" hata mesajini gorur.
+    And kullanici browseri kapatir
 
 
 
