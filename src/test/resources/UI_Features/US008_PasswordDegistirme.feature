@@ -11,8 +11,24 @@ Feature:Password Degisimi
     And yeni sifreyi tekrar girer "<newPasswordConfirmation>"
     Then yeni sifreyi kaydetmek icin save butonuna basar
     And kullanici "Password changed!" mesajini gorur
+    And kullanici oturumu kapatir
 
-Examples:
-|currentPassword|newPassword|newPasswordConfirmation|
- |abc.1111           |abc.1111      |abc.1111|
+    Examples:
+    |currentPassword|newPassword|newPasswordConfirmation|
+     |abc.1111           |abc.1111      |abc.1111|
+
+
+
+  Scenario Outline:
+    Then yeni sifre kutusununa "<AdminNewPassword>" girilir
+    And  password "<Strength>" seviyesinin degistigi gorulur
+    Then cikis yapilir
+
+
+    Examples:
+      | AdminNewPassword      | Strength |
+      |aaabbbc                |1         |
+      |aaabbbc1               |2         |
+      |aaabbbc1.              |3         |
+      |aaabbbc.1A             |4         |
 

@@ -33,6 +33,7 @@ Feature: US007
     And kullanici  "<appointmentdatetime>" tarihi girer
     Then sendAnAppointmentRequestButton a tiklar
     And randevunun basari ile kaydedildigini gorur
+    And kullanici browseri kapatir
 
     Examples: test data
       | phone      | appointmentdatetime |
@@ -50,6 +51,8 @@ Feature: US007
     Examples: api test data
       | firstname | lastname | SSN         | email          | phone        | date       |
       | hasan      | demir      | 543-34-4335 | hassan45@gmailcom | 555-123-1234 | 2022-11-12 |
+
+
 
   Scenario: TC04 Db ile randevu dogrular
     Given kullanici bilgileri kullanarak medunna_db baglanti kurar
