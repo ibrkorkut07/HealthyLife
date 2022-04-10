@@ -12,7 +12,7 @@ import static io.restassured.RestAssured.given;
 public class Authentication {
 
     public static void main(String[] args) {
-        System.out.println(generateToken("team94admin","Batch44+"));
+        System.out.println(generateToken("Team94admin","Batch44+"));
 
     }
 

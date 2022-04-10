@@ -26,12 +26,12 @@ public class US_010 {
     }
 
     @And("hastanın Status bilgilerini görür")
-    public void hastanınStatusBilgileriniGörür() {
+    public void hastaninStatusBilgileriniGorur() {
         Assert.assertTrue(us10.appointmentStatusBox.isDisplayed());
     }
 
     @And("randevu listesini görür")
-    public void randevuListesiniGörür() {
+    public void randevuListesiniGorur() {
         Assert.assertFalse(us10.appoinmentList.isEmpty());
     }
 }

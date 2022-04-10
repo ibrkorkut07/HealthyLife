@@ -15,11 +15,11 @@ Feature: US010
     And kullanici oturumu kapatir
 
     Examples:
-      | title  | fromDate   | toDate     |
-      | doctor | 04/01/2022 | 04/15/2022 |
+      |  fromDate   | toDate     |
+      |  04/01/2022 | 04/15/2022 |
 
 
-    Scenario: TC 02 Kullanıcı "patient id, start date, end date, status" bilgilerini gorebilir
+    Scenario: TC 02 Kullanici "patient id, start date, end date, status" bilgilerini gorebilir
       Given kullanici "medunnaUrl" adresine gider
       And giris icin giris ikonuna tiklar
       And ana sayfa Sign In butonuna tiklar
@@ -29,4 +29,12 @@ Feature: US010
       Then kullanici(doktor)My Pages menu butonuna tıklar
       And My inpatient butonunu tiklar
       Then hasta id kismi gorunur
-      And kullanici oturumu kapatir
+
+
+
+
+      Scenario:  TC03 API ile doktor randevularini dogrulayin
+        Given kullanici doktor randevu icin pathparams ayarlamasini yapar
+        Then  doctor randevulari icin request gonderir ve response alir
+        And doctor randevu icin expected datalari girer
+        And doctor randevulari icin api kayitlarini dogrular
