@@ -25,14 +25,7 @@ public class Hooks {
     }
 
 
-    public static RequestSpecification spec;
-    @Before( value = "@DeleteUser")
-    public void setup(){
 
-        spec = new RequestSpecBuilder().setBaseUri(ConfigReader.getProperty("base_url")).build();
-
-
-    }
 
     @Before(order = 1, value = "@UIRegistration")
     public void navigateToRegistration(){

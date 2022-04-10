@@ -43,7 +43,7 @@ public class US_007 {
     @Then("request gonderir ve response alir")
     public void request_gonderir_ve_response_alir() {
         //response = given().contentType(ContentType.JSON).spec(spec).header("Authorization","Bearer "+generateToken("Team94Admin","Batch44+")).body(appointment).when().post("/{first}/{second}");
-        response = given().contentType(ContentType.JSON).spec(spec).header("Authorization","Bearer "+generateToken("Team94Admin","Batch44+")).body(appointment).when().post("/{first}/{second}/{third}");
+        response = given().contentType(ContentType.JSON).spec(spec).header("Authorization","Bearer "+generateToken()).body(appointment).when().post("/{first}/{second}/{third}");
         response.prettyPrint();
     }
     @Then("api kayitlarini dogrular")

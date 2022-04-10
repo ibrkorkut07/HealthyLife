@@ -38,7 +38,7 @@ public class US_010 {
     }
     @Then("doctor randevulari icin request gonderir ve response alir")
     public void doctor_randevulari_icin_request_gonderir_ve_response_alir() {
-        response = given().contentType(ContentType.JSON).spec(spec).header("Authorization","Bearer "+generateToken("Team94Admin","Batch44+")).when().get("/{first}/{second}/{third}");
+        response = given().contentType(ContentType.JSON).spec(spec).header("Authorization","Bearer "+generateToken()).when().get("/{first}/{second}/{third}");
         //response.prettyPrint();
     }
     @Then("doctor randevulari icin api kayitlarini dogrular")

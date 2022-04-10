@@ -57,7 +57,7 @@ Feature: US001_Kayıt olmak icin SSN, Firstname ve Lastname bilgileri girililebi
   @tc06 @deneme
   Scenario: TC_06  API kullanarak kayıtlı kişiler oluşturulup doğrulanmalıdır
     When kullanici gerekli path params ayarlar
-    Then expected datalari girer
+    Then expected datalari girer.
     And kullanici request gonderir ve response alir
     Then kullamici api kayitlarini dosyaya kaydeder
     And kullanici api kayitlarini dogrular

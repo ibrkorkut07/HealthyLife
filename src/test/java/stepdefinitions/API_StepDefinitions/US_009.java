@@ -63,7 +63,7 @@ public class US_009 {
 
     }
 
-    @When("request gonderir ve response alir")
+    @When("request gonderir ve response alir.")
     public void request_gonderir_ve_response_alir() {
 
         response = given().contentType(ContentType.JSON)

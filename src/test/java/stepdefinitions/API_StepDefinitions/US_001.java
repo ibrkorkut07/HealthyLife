@@ -51,7 +51,7 @@ c
     public void accountlarin_bilgilerini_alir() {
 
         response = given().spec(spec).contentType(ContentType.JSON)
-                .header("Authorization","Bearer "+generateToken("team94admin","Batch44+"))
+                .header("Authorization","Bearer "+generateToken())
                 .when()
                 .get("/{first}/{second}/"+"?"+"{third}");
         System.out.println(response.asString());
@@ -91,7 +91,7 @@ c
         spec.pathParams("first", "api", "second", "register");
     }
 
-    @Then("expected datalari girer")
+    @Then("expected datalari girer.")
     public void expected_datalari_girer() {
     String    firstname = faker.name().firstName();
     String    lastname = faker.name().lastName();
