@@ -14,39 +14,7 @@ import static utilities.ReadTxt.getSSNIDs;
 public class US_009 {
 
 
-     List<Object> tumDBssnBilgiler=new ArrayList<>();
-
-
-
-    @Given("staff DB gider")
-    public void staffDBGider() {
-
-        DBUtils.createConnection();
-
-    }
-    @And("Sorguyu {string} ve {string} ile gonderir")
-    public void sorguyuVeIleGonderir(String query, String columnName) {
-       tumDBssnBilgiler=DBUtils.getColumnData("select * from patients", "id");
-        System.out.println(tumDBssnBilgiler);
-
-    }
-
-
-    @Then("bu bilgileri dogrular")
-    public void bu_bilgileri_dogrular() {
-
-      List<String> expectedSSN=new ArrayList<>();
-      expectedSSN.add("026-06-1990");
-      expectedSSN.add("123-56-9424");
-      expectedSSN.add("253-98-1249");
-
-      List<String> actualData= getSSNIDs();
-        System.out.println(actualData);
-        Assert.assertTrue(actualData.containsAll(expectedSSN));
-
-
-
-    }
+     List<Object> tumDbIdBilgiler=new ArrayList<>();
 
 
 
@@ -56,9 +24,29 @@ public class US_009 {
         DBUtils.createConnection();
     }
 
-    @And("DB den sorgu gonderir")
-    public void dbDenSorguGonderir() {
-        tumDBssnBilgiler=DBUtils.getColumnData("select * from patient","id");
-        System.out.println("tumDBssnBilgiler = " + tumDBssnBilgiler);
+
+
+    @And("query ve column data gonderir")
+    public void queryVeColumnDataGonderir() {
+        tumDbIdBilgiler=DBUtils.getColumnData("select * from patient","first_name");
+        System.out.println("tumDBssnBilgiler = " + tumDbIdBilgiler);
     }
+
+
+    @Then("bilgileri dogrular")
+    public void bilgileriDogrular() {
+
+        List<String> expectedIds=new ArrayList<>();
+        expectedIds.add("Lino");
+        expectedIds.add("Robin");
+        expectedIds.add("Oren");
+
+       Assert.assertTrue(tumDbIdBilgiler.containsAll(expectedIds));
+
+
+    }
+
+
+
+
 }

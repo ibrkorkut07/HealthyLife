@@ -24,7 +24,7 @@ public class US_007 {
 
     @And("DB den randavu tablolarini query yapar  {string}")
     public void dbDenRandavuTablolariniQueryYapar(String date) {
-        appointmentDB = getColumnData("select * from appointment",date );
+        appointmentDB = getColumnData("select * from patient",date );
         System.out.println(appointmentDB);
     }
 

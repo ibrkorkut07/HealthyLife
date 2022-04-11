@@ -1,4 +1,4 @@
-Feature:US009 Message
+Feature:US009 Message/UI/Api/DBTest
 
 
 
@@ -98,5 +98,23 @@ Feature:US009 Message
       |  026-06-1990     |
 
 
+
+
+  Scenario: Api Hasta bilgisini dogrulama testi
+
+    Given staff gerekli path params ayarlar
+    And expected datalari girer
+    When request gonderir ve response alir
+    And hasta bilgilerini dogrular
+
+
+
+
+
+  Scenario: DB Staff Hasta bilgisi dogrulama testi
+
+    Given kullanici bilgileri kullanarak medunna_db baglanti kurar
+    And query ve column data gonderir
+    Then bilgileri dogrular
 
 
