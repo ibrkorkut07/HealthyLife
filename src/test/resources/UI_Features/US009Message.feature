@@ -1,5 +1,4 @@
-@demo
-Feature:US009 Message
+Feature:US009 Message/UI/Api/DBTest
 
 
 
@@ -17,7 +16,6 @@ Feature:US009 Message
     Then My PAGES sekmesine tiklar
     And Search Patient secenegini secer
     And Patients yazisini ile listenin gorunurlulugunu test eder
-    And kullanici oturumu kapatir
 
 
 
@@ -34,11 +32,10 @@ Feature:US009 Message
       And Staff hasta bilgilerinde duzenleme yapar
       And Save tiklar
       And Dogrulama gozlemlenir
-      And kullanici oturumu kapatir
 
       Examples:
         | SSN              |
-        | 894-29-1978      |
+        | 253-98-1249      |
 
 
 
@@ -51,12 +48,9 @@ Feature:US009 Message
     And Patientssn kutusuna "<SSN>" girer
     Then Edit butonuna tiklar
     And ilgili hastanin  bilgilerinin dolduruldugunu dogrular
-    And kullanici oturumu kapatir
-
-
     Examples:
       |  SSN             |
-      |  894-29-1978     |
+      |  123-56-9424     |
 
   Scenario Outline:TC04 Staff herhangi bir hasta bilgi silme Testi
 
@@ -68,12 +62,9 @@ Feature:US009 Message
     And Patientssn kutusuna "<SSN>" girer
     Then Edit butonuna tiklar
     And firstname siler ve silindigini test eder
-    And kullanici oturumu kapatir
-
-
     Examples:
       |  SSN             |
-      |  894-29-1978     |
+      |  123-56-9424     |
 
 
   Scenario Outline: TC05:Staff hastalari silememeli testi
@@ -84,13 +75,11 @@ Feature:US009 Message
    And Search Patient secenegini secer
    And Patientssn kutusuna "<SSN>" girer
    And Hasta bilgisinde Delete butonunun olmadigi dogrulanir
-    And kullanici oturumu kapatir
 
 
-
-    Examples:
+        Examples:
      |  SSN             |
-     |  894-29-1978     |
+     |  123-56-9424     |
 
 
 
@@ -103,13 +92,29 @@ Feature:US009 Message
       And Search Patient secenegini secer
       And Patientssn kutusuna "<SSN>" girer
       And Staff hastalari SSN kimlik numaralarina gore arama yaptigini dogrular
-    And kullanici oturumu kapatir
-
 
     Examples:
       |  SSN             |
-      |  894-29-1978     |
+      |  026-06-1990     |
 
 
+
+
+  Scenario: Api Hasta bilgisini dogrulama testi
+
+    Given staff gerekli path params ayarlar
+    And expected datalari girer
+    When request gonderir ve response alir
+    And hasta bilgilerini dogrular
+
+
+
+
+
+  Scenario: DB Staff Hasta bilgisi dogrulama testi
+
+    Given kullanici bilgileri kullanarak medunna_db baglanti kurar
+    And query ve column data gonderir
+    Then bilgileri dogrular
 
 

@@ -71,4 +71,36 @@ public class US_007 {
  */
 
 
+
+
+
+    List<Object> appointmentDB= new ArrayList<>();
+
+    @Given("kullanici bilgileri kullanarak medunna_db baglanti kurar")
+    public void kullaniciBilgileriKullanarakMedunna_dbBaglantiKurar() {
+        DBUtils.createConnection();
+    }
+
+    @And("DB den randavu tablolarini query yapar  {string}")
+    public void dbDenRandavuTablolariniQueryYapar(String date) {
+        appointmentDB = getColumnData("select * from patient",date );
+        System.out.println(appointmentDB);
+    }
+
+
+    @Then("randevuyu dogrular")
+    public void randevuyu_dogrular() {
+
+
+    }
+
+    @Then("sonra dogrular")
+    public void sonraDogrular() {
+        String expectedDate="4682";
+        Assert.assertFalse(appointmentDB.contains(expectedDate));
+    }
+
+
+
+
 }
