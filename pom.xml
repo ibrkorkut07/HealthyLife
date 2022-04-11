@@ -136,7 +136,7 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
-            <version>1.7.5</version>
+            <version>1.7.36</version>
         </dependency>
 
 
@@ -153,7 +153,7 @@
                     <testFailureIgnore>true</testFailureIgnore>
                     <skipTests>false</skipTests>
                     <includes>
-                        <include>**/runners/*TestRunner*.java</include>
+                        <include>**/runners/*Runner*.java</include>
                     </includes>
                 </configuration>
             </plugin>
@@ -172,7 +172,7 @@
                     <argLine>-Dfile.encoding=UTF-8</argLine>
                     <useFile>false</useFile>
                     <includes>
-                        <include>**/runners/*TestRunner*.java</include>
+                        <include>**/runners/*Runner*.java</include>
                     </includes>
                     <testFailureIgnore>true</testFailureIgnore>
                 </configuration>

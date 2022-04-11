@@ -1,4 +1,4 @@
-@demo1
+@demo
 Feature:US009 Message/UI/Api/DBTest
 
 
