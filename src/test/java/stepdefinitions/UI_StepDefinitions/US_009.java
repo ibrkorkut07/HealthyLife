@@ -25,6 +25,7 @@ public class US_009 {
     LoginPage loginPage = new LoginPage();
     WebElement ssnDinamik;
     Faker faker = new Faker();
+    String ssnx;
 
 
     @Given("Kullanici {string} adresine gider.")
@@ -97,7 +98,7 @@ public class US_009 {
         int random = faker.random().nextInt(2,19);
          ssnDinamik = Driver.getDriver().findElement(By.xpath("//tbody/tr["+random+"]/td[2]"));
 
-         String ssnx = ssnDinamik.getText();
+          ssnx = ssnDinamik.getText();
 
         staffPage.patentSsnBox.sendKeys(ssnx);
         Driver.wait(1);
@@ -244,7 +245,7 @@ public class US_009 {
 
         Driver.wait(2);
         List<WebElement> hastaDegerleri=staffPage.hastaBilgileri();
-        Assert.assertTrue(hastaDegerleri.get(1).getText().equals("894-29-1978"));
+        Assert.assertTrue(hastaDegerleri.get(1).getText().equals(ssnx));
 
         System.out.println(hastaDegerleri.get(1).getText());
         System.out.println(hastaDegerleri.get(2).getText());
