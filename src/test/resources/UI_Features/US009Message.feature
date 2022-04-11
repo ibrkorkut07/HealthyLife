@@ -56,7 +56,7 @@ Feature:US009 Message
 
     Examples:
       |  SSN             |
-      |  123-56-9424     |
+      |  894-29-1978     |
 
   Scenario Outline:TC04 Staff herhangi bir hasta bilgi silme Testi
 
@@ -73,7 +73,7 @@ Feature:US009 Message
 
     Examples:
       |  SSN             |
-      |  123-56-9424     |
+      |  894-29-1978     |
 
 
   Scenario Outline: TC05:Staff hastalari silememeli testi
@@ -90,7 +90,7 @@ Feature:US009 Message
 
     Examples:
      |  SSN             |
-     |  123-56-9424     |
+     |  894-29-1978     |
 
 
 
@@ -108,7 +108,7 @@ Feature:US009 Message
 
     Examples:
       |  SSN             |
-      |  026-06-1990     |
+      |  894-29-1978     |
 
 
 

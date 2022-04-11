@@ -111,21 +111,21 @@ Feature: Staff Appointment
       | firstname     | lastname    | 256-65-8745 |user@usercom  | 333-545-6985 | 24042022|
 
 
-  Scenario Outline: TC007
-    And isim olarak "<FirstName>" girer
-    And soy isim "<LastName>" girer
-    And SSN numarasi olarak "<SSN>" girer
-    And Email adresi olarak "<Email>" girer
-    And Telefon numarasi olarak "<Phone>" girer
-    And Appointment Date olarak "<AppointmentDate>" girer
-    Then Send an Appointment Request butonuna tiklar.
-    And "Appointment registration saved!" onay mesaji gorulur.
+ #Scenario Outline: TC007
+ #  And isim olarak "<FirstName>" girer
+ #  And soy isim "<LastName>" girer
+ #  And SSN numarasi olarak "<SSN>" girer
+ #  And Email adresi olarak "<Email>" girer
+ #  And Telefon numarasi olarak "<Phone>" girer
+ #  And Appointment Date olarak "<AppointmentDate>" girer
+ #  Then Send an Appointment Request butonuna tiklar.
+ #  And "Appointment registration saved!" onay mesaji gorulur.
 
 
 
-    Examples:
-      | FirstName | LastName | SSN         | Email         | Phone        | AppointmentDate |
-      | firstname     | lastname    | 256-65-8745 |user@user.com  | 333-545-6985 | 24042022|
+ #  Examples:
+ #    | FirstName | LastName | SSN         | Email         | Phone        | AppointmentDate |
+ #    | firstname     | lastname    | 256-65-8745 |user@user.com  | 333-545-6985 | 24042022|
 
 
   Scenario Outline: TC008 (Telefon numarasi bos birakilamaz)

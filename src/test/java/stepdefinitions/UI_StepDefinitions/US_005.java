@@ -79,6 +79,7 @@ public class US_005 {
     public void onayMesajiGorulur(String arg0) {
         Driver.wait(1);
         String expectedText=arg0;
+        Driver.wait(1);
         String actualtext = us05.registerOnayMesaji.getText();
         Assert.assertEquals(expectedText,actualtext);
 

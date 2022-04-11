@@ -1,4 +1,4 @@
-@US01 @demo
+@US01
 Feature: US001_Kayıt olmak icin SSN, Firstname ve Lastname bilgileri girililebilmelidir.
 @us1 @deneme
   Scenario Outline:TC_01 Gecerli bir SSN, 3. ve 5. rakamdan sonra "-"  icermeli ve 9 rakamdan olusmalidir

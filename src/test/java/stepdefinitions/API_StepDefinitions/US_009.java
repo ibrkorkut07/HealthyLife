@@ -1,6 +1,8 @@
 package stepdefinitions.API_StepDefinitions;
 
 
+import io.cucumber.java.Scenario;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.restassured.builder.RequestSpecBuilder;
@@ -8,7 +10,9 @@ import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import pages.LoginPage;
 import utilities.ConfigReader;
+import utilities.Driver;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -38,6 +42,7 @@ public class US_009 {
     Response response;
     Map<String, Object> expectedData;
     RequestSpecification spec;
+    LoginPage loginPage = new LoginPage();
 
 
 
@@ -90,6 +95,7 @@ public class US_009 {
 
 
     }
+
 
 }
 

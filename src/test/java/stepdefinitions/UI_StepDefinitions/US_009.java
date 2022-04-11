@@ -5,10 +5,10 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
+import pages.LoginPage;
 import pages.StaffPage;
 import utilities.ConfigReader;
 import utilities.Driver;
@@ -24,6 +24,7 @@ public class US_009 {
     StaffPage staffPage = new StaffPage();
     Select select;
     Actions actions = new Actions(Driver.getDriver());
+    LoginPage loginPage = new LoginPage();
 
 
     @Given("Kullanici {string} adresine gider.")
@@ -38,7 +39,17 @@ public class US_009 {
 
     @Then("Sig in secenegini secer")
     public void sig_in_secenegini_secer() {
-        staffPage.IlkSigIn.click();
+        Driver.wait(1);
+        if(Driver.getDriver().getCurrentUrl().equals("https://www.medunna.com/logout")) {
+            Driver.wait(1);
+            staffPage.IlkSigIn.click();
+        }else {
+            Driver.wait(1);
+          Driver.getDriver().get("https://www.medunna.com/logout");
+            Driver.wait(1);
+            Driver.getDriver().get("https://www.medunna.com/login");
+
+        }
     }
 
     @And("Staff olarak username ve password girer")
@@ -119,16 +130,16 @@ public class US_009 {
 
 
         select=new Select(staffPage.genderDropdownElement);
-        staffPage.genderDropdownElement.click();
+       // staffPage.genderDropdownElement.click();
         Driver.wait(1);
         select.selectByVisibleText("FEMALE");
-        staffPage.genderDropdownElement.click();
+        //staffPage.genderDropdownElement.click();
 
         select=new Select(staffPage.bloodGroupDropdownElement);
-        staffPage.bloodGroupDropdownElement.click();
+      //  staffPage.bloodGroupDropdownElement.click();
         select.selectByIndex(0);
         Driver.wait(1);
-        staffPage.bloodGroupDropdownElement.click();
+        //staffPage.bloodGroupDropdownElement.click();
 
         actions.
                 sendKeys(Keys.TAB).
@@ -142,7 +153,11 @@ public class US_009 {
 
     @And("Save tiklar")
     public void saveTiklar() {
-        Driver.waitAndClick(staffPage.saveButton);
+       // Driver .waitAndClick(staffPage.saveButton);
+        JavascriptExecutor jsexecutor = ((JavascriptExecutor) Driver.getDriver());
+        jsexecutor.executeScript("arguments[0].scrollIntoView(true);", staffPage.saveButton);
+
+        jsexecutor.executeScript("arguments[0].click();", staffPage.saveButton);
     }
 
 
@@ -224,7 +239,7 @@ public class US_009 {
 
         Driver.wait(2);
         List<WebElement> hastaDegerleri=staffPage.hastaBilgileri();
-        Assert.assertTrue(hastaDegerleri.get(1).getText().equals("026-06-1990"));
+        Assert.assertTrue(hastaDegerleri.get(1).getText().equals("894-29-1978"));
 
         System.out.println(hastaDegerleri.get(1).getText());
         System.out.println(hastaDegerleri.get(2).getText());
