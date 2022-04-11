@@ -33,7 +33,16 @@ public class US_011 {
     @Then("kullanici\\(doktor) Sign in i secer")
     public void kullaniciDoktorSignInISecer() {
         Driver.wait(1);
-        loginPage.anaSayfaSignIn.click();
+        if(Driver.getDriver().getCurrentUrl().equals("https://www.medunna.com/logout")) {
+            Driver.wait(1);
+            Driver.getDriver().get("https://www.medunna.com/login");
+        }else {
+            Driver.wait(1);
+            Driver.getDriver().get("https://www.medunna.com/logout");
+            Driver.wait(1);
+            Driver.getDriver().get("https://www.medunna.com/login");
+
+        }
     }
 
     @And("kullanici\\(doktor){string} textbox'a  gecerli bir username girer")

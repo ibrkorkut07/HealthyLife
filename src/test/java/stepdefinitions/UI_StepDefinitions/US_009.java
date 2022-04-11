@@ -42,7 +42,7 @@ public class US_009 {
         Driver.wait(1);
         if(Driver.getDriver().getCurrentUrl().equals("https://www.medunna.com/logout")) {
             Driver.wait(1);
-            staffPage.IlkSigIn.click();
+            Driver.getDriver().get("https://www.medunna.com/login");
         }else {
             Driver.wait(1);
           Driver.getDriver().get("https://www.medunna.com/logout");
