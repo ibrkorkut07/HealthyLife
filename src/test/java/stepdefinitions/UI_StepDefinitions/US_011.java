@@ -222,7 +222,17 @@ Driver.wait(1);
 
     @And("ana sayfa Sign In butonuna tiklar")
     public void anaSayfaSignInButonunaTiklar() {
-        login.anaSayfaSignIn.click();
+        Driver.wait(1);
+        if(Driver.getDriver().getCurrentUrl().equals("https://www.medunna.com/logout")) {
+            Driver.wait(1);
+            Driver.getDriver().get("https://www.medunna.com/login");
+        }else {
+            Driver.wait(1);
+            Driver.getDriver().get("https://www.medunna.com/logout");
+            Driver.wait(1);
+            Driver.getDriver().get("https://www.medunna.com/login");
+
+        }
     }
 
     @And("username olarak {string} girer")
