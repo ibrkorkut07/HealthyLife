@@ -13,9 +13,7 @@ import pages.StaffPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
-
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class US_009 {
@@ -25,6 +23,8 @@ public class US_009 {
     Select select;
     Actions actions = new Actions(Driver.getDriver());
     LoginPage loginPage = new LoginPage();
+    WebElement ssnDinamik;
+    Faker faker = new Faker();
 
 
     @Given("Kullanici {string} adresine gider.")
@@ -94,7 +94,12 @@ public class US_009 {
 
     @And("Patientssn kutusuna {string} girer")
     public void patientssnKutusunaGirer(String ssn) {
-        staffPage.patentSsnBox.sendKeys(ssn);
+        int random = faker.random().nextInt(2,19);
+         ssnDinamik = Driver.getDriver().findElement(By.xpath("//tbody/tr["+random+"]/td[2]"));
+
+         String ssnx = ssnDinamik.getText();
+
+        staffPage.patentSsnBox.sendKeys(ssnx);
         Driver.wait(1);
 
     }
