@@ -16,11 +16,11 @@ Feature: US010
     And kullanici oturumu kapatir
 
     Examples:
-      |  fromDate   | toDate     |
-      |  01.04.2022 | 15.04.2022 |
+      | fromDate   | toDate     |
+      | 01.04.2022 | 15.04.2022 |
 
 
-    Scenario: TC 02 Kullanici "patient id, start date, end date, status" bilgilerini gorebilir
+  Scenario: TC 02 Kullanici "patient id, start date, end date, status" bilgilerini gorebilir
       Given kullanici "medunnaUrl" adresine gider
       And giris icin giris ikonuna tiklar
       And ana sayfa Sign In butonuna tiklar

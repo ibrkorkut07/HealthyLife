@@ -63,4 +63,4 @@ Feature: US0014_medunna
    Given kullanici(doktor) Appoinment bilgilerini gunceller
    And kullanici(doktor) Patient bilgilerini gunceller
    And kullanici oturumu kapatir
-    And kullanici "rapor" adresine gider
+  #  And kullanici "rapor" adresine gider
