@@ -45,8 +45,13 @@ public class AppointmentPage {
 @FindBy(xpath = "//strong[normalize-space()='Appointment registration saved!']")
     public WebElement registerOnayMesaji;  // "Appointment registration saved! We will call you as soon as possible."
 
+    @FindBy(xpath = "//span[text()='MY PAGES(PATIENT)']")
+    public WebElement myPageButton;
 
+    @FindBy(xpath = "//span[text()='Make an Appointment']")
+    public WebElement makeAppintmentclickbutonu;
 
-
+    @FindBy(xpath = "//span[text()='Appointment date can not be past date!']")
+    public WebElement hataliTarihUyariYazisiElementi;
 
 }

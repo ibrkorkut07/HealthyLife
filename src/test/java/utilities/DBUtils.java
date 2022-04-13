@@ -22,6 +22,7 @@ public class DBUtils {
 //        String username="techprodb_user";
 //        String password="Techpro_@126";
 
+
         String url=ConfigReader.getProperty("db_credentials_url");
         String username=ConfigReader.getProperty("db_username");
         String password=ConfigReader.getProperty("db_password");
@@ -32,6 +33,8 @@ public class DBUtils {
             e.printStackTrace();
         }
     }
+
+
     /**
      * DBUtils.executeQuery(String query); -> Execute the query and store is the result set object
      */
@@ -50,6 +53,8 @@ public class DBUtils {
             e.printStackTrace();
         }
     }
+
+
     //    used to close the connectivity
     public static void closeConnection() {
         try {
@@ -217,4 +222,6 @@ public class DBUtils {
         }
         return columns;
     }
+
+
 }
