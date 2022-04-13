@@ -2,7 +2,7 @@
 <project version="4">
   <component name="DBNavigator.Project.DataEditorManager">
     <record-view-column-sorting-type value="BY_INDEX" />
-    <value-preview-text-wrapping value="true" />
+    <value-preview-text-wrapping value="false" />
     <value-preview-pinned value="false" />
   </component>
   <component name="DBNavigator.Project.DataExportManager">
@@ -28,7 +28,7 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="b68ae88e-95d6-4a97-88b1-d550f2080bbf">
-      <console name="medunnaDB" type="STANDARD" schema="" session="Main" />
+      <console name="medunnaDB" type="STANDARD" schema="information_schema" session="Main" />
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
@@ -42,6 +42,9 @@
   </component>
   <component name="DBNavigator.Project.ExecutionManager">
     <retain-sticky-names value="false" />
+  </component>
+  <component name="DBNavigator.Project.FileConnectionMappingManager">
+    <mapping file-url="file://$PROJECT_DIR$/src/test/resources/UI_Features" connection-id="a29dbd99-af19-459d-868c-9e84982b3a9f" session-id="MAIN" current-schema="information_schema" />
   </component>
   <component name="DBNavigator.Project.MethodExecutionManager">
     <method-browser />
@@ -72,7 +75,7 @@
           <description value="" />
           <database-type value="POSTGRES" />
           <config-type value="BASIC" />
-          <database-version value="9999.0" />
+          <database-version value="10.15" />
           <driver-source value="BUILTIN" />
           <driver-library value="" />
           <driver value="" />
@@ -82,7 +85,7 @@
           <database value="medunna_db" />
           <type value="USER_PASSWORD" />
           <user value="medunnadb_user" />
-          <deprecated-pwd value="" />
+          <deprecated-pwd value="TWVkdW5uYWRiX0AxMjk=" />
         </database>
         <properties>
           <auto-commit value="false" />
