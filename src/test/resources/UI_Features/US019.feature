@@ -20,3 +20,5 @@ Feature: US19 Admin olarak Yeni Staff (Personel) Olusturma Guncelleme Goruntulem
       Then Search User butonuna tiklar
       And User found with search SSN mesajini gorur
       And kullanici oturumu kapatir
+
+
