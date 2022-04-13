@@ -1,5 +1,6 @@
 package stepdefinitions.UI_StepDefinitions;
 
+import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -11,6 +12,7 @@ public class US_019 {
 
     AdminStaff staff = new AdminStaff();
     String randomSSN;
+    Faker faker;
 
 
 
@@ -68,4 +70,27 @@ public class US_019 {
         String expectedText="User found with search SSN";
         Assert.assertEquals("User found with search SSN yazisi gorulemedi",expectedText,staff.onayKutusu.getText());
     }
+
+    @And("kayitli personelin {string} SSN numarasini SSN Box'a girer")
+    public void kayitliPersonelinSSNNumarasiniSSNBoxAGirer(String ssn) {
+        Driver.wait(1);
+        staff.inputSsnBox.sendKeys(ssn);
+    }
+
+    @And("First Name,Last Name,Birth Date,Phone,Gender,Blood Group,Address,Description,Created Date,User,Country ve State-City kisimlarini doldurur.")
+    public void firstNameLastNameBirthDatePhoneGenderBloodGroupAddressDescriptionCreatedDateUserCountryVeStateCityKisimlariniDoldurur() throws Throwable {
+
+        faker = new Faker();
+        staff.firstName.sendKeys(faker.name().firstName());
+        staff.lastName.sendKeys(faker.name().lastName());
+     //   staff.birthDayBox.sendKeys(faker.date().birthday());
+        staff.phonebox.sendKeys("256-365-3255");
+        staff.firstName.sendKeys(faker.name().firstName());
+
+
+
+
+
+
+       }
 }

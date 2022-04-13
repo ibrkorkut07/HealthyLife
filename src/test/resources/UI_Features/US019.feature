@@ -22,3 +22,17 @@ Feature: US19 Admin olarak Yeni Staff (Personel) Olusturma Guncelleme Goruntulem
       And kullanici oturumu kapatir
 
 
+
+    Scenario: TC02 Admin kayitli kullanicinin tum bilgilerini doldurabilmeli
+      Given kullanici item-titles menuye tiklar
+      And Staff menusune tiklar
+      And Create a New Staff Butonuna tiklar
+      And Use search check box'i isaretler
+      And kayitli personelin "636-52-8545" SSN numarasini SSN Box'a girer
+      Then Search User butonuna tiklar
+      And First Name,Last Name,Birth Date,Phone,Gender,Blood Group,Address,Description,Created Date,User,Country ve State-City kisimlarini doldurur.
+
+
+
+
+
