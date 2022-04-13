@@ -81,7 +81,7 @@ return randomSsn;
     @FindBy(id ="save-entity" )
     public WebElement saveButton;
 
-    @FindBy(xpath = "//div[@class='Toastify__toast Toastify__toast--success toastify-toast']")
+    @FindBy(xpath = "//div[@role='alert']")
     public WebElement onayKutusu;
 
 

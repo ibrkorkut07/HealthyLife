@@ -10,7 +10,7 @@ Feature: US19 Admin olarak Yeni Staff (Personel) Olusturma Guncelleme Goruntulem
 
 
 
-    Scenario: TC01 Admin SSN kullanarak kayitli kullanici arayabilir.
+    Scenario: TC01 Admin SSN kullanarak kayitli kullaniciyi arayabilir.
       Given kullanici item-titles menuye tiklar
       And Staff menusune tiklar
       And Listeden herhangibir SSN secer

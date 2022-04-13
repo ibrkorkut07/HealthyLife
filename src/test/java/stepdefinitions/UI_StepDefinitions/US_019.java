@@ -39,6 +39,7 @@ public class US_019 {
     @And("Create a New Staff Butonuna tiklar")
     public void createANewStaffButonunaTiklar() {
         Driver.wait(1);
+        Assert.assertTrue("Create a New Staff Button Sayfada Yok.",staff.createNewStaffButton.isDisplayed());
         staff.createNewStaffButton.click();
     }
 
@@ -64,6 +65,7 @@ public class US_019 {
     @And("User found with search SSN mesajini gorur")
     public void userFoundWithSearchSSNMesajiniGorur() {
         Driver.wait(1);
-        Assert.assertTrue(staff.onayKutusu.isDisplayed());
+        String expectedText="User found with search SSN";
+        Assert.assertEquals("User found with search SSN yazisi gorulemedi",expectedText,staff.onayKutusu.getText());
     }
 }
