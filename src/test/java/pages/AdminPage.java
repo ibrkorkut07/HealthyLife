@@ -62,8 +62,6 @@ public class AdminPage {
         @FindBy(xpath="//input[@id='file_image']")
         public WebElement ChooseFileBox;
 
-        @FindBy(xpath = "//input[@id='physician-examFee']")
-        public WebElement ExamFreeBox;
 
         @FindBy(xpath = "//select[@id='physician-user']")
         public WebElement UserBox;

@@ -211,4 +211,12 @@ actions.sendKeys(Keys.PAGE_DOWN).perform();
         Driver.wait(2);
         doctor.fotoUpload.sendKeys("C:\\doktor.png");
     }
+
+    @And("Admin doktorun muayene ucretini girer")
+    public void adminDoktorunMuayeneUcretiniGirer() {
+        doctor.ExamFreeBox.clear();
+        Driver.wait(2);
+        doctor.ExamFreeBox.sendKeys("500");
+        Driver.wait(2);
+    }
 }
