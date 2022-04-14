@@ -152,7 +152,7 @@ public class US_019 {
 //state
         select = new Select(staff.stateDropDown);
         Driver.wait(1);
-        int city=faker.random().nextInt(1,80);
+        int city=faker.random().nextInt(1,15);
         select.selectByIndex(city);
 
 
