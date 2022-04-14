@@ -33,6 +33,8 @@ public class DBUtils {
             e.printStackTrace();
         }
     }
+
+
     /**
      * DBUtils.executeQuery(String query); -> Execute the query and store is the result set object
      */
@@ -51,6 +53,8 @@ public class DBUtils {
             e.printStackTrace();
         }
     }
+
+
     //    used to close the connectivity
     public static void closeConnection() {
         try {
@@ -218,4 +222,6 @@ public class DBUtils {
         }
         return columns;
     }
+
+
 }

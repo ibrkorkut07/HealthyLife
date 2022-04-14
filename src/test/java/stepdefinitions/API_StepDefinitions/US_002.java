@@ -18,7 +18,7 @@ public class US_002 {
 
     @When("kullanici pathparams ve bearer token ayarlamasini yapar")
     public void kullanici_pathparams_ve_bearer_token_ayarlamasini_yapar() {
-        response=getRequest(generateToken("casper","Casper200"), ConfigReader.getProperty("medunnaAccount"));
+        response=getRequest(generateToken(), ConfigReader.getProperty("medunnaAccount"));
     }
 
     @Then("kullanici adini dogrular")

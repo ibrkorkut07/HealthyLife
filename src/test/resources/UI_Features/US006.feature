@@ -13,6 +13,7 @@ Scenario Outline:
   And email olarak "<email>" girer
   And Setting sayfasinda save butonuna basar
   And Setting Saved! yazisini gorur
+  And kullanici browseri kapatir
 
 
 

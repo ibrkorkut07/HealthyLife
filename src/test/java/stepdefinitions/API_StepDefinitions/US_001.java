@@ -34,7 +34,8 @@ public class US_001 {
         spec = new RequestSpecBuilder().setBaseUri(ConfigReader.getProperty("base_url")).build();
         spec.pathParams("first", "api", "second", "user","third","ssn=356-58-9632");
         /*
-        *
+
+c
         *  {
     "id": 44173,
     "login": "casper",
@@ -50,7 +51,7 @@ public class US_001 {
     public void accountlarin_bilgilerini_alir() {
 
         response = given().spec(spec).contentType(ContentType.JSON)
-                .header("Authorization","Bearer "+generateToken("team94admin","Batch44+"))
+                .header("Authorization","Bearer "+generateToken())
                 .when()
                 .get("/{first}/{second}/"+"?"+"{third}");
         System.out.println(response.asString());
@@ -90,7 +91,7 @@ public class US_001 {
         spec.pathParams("first", "api", "second", "register");
     }
 
-    @Then("expected datalari girer")
+    @Then("expected datalari girer.")
     public void expected_datalari_girer() {
     String    firstname = faker.name().firstName();
     String    lastname = faker.name().lastName();

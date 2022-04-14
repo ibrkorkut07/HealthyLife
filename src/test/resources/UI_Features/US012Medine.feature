@@ -11,9 +11,10 @@ Feature: Doktror_url_gider
     And Yeni sayfada acilan Request A Test buttonuna tiklar
     When Login ikonuna tklar ve Sign out sekmesine tiklar
 
-  Scenario: TC001_Doktor_hastaya_test_isteyebilmeli
 
+  Scenario: TC001_Doktor_hastaya_test_isteyebilmeli
     When Test Items texti gorunur oldugunu dogrular
+    And kullanici oturumu kapatir
 
 
   Scenario: TC002_Test_iceriginde_istenilecek_"Glucose_Urea_Creatinine_Sodium_Potassium_TotalProtein_Albumin_Hemoglobin"_testleri_olmali

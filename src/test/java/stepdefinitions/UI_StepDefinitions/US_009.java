@@ -5,17 +5,15 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
+import pages.LoginPage;
 import pages.StaffPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
-
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class US_009 {
@@ -24,6 +22,10 @@ public class US_009 {
     StaffPage staffPage = new StaffPage();
     Select select;
     Actions actions = new Actions(Driver.getDriver());
+    LoginPage loginPage = new LoginPage();
+    WebElement ssnDinamik;
+    Faker faker = new Faker();
+    String ssnx;
 
 
     @Given("Kullanici {string} adresine gider.")
@@ -38,14 +40,27 @@ public class US_009 {
 
     @Then("Sig in secenegini secer")
     public void sig_in_secenegini_secer() {
-        staffPage.IlkSigIn.click();
+        Driver.wait(1);
+        if(Driver.getDriver().getCurrentUrl().equals("https://www.medunna.com/logout")) {
+            Driver.wait(1);
+            Driver.getDriver().get("https://www.medunna.com/login");
+        }else {
+            Driver.wait(1);
+          Driver.getDriver().get("https://www.medunna.com/logout");
+            Driver.wait(1);
+            Driver.getDriver().get("https://www.medunna.com/login");
+
+        }
     }
 
     @And("Staff olarak username ve password girer")
     public void staffOlarakUsernameVePasswordGirer() {
-
+        Driver.wait(1);
         staffPage.UsernameBox.sendKeys(ConfigReader.getProperty("StaffValidUsername"));
+        Driver.wait(1);
         staffPage.PasswordBox.sendKeys(ConfigReader.getProperty("StaffValidPassword"));
+        Driver.wait(1);
+
     }
 
     @Then("Sigin  tiklar")
@@ -55,11 +70,15 @@ public class US_009 {
 
     @Then("My PAGES sekmesine tiklar")
     public void my_pages_sekmesine_tiklar() {
+        Driver.wait(1);
+
         staffPage.myPagesButonu.click();
     }
 
     @Then("Search Patient secenegini secer")
     public void search_patient_secenegini_secer() {
+        Driver.wait(1);
+
         staffPage.searchPatientButonu.click();
     }
 
@@ -76,7 +95,12 @@ public class US_009 {
 
     @And("Patientssn kutusuna {string} girer")
     public void patientssnKutusunaGirer(String ssn) {
-        staffPage.patentSsnBox.sendKeys(ssn);
+        int random = faker.random().nextInt(2,19);
+         ssnDinamik = Driver.getDriver().findElement(By.xpath("//tbody/tr["+random+"]/td[2]"));
+
+          ssnx = ssnDinamik.getText();
+
+        staffPage.patentSsnBox.sendKeys(ssnx);
         Driver.wait(1);
 
     }
@@ -112,16 +136,16 @@ public class US_009 {
 
 
         select=new Select(staffPage.genderDropdownElement);
-        staffPage.genderDropdownElement.click();
+       // staffPage.genderDropdownElement.click();
         Driver.wait(1);
         select.selectByVisibleText("FEMALE");
-        staffPage.genderDropdownElement.click();
+        //staffPage.genderDropdownElement.click();
 
         select=new Select(staffPage.bloodGroupDropdownElement);
-        staffPage.bloodGroupDropdownElement.click();
+      //  staffPage.bloodGroupDropdownElement.click();
         select.selectByIndex(0);
         Driver.wait(1);
-        staffPage.bloodGroupDropdownElement.click();
+        //staffPage.bloodGroupDropdownElement.click();
 
         actions.
                 sendKeys(Keys.TAB).
@@ -135,7 +159,11 @@ public class US_009 {
 
     @And("Save tiklar")
     public void saveTiklar() {
-        Driver.waitAndClick(staffPage.saveButton);
+       // Driver .waitAndClick(staffPage.saveButton);
+        JavascriptExecutor jsexecutor = ((JavascriptExecutor) Driver.getDriver());
+        jsexecutor.executeScript("arguments[0].scrollIntoView(true);", staffPage.saveButton);
+
+        jsexecutor.executeScript("arguments[0].click();", staffPage.saveButton);
     }
 
 
@@ -193,7 +221,7 @@ public class US_009 {
         String actualText= staffPage.deleteHataYazisi.getText();
         Assert.assertEquals(expectedText,actualText);
 
-
+        System.out.println(actualText);
 
     }
 
@@ -217,7 +245,7 @@ public class US_009 {
 
         Driver.wait(2);
         List<WebElement> hastaDegerleri=staffPage.hastaBilgileri();
-        Assert.assertTrue(hastaDegerleri.get(1).getText().equals("026-06-1990"));
+        Assert.assertTrue(hastaDegerleri.get(1).getText().equals(ssnx));
 
         System.out.println(hastaDegerleri.get(1).getText());
         System.out.println(hastaDegerleri.get(2).getText());
@@ -225,9 +253,17 @@ public class US_009 {
 
 
     }
+
+
+  
+
 }
 
 
+//db_credentials_url=jdbc:postgresql://medunna.com:5432/medunna_db
+//db_username=medunnadb_user
+//db_password=Medunnadb_@129
+//https://app.swaggerhub.com/apis/MuratTANC/medunna-api/0.0.1  api icin
 
 
 

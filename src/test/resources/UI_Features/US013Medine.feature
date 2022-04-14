@@ -16,6 +16,7 @@ Feature: Doktor_Test_Result_islemleri_yapabilmeli
     Then Testleri guncellemek icin Edit sekmesini tiklar
     And save buttonuna tiklar
     And A Test Result is update with identifier texti test edilir
+    And kullanici oturumu kapatir
 
     Examples:
       |SSN|
@@ -30,6 +31,8 @@ Feature: Doktor_Test_Result_islemleri_yapabilmeli
     Then Show Test Results buttonunu tiklar
     And View Results buttonuna tiklar
     And Test Results sayfasinda test sonuclarini gordugunu test eder
+    And kullanici oturumu kapatir
+
 
   Scenario: TC003_Doktor_RequestImpatient_isteginde_bulunabilmeli
 
@@ -41,3 +44,5 @@ Feature: Doktor_Test_Result_islemleri_yapabilmeli
     And My Pages sekmesine tiklar
     And My Inpatients secenegini secer ve tiklar
     And In patients sayfasinda hastayi gordugunu test eder
+    And kullanici oturumu kapatir
+    And kullanici browseri kapatir

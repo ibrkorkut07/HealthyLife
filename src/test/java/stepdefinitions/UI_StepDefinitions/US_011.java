@@ -18,8 +18,9 @@ public class US_011 {
     Actions actions = new Actions(Driver.getDriver());
     Select select;
 
-    @Given("kullanici\\(doktor){string} sayfasına gider")
-    public void kullaniciDoktorSayfasnaGider(String arg0) {
+
+    @Given("kullanici\\(doktor){string} sayfasina gider")
+    public void kullaniciDoktorSayfasinaGider(String arg0) {
         Driver.getDriver().get(ConfigReader.getProperty(arg0));
     }
 
@@ -32,22 +33,31 @@ public class US_011 {
     @Then("kullanici\\(doktor) Sign in i secer")
     public void kullaniciDoktorSignInISecer() {
         Driver.wait(1);
-        loginPage.anaSayfaSignIn.click();
+        if(Driver.getDriver().getCurrentUrl().equals("https://www.medunna.com/logout")) {
+            Driver.wait(1);
+            Driver.getDriver().get("https://www.medunna.com/login");
+        }else {
+            Driver.wait(1);
+            Driver.getDriver().get("https://www.medunna.com/logout");
+            Driver.wait(1);
+            Driver.getDriver().get("https://www.medunna.com/login");
+
+        }
     }
 
-    @And("kullanici\\(doktor){string} textbox'a  geçerli bir username girer")
+    @And("kullanici\\(doktor){string} textbox'a  gecerli bir username girer")
     public void kullaniciDoktorTextboxAGecerliBirUsernameGirer(String arg0) {
         Driver.wait(1);
         loginPage.UserNameBox.sendKeys(ConfigReader.getProperty(arg0));
     }
 
-    @And("kullanici\\(doktor){string} textbox'a geçerli bir password girer")
+    @And("kullanici\\(doktor){string} textbox'a gecerli bir password girer")
     public void kullaniciDoktorTextboxAGecerliBirPasswordGirer(String arg0) {
         Driver.wait(1);
         loginPage.passwordBox.sendKeys(ConfigReader.getProperty(arg0));
     }
 
-    @Then("kullanici\\(doktor)My Pages menu butonuna tıklar")
+    @Then("kullanici\\(doktor)My Pages menu butonuna tiklar")
     public void kullaniciDoktorMyPagesMenuButonunaTiklar() {
         Driver.wait(1);
         doctorPage.myPagesButton.click();
@@ -82,29 +92,30 @@ public class US_011 {
 
     }
 
-    @Given("kullanici\\(Doktor)hastanın id bilgilerini görür")
-    public void kullaniciDoktorHastanınIdBilgileriniGörür() {
+    @Given("kullanici\\(Doktor)hastanin id bilgilerini gorur")
+    public void kullaniciDoktorHastaninIdBilgileriniGorur() {
 
-        doctorPage.createAppointmentIdBox.isDisplayed();
+        Assert.assertTrue(doctorPage.createAppointmentIdBox.isDisplayed());
+
     }
 
-    @And("kullanici\\(Doktor)hastanın start and end date bilgilerini görür")
-    public void kullaniciDoktorHastanınStartAndEndDateBilgileriniGörür() {
-        doctorPage.createAppointmentStartDateTime.isDisplayed();
-        doctorPage.createAppointmentEndDateTime.isDisplayed();
+    @And("kullanici\\(Doktor)hastanin start and end date bilgilerini gorur")
+    public void kullaniciDoktorHastanınStartAndEndDateBilgileriniGorur() {
+        Assert.assertTrue(doctorPage.createAppointmentStartDateTime.isDisplayed());
+        Assert.assertTrue(doctorPage.createAppointmentEndDateTime.isDisplayed());
     }
 
-    @And("kullanici\\(Doktor)hastanın Status bilgilerini görür")
-    public void kullaniciDoktorHastanınStatusBilgileriniGörür() {
+    @And("kullanici\\(Doktor)hastanin Status bilgilerini gorur")
+    public void kullaniciDoktorHastanınStatusBilgileriniGorur() {
 
-        doctorPage.createAppointmentStatus.isDisplayed();
+        Assert.assertTrue(doctorPage.createAppointmentStatus.isDisplayed());
     }
 
-    @And("kullanici\\(Doktor)hastanın physician and patient bilgilerini görür")
-    public void kullaniciDoktorHastanınPhysicianAndPatientBilgileriniGörür() {
+    @And("kullanici\\(Doktor)hastanin physician and patient bilgilerini gorur")
+    public void kullaniciDoktorHastanınPhysicianAndPatientBilgileriniGorur() {
         actions.sendKeys(Keys.END).perform();
         Driver.wait(1);
-        doctorPage.createAppointmentPhysician.isDisplayed();
+        Assert.assertTrue(doctorPage.createAppointmentPhysician.isDisplayed());
 
     }
 
@@ -139,7 +150,8 @@ public class US_011 {
     @Then("kullanici \\(Doktor)Anamnesis  textbox a bilgi girer")
     public void kullaniciDoktorAnamnesisTextboxABilgiGirer() {
         doctorPage.createAppointmentAnamnesisBox.clear();
-        doctorPage.createAppointmentAnamnesisBox.sendKeys("Hasta vitamin kullanıyor");
+        doctorPage.createAppointmentAnamnesisBox.sendKeys("Alerjik reaksiyon");
+        Assert.assertTrue(doctorPage.createAppointmentAnamnesisBox.isEnabled());
         Driver.wait(1);
     }
 
@@ -149,7 +161,8 @@ public class US_011 {
     public void kullaniciTreatmentTextboxABilgiGirer() {
         //actions.sendKeys(Keys.PAGE_DOWN).perform();
         doctorPage.createAppointmentTreatmentBox.clear();
-        doctorPage.createAppointmentTreatmentBox.sendKeys("Hasta vitamin kullanmayi birakmali");
+        doctorPage.createAppointmentTreatmentBox.sendKeys("Güneş kremi sürmeli");
+        Assert.assertTrue(doctorPage.createAppointmentTreatmentBox.isEnabled());
         Driver.wait(1);
 
     }
@@ -162,7 +175,8 @@ public class US_011 {
         doctorPage.createAppointmentDiagnosisBox.clear();
         //actions.sendKeys(Keys.PAGE_DOWN).perform();
         Driver.wait(1);
-        doctorPage.createAppointmentDiagnosisBox.sendKeys("Kurdeşen");
+        doctorPage.createAppointmentDiagnosisBox.sendKeys("Güneş alerjisi");
+        Assert.assertTrue(doctorPage.createAppointmentDiagnosisBox.isEnabled());
         Driver.wait(1);
     }
 
@@ -172,6 +186,7 @@ public class US_011 {
         actions.sendKeys(Keys.PAGE_DOWN).sendKeys(Keys.PAGE_DOWN).perform();
         Driver.wait(1);
         doctorPage.createAppointmentPrescriptionBox.sendKeys("Test");
+        Assert.assertTrue(doctorPage.createAppointmentPrescriptionBox.isEnabled());
         Driver.wait(1);
         doctorPage.createAppointmentPrescriptionBox.clear();
         Driver.wait(1);
@@ -183,6 +198,7 @@ public class US_011 {
     public void kullaniciDoktorDesscriptionTexboxDakiBilgileriSiler() {
         doctorPage.createAppointmentDescription.sendKeys("Test ");
 Driver.wait(1);
+        Assert.assertTrue(doctorPage.createAppointmentDescription.isEnabled());
         doctorPage.createAppointmentDescription.clear();
         Driver.wait(1);
 
@@ -206,7 +222,17 @@ Driver.wait(1);
 
     @And("ana sayfa Sign In butonuna tiklar")
     public void anaSayfaSignInButonunaTiklar() {
-        login.anaSayfaSignIn.click();
+        Driver.wait(1);
+        if(Driver.getDriver().getCurrentUrl().equals("https://www.medunna.com/logout")) {
+            Driver.wait(1);
+            Driver.getDriver().get("https://www.medunna.com/login");
+        }else {
+            Driver.wait(1);
+            Driver.getDriver().get("https://www.medunna.com/logout");
+            Driver.wait(1);
+            Driver.getDriver().get("https://www.medunna.com/login");
+
+        }
     }
 
     @And("username olarak {string} girer")
