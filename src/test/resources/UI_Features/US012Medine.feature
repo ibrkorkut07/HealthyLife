@@ -9,6 +9,7 @@ Feature: Doktror_url_gider
     And My Appointments secenegini secer ve tiklar
     And Test isteyebilmek icin, hastanin satirindaki Edit buttonuna tiklar
     And Yeni sayfada acilan Request A Test buttonuna tiklar
+    When Login ikonuna tklar ve Sign out sekmesine tiklar
 
   Scenario: TC001_Doktor_hastaya_test_isteyebilmeli
 
