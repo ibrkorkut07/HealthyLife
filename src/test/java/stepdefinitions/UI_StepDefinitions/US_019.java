@@ -4,6 +4,7 @@ import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.junit.After;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -23,6 +24,7 @@ public class US_019 {
     Actions actions;
     Select select;
     String actualLink="";
+    String view;
 
 
 
@@ -87,9 +89,13 @@ public class US_019 {
         staff.inputSsnBox.sendKeys(ssn);
     }
 
+
+
     @And("First Name,Last Name,Birth Date,Phone,Gender,Blood Group,Address,Description,Created Date,User,Country ve State-City kisimlarini doldurur.")
     public void firstNameLastNameBirthDatePhoneGenderBloodGroupAddressDescriptionCreatedDateUserCountryVeStateCityKisimlariniDoldurur() throws Throwable {
-actualLink=Driver.getDriver().getCurrentUrl();
+
+       // actualLink=Driver.getDriver().getCurrentUrl();
+        actualLink="https://medunna.com/staff/"+staff.idBox.getAttribute("value");
         faker = new Faker();
 //firstname
         if (staff.firstName.getAttribute("value").isEmpty()) {
@@ -139,11 +145,15 @@ actualLink=Driver.getDriver().getCurrentUrl();
 //country
 
         select = new Select(staff.countryDropDown);
+        select.selectByVisibleText("US");
+        Driver.wait(1);
         select.selectByVisibleText("Turkey");
 
 //state
         select = new Select(staff.stateDropDown);
-        select.selectByVisibleText("Ankara");
+        Driver.wait(1);
+        int city=faker.random().nextInt(1,80);
+        select.selectByIndex(city);
 
 
     }
@@ -156,6 +166,7 @@ actualLink=Driver.getDriver().getCurrentUrl();
         int satir=faker.random().nextInt(1,20);
 
         WebElement edit = Driver.getDriver().findElement(By.xpath("//tbody/tr["+satir+"]/td[15]/div[1]/a[2]"));
+        view="//tbody/tr["+satir+"]/td[15]/div[1]/a[1]";
 
         JavascriptExecutor jsexecutor = ((JavascriptExecutor) Driver.getDriver());
         jsexecutor.executeScript("arguments[0].scrollIntoView(true);", edit);
@@ -167,7 +178,8 @@ actualLink=Driver.getDriver().getCurrentUrl();
     @And("{string} yazisini gorur")
     public void yazisiniGorur(String text) {
         String expectedtext=text;
-        Driver.wait(1);
+        //Driver.wait(1);
+        Driver.waitForVisibility(staff.onayKutusu,4);
         String actualText = staff.onayKutusu.getText();
         Assert.assertTrue(actualText.contains(expectedtext));
 
@@ -175,18 +187,38 @@ actualLink=Driver.getDriver().getCurrentUrl();
 
     @And("Bilgilerin kaydedildigini dogrular")
     public void bilgilerinKaydedildiginiDogrular() {
-       actions=new Actions(Driver.getDriver());
         Driver.wait(1);
-        Driver.getDriver().get(actualLink);
-        Assert.assertFalse("FirstName Bos",staff.firstName.getAttribute("value").isEmpty());
-        Assert.assertFalse("LastName Bos",staff.lastName.getAttribute("value").isEmpty());
-        Assert.assertFalse("DogumTarihi Bos",staff.birthDayBox.getAttribute("value").isEmpty());
-        Assert.assertFalse("TelefonNo Bos",staff.phonebox.getAttribute("value").isEmpty());
-        Assert.assertFalse("Adress Bos",staff.adressBox.getAttribute("value").isEmpty());
-        Assert.assertFalse("Description Bos",staff.descriptionBox.getAttribute("value").isEmpty());
-        Assert.assertFalse("Country Bos",staff.countryDropDown.getAttribute("value").isEmpty());
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
-        Driver.wait(1);
-        Assert.assertFalse("State/City Kalici olarak kaydedilemiyor.",staff.stateDropDown.getAttribute("value").isEmpty());
+        WebElement tikla = Driver.getDriver().findElement(By.xpath(view));
+        Driver.clickWithJS(tikla);
+        WebElement value;
+
+        for (int i = 1; i <14 ; i++) {
+            value=Driver.getDriver().findElement(By.xpath("//dd["+i+"]"));
+            Assert.assertFalse(value.getText().isEmpty());
+
+        }
+
+
+
+      //  view.click();
+       // JavascriptExecutor jsexecutor = ((JavascriptExecutor) Driver.getDriver());
+//        jsexecutor.executeScript("arguments[0].scrollIntoView(true);", view);
+        //Driver.wait(1);
+       // jsexecutor.executeScript("arguments[0].click();", view);
+      // actions=new Actions(Driver.getDriver());
+//        Driver.wait(2);
+//        Driver.getDriver().navigate().to(actualLink);
+//        Driver.wait(1);
+
+//        Assert.assertFalse("FirstName Bos",staff.firstName.getAttribute("value").isEmpty());
+//        Assert.assertFalse("LastName Bos",staff.lastName.getAttribute("value").isEmpty());
+//        Assert.assertFalse("DogumTarihi Bos",staff.birthDayBox.getAttribute("value").isEmpty());
+//        Assert.assertFalse("TelefonNo Bos",staff.phonebox.getAttribute("value").isEmpty());
+//        Assert.assertFalse("Adress Bos",staff.adressBox.getAttribute("value").isEmpty());
+//        Assert.assertFalse("Description Bos",staff.descriptionBox.getAttribute("value").isEmpty());
+//        Assert.assertFalse("Country Bos",staff.countryDropDown.getAttribute("value").isEmpty());
+//        actions.sendKeys(Keys.PAGE_DOWN).perform();
+//        Driver.wait(1);
+//        Assert.assertFalse("State/City Kalici olarak kaydedilemiyor.",staff.stateDropDown.getAttribute("value").isEmpty());
     }
 }

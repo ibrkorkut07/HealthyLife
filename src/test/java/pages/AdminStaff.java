@@ -40,6 +40,9 @@ return randomSsn;
     @FindBy(xpath = "//button[normalize-space()='Search User']")
     public WebElement searchUserButton;
 
+    @FindBy(xpath = "//input[@id='staff-id']")
+    public WebElement idBox;
+
     @FindBy(id = "staff-firstName")
     public WebElement firstName;
 
