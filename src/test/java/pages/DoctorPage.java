@@ -229,6 +229,10 @@ public class DoctorPage {
     @FindBy(xpath = "//input[@id='file_image']")
     public WebElement fotoUpload;
 
+    @FindBy(xpath = "//input[@id='physician-examFee']")
+    public WebElement ExamFreeBox;
+
+
 
 
 

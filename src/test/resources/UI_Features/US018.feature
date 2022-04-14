@@ -61,7 +61,11 @@ Feature: US_018 Medunna Admin
 
 
 
-          Scenario: TC006 Admin, doktorun Muayene ücretini girebilmelidir. (Exam fee)
+          Scenario: TC006 Admin, doktorun Muayene ucretini girebilmelidir. (Exam fee)
+            Given Doktor listesinden rastgele bir doktor secip edit butonuna basar
+            And Admin doktorun muayene ucretini girer
+            And save buttonuna tiklar
+
 
 
 
@@ -73,4 +77,13 @@ Feature: US_018 Medunna Admin
 
 
 
-                Scenario: TC008 Admin, doktorlarin bilgilerini duzenleyebilir
+          Scenario: TC008 Admin, doktorlarin bilgilerini duzenleyebilir
+
+
+
+
+
+          Scenario: TC009 Admin, mevcut doktarlari silebilir
+
+
+
