@@ -146,7 +146,7 @@ public class US_019 {
 
         select = new Select(staff.countryDropDown);
         select.selectByVisibleText("US");
-        Driver.wait(1);
+        Driver.wait(2);
         select.selectByVisibleText("Turkey");
 
 //state
@@ -178,7 +178,6 @@ public class US_019 {
     @And("{string} yazisini gorur")
     public void yazisiniGorur(String text) {
         String expectedtext=text;
-        //Driver.wait(1);
         Driver.waitForVisibility(staff.onayKutusu,4);
         String actualText = staff.onayKutusu.getText();
         Assert.assertTrue(actualText.contains(expectedtext));
@@ -192,33 +191,26 @@ public class US_019 {
         Driver.clickWithJS(tikla);
         WebElement value;
 
+
         for (int i = 1; i <14 ; i++) {
             value=Driver.getDriver().findElement(By.xpath("//dd["+i+"]"));
             Assert.assertFalse(value.getText().isEmpty());
-
         }
 
 
 
-      //  view.click();
-       // JavascriptExecutor jsexecutor = ((JavascriptExecutor) Driver.getDriver());
-//        jsexecutor.executeScript("arguments[0].scrollIntoView(true);", view);
-        //Driver.wait(1);
-       // jsexecutor.executeScript("arguments[0].click();", view);
-      // actions=new Actions(Driver.getDriver());
-//        Driver.wait(2);
-//        Driver.getDriver().navigate().to(actualLink);
-//        Driver.wait(1);
+    }
 
-//        Assert.assertFalse("FirstName Bos",staff.firstName.getAttribute("value").isEmpty());
-//        Assert.assertFalse("LastName Bos",staff.lastName.getAttribute("value").isEmpty());
-//        Assert.assertFalse("DogumTarihi Bos",staff.birthDayBox.getAttribute("value").isEmpty());
-//        Assert.assertFalse("TelefonNo Bos",staff.phonebox.getAttribute("value").isEmpty());
-//        Assert.assertFalse("Adress Bos",staff.adressBox.getAttribute("value").isEmpty());
-//        Assert.assertFalse("Description Bos",staff.descriptionBox.getAttribute("value").isEmpty());
-//        Assert.assertFalse("Country Bos",staff.countryDropDown.getAttribute("value").isEmpty());
-//        actions.sendKeys(Keys.PAGE_DOWN).perform();
-//        Driver.wait(1);
-//        Assert.assertFalse("State/City Kalici olarak kaydedilemiyor.",staff.stateDropDown.getAttribute("value").isEmpty());
+    @And("Staff listesinden rastgele bir tanesinin View butonuna tiklar")
+    public void staffListesindenRastgeleBirTanesininViewButonunaTiklar() {
+        faker=new Faker();
+        int satir = faker.random().nextInt(1,20);
+        Driver.wait(1);
+        WebElement view = Driver.getDriver().findElement(By.xpath("//tbody/tr["+satir+"]/td[15]/div[1]/a[1]"));
+        Driver.clickWithJS(view);
+    }
+
+    @And("kullanici bilgilerinin goruntulandigini test eder")
+    public void kullaniciBilgilerininGoruntulandiginiTestEder() {
     }
 }
