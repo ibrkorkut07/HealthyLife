@@ -67,12 +67,14 @@ Feature: US_018 Medunna Admin
             Given Doktor listesinden rastgele bir doktor secip edit butonuna basar
             And Admin doktorun muayene ucretini girer
             And save buttonuna tiklar
+            And "A Physician is updated with identifier" yazisini gorur
 
 
 
 
 
-           Scenario: TC007 Admin, butun doctorlarin bilgilerini gorebilmelidir
+
+  Scenario: TC007 Admin, butun doctorlarin bilgilerini gorebilmelidir
 
 
 
