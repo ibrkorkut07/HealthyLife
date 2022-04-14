@@ -6,12 +6,24 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import utilities.Driver;
 
+import java.util.List;
+
 public class DoctorPage {
 
     public DoctorPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
+
+
+    @FindBy(xpath = "//input[@id='firstName']")
+    public WebElement settingsFirstNameBox;
+
+    @FindBy(xpath = "//span[normalize-space()='MY PAGES']")
+    public WebElement myPages;
+
+    @FindBy(xpath = "//span[normalize-space()='My Appointments']")
+    public WebElement myAppointments;
 
     @FindBy(xpath = "//span[normalize-space()='MY PAGES']")
     public WebElement myPagesButton;
@@ -39,13 +51,21 @@ public class DoctorPage {
 
     @FindBy(xpath = "//select[@id='appointment-physician']")
     public WebElement createAppointmentPhysician;
+    @FindBy(xpath = "//input[@id='lastName']")
+    public WebElement settingsLastNameBox;
 
+    @FindBy(xpath = "//input[@id='email']")
+    public WebElement settingsEmailBox;
     @FindBy(xpath = "//textarea[@id='appointment-anamnesis']")
     public WebElement createAppointmentAnamnesisBox;
 
+    @FindBy(xpath = "//button[@type='submit']")
+    public WebElement settingsSaveButton;
     @FindBy(xpath = "//textarea[@id='appointment-treatment']")
     public WebElement createAppointmentTreatmentBox;
 
+    @FindBy(xpath = "//strong[normalize-space()='Settings saved!']")
+    public WebElement settingsSaveSavedText;
     @FindBy(xpath = "//textarea[@id='appointment-diagnosis']")
     public WebElement createAppointmentDiagnosisBox;
 
@@ -73,6 +93,16 @@ public class DoctorPage {
     @FindBy(xpath = "//tbody/tr[1]/td[10]/div[1]/a[1]")
     public WebElement InPatientEditbutonu;
 
+
+    //@FindBy(xpath = "//*[text()='ID']")
+    //public WebElement DoctorID;
+    @FindBy(xpath = "//*[text()='42862']")
+    public WebElement DoctorId;
+
+    //   @FindBy(xpath = "//*[text()='Start Date']")
+    //   public WebElement StartDate;
+    @FindBy(xpath = "//span[.='01/04/22 16:56']")
+    public WebElement StartDate;
     @FindBy(xpath = "//input[@id='in-patient-id']")
     public WebElement inPatientsIdBox;
 
@@ -124,6 +154,23 @@ public class DoctorPage {
 
 
 
+    @FindBy(xpath = "//input[@id='fromDate']")
+    public WebElement fromDate;
+
+    @FindBy(id = "toDate")
+    public WebElement todate;
+
+    @FindBy(xpath = "//*[span='My Inpatients']" )
+    public WebElement myInpatientsDropdown;
+
+    @FindBy(xpath="//th[1]")
+    public WebElement appointmentIdBox;
+
+    @FindBy(id = "//th[4]")
+    public WebElement appointmentStatusBox;
+
+    @FindBy(xpath = "//tr//td[8]")
+    public List <WebElement> appoinmentList ;
 
 
 

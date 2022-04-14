@@ -1,3 +1,4 @@
+@demo
 Feature: Staff Appointment
 
 
@@ -21,7 +22,8 @@ Feature: Staff Appointment
 
     Examples:
       | FirstName | LastName | SSN         | Email         | Phone        | AppointmentDate |
-      |      | fidan    | 256-65-8745 | user@user.com | 333-545-6985 | 24042022|
+      |      | lastname    | 256-65-8745 | user@user.com | 333-545-6985 | 24042022|
+
 
 
   Scenario Outline: TC002 (SSN bos birakilamaz.)
@@ -38,7 +40,7 @@ Feature: Staff Appointment
 
     Examples:
       | FirstName | LastName | SSN         | Email         | Phone        | AppointmentDate |
-      | hasan     | fidan    |  | user@user.com | 333-545-6985 | 24042022|
+      | firstname     | lastname    |  | user@user.com | 333-545-6985 | 24042022|
 
 
   Scenario Outline: TC003 (Last Name bos birakilamaz.)
@@ -55,7 +57,7 @@ Feature: Staff Appointment
 
     Examples:
       | FirstName | LastName | SSN         | Email         | Phone        | AppointmentDate |
-      | hasan     |     | 256-65-8745 | user@user.com | 333-545-6985 | 24042022|
+      | firstname     |     | 256-65-8745 | user@user.com | 333-545-6985 | 24042022|
 
 
   Scenario Outline: TC004 (Email bos birakilamaz.)
@@ -72,7 +74,7 @@ Feature: Staff Appointment
 
     Examples:
       | FirstName | LastName | SSN         | Email         | Phone        | AppointmentDate |
-      | hasan     | fidan    | 256-65-8745 |  | 333-545-6985 | 24042022|
+      | firstname     | lastname    | 256-65-8745 |  | 333-545-6985 | 24042022|
 
 
   Scenario Outline: TC005 (Email adresinde @ sembolu olmak zorunda)
@@ -89,7 +91,7 @@ Feature: Staff Appointment
 
     Examples:
       | FirstName | LastName | SSN         | Email         | Phone        | AppointmentDate |
-      | hasan     | fidan    | 256-65-8745 |useruser.com  | 333-545-6985 | 24042022|
+      | firstname     | lastname    | 256-65-8745 |useruser.com  | 333-545-6985 | 24042022|
 
 
   Scenario Outline: TC006 (Email adresinde nokta (.) isareti olmak zorunda)
@@ -104,27 +106,26 @@ Feature: Staff Appointment
 
 
 
-
     Examples:
       | FirstName | LastName | SSN         | Email         | Phone        | AppointmentDate |
-      | hasan     | fidan    | 256-65-8745 |user@usercom  | 333-545-6985 | 24042022|
+      | firstname     | lastname    | 256-65-8745 |user@usercom  | 333-545-6985 | 24042022|
 
 
-  Scenario Outline: TC007
-    And isim olarak "<FirstName>" girer
-    And soy isim "<LastName>" girer
-    And SSN numarasi olarak "<SSN>" girer
-    And Email adresi olarak "<Email>" girer
-    And Telefon numarasi olarak "<Phone>" girer
-    And Appointment Date olarak "<AppointmentDate>" girer
-    Then Send an Appointment Request butonuna tiklar.
-    And "Appointment registration saved!" onay mesaji gorulur.
+ #Scenario Outline: TC007
+ #  And isim olarak "<FirstName>" girer
+ #  And soy isim "<LastName>" girer
+ #  And SSN numarasi olarak "<SSN>" girer
+ #  And Email adresi olarak "<Email>" girer
+ #  And Telefon numarasi olarak "<Phone>" girer
+ #  And Appointment Date olarak "<AppointmentDate>" girer
+ #  Then Send an Appointment Request butonuna tiklar.
+ #  And "Appointment registration saved!" onay mesaji gorulur.
 
 
 
-    Examples:
-      | FirstName | LastName | SSN         | Email         | Phone        | AppointmentDate |
-      | hasan     | fidan    | 256-65-8745 |user@user.com  | 333-545-6985 | 24042022|
+ #  Examples:
+ #    | FirstName | LastName | SSN         | Email         | Phone        | AppointmentDate |
+ #    | firstname     | lastname    | 256-65-8745 |user@user.com  | 333-545-6985 | 24042022|
 
 
   Scenario Outline: TC008 (Telefon numarasi bos birakilamaz)
@@ -141,7 +142,7 @@ Feature: Staff Appointment
 
     Examples:
       | FirstName | LastName | SSN         | Email         | Phone        | AppointmentDate |
-      | hasan     | fidan    | 256-65-8745 |user@user.com  |  | 24042022|
+      | firstname     | lastname    | 256-65-8745 |user@user.com  |  | 24042022|
 
 
   Scenario Outline: TC009 (Telefon numarasinda 3. ve 6. rakamdan sonra tire (-) olmali ve toplam 10 rakamdan olusmali)
@@ -158,7 +159,7 @@ Feature: Staff Appointment
 
     Examples:
       | FirstName | LastName | SSN         | Email         | Phone        | AppointmentDate |
-      | hasan     | fidan    | 256-65-8745 |user@user.com  | 333-545-6985555  | 24042022|
+      | firstname     | lastname    | 256-65-8745 |user@user.com  | 333-545-6985555  | 24042022|
 
 
   Scenario Outline: TC010 (Telefon numarasinda 3. ve 6. rakamdan sonra tire (-) olmali ve toplam 10 rakamdan olusmali)
@@ -170,12 +171,13 @@ Feature: Staff Appointment
     And Appointment Date olarak "<AppointmentDate>" girer
     Then Send an Appointment Request butonuna tiklar.
     And "Phone number is invalid" hata mesajini gorur.
+    And kullanici browseri kapatir
 
 
 
     Examples:
       | FirstName | LastName | SSN         | Email         | Phone        | AppointmentDate |
-      | hasan     | fidan    | 256-65-8745 |user@user.com  | 3335456985  | 24042022|
+      | firstname     | lastname    | 256-65-8745 |user@user.com  | 3335456985  | 24042022|
 
 
 

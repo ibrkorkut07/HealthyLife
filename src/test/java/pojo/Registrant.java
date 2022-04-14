@@ -1,33 +1,54 @@
 package pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Registrant {
 
-    private String SSN;
+    /*
+    {
+    "activated": true,
+    "authorities": [
+    "string"
+    ],
+    "createdBy": "string",
+    "createdDate": "2022-04-03T10:37:45.333Z",
+    "email": "string",
+    "firstName": "string",
+    "id": 0",
+    "imageUrl": "string",
+    "langKey": "string",
+    "lastModifiedBy": "string",
+    "lastModifiedDate": "2022-04-03T10:37:45.333Z",
+    "lastName": "string",
+    "login": "string",
+    "password": "string",
+    "ssn": "string",
+    "email": "string"
+    }
+     */
+
     private String firstName;
     private String lastName;
-    private String username;
-    private String email;
+    private String ssn;
+    private String login;
+    private String langKey;
     private String password;
+    private String email;
 
     public Registrant() {
     }
 
-    public Registrant(String SSN, String firstName, String lastName, String username, String email, String password) {
-        this.SSN = SSN;
+    public Registrant(String firstName, String lastName, String ssn, String login, String langKey, String password, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.username = username;
-        this.email = email;
+        this.ssn = ssn;
+        this.login = login;
+        this.langKey = langKey;
         this.password = password;
+        this.email = email;
     }
 
-    public String getSSN() {
-        return SSN;
-    }
-
-    public void setSSN(String SSN) {
-        this.SSN = SSN;
-    }
 
     public String getFirstName() {
         return firstName;
@@ -45,20 +66,28 @@ public class Registrant {
         this.lastName = lastName;
     }
 
-    public String getUsername() {
-        return username;
+    public String getSsn() {
+        return ssn;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setSsn(String ssn) {
+        this.ssn = ssn;
     }
 
-    public String getEmail() {
-        return email;
+    public String getLogin() {
+        return login;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getLangKey() {
+        return langKey;
+    }
+
+    public void setLangKey(String langKey) {
+        this.langKey = langKey;
     }
 
     public String getPassword() {
@@ -69,15 +98,25 @@ public class Registrant {
         this.password = password;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+
     @Override
     public String toString() {
         return "Registrant{" +
-                "SSN='" + SSN + '\'' +
-                ", firstName='" + firstName + '\'' +
+                "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", username='" + username + '\'' +
-                ", email='" + email + '\'' +
+                ", ssn='" + ssn + '\'' +
+                ", login='" + login + '\'' +
+                ", langKey='" + langKey + '\'' +
                 ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
                 '}';
     }
 }

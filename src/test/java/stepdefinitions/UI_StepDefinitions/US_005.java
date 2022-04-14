@@ -4,11 +4,9 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
-import org.openqa.selenium.Keys;
 import pages.AppointmentPage;
 import utilities.ConfigReader;
 import utilities.Driver;
-import utilities.ReusableMethods;
 
 public class US_005 {
     AppointmentPage us05 = new AppointmentPage();
@@ -81,6 +79,7 @@ public class US_005 {
     public void onayMesajiGorulur(String arg0) {
         Driver.wait(1);
         String expectedText=arg0;
+        Driver.wait(1);
         String actualtext = us05.registerOnayMesaji.getText();
         Assert.assertEquals(expectedText,actualtext);
 

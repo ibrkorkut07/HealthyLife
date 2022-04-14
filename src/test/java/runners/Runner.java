@@ -10,13 +10,14 @@ import org.junit.runner.RunWith;
                 "html:target/default-cucumber-reports.html",
                 "json:target/json-reports/cucumber.json",
                 "junit:target/xml-report/cucumber.xml",
-                "rerun:target/failedRerun.txt"
+
         },
-        features = "src/test/resources/features",//MUST
-        glue = "stepdefinitions",//MUST
-        tags = "@US14",
+        features = "./src/test/resources/",
+        glue = {"stepdefinitions", "Hooks"},
+        tags = "@demo",
         dryRun = false
 )
+
 
 public class Runner {
 }

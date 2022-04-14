@@ -1,5 +1,5 @@
 
-@US14
+@demo
 Feature: US0014_medunna
 
   Background:  US014
@@ -67,3 +67,5 @@ Feature: US0014_medunna
    Given kullanici(doktor) Appoinment bilgilerini gunceller
    And kullanici(doktor) Patient bilgilerini gunceller
    And kullanici oturumu kapatir
+  And kullanici browseri kapatir
+  #  And kullanici "rapor" adresine gider

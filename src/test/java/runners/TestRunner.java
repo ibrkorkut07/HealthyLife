@@ -12,9 +12,9 @@ import org.junit.runner.RunWith;
                 "junit:target/xml-report/cucumber.xml",
                 "rerun:target/failedRerun.txt"
         },
-        features = "./src/test/resources/features",
+        features = "src/test/resources",
         glue = "stepdefinitions",
-        tags = "@login_test",
+        tags = "@deneme",
         dryRun = false
 )
 public class TestRunner {
