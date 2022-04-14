@@ -42,6 +42,7 @@ Feature: US_018 Medunna Admin
       Given Doktor listesinden rastgele bir doktor secip edit butonuna basar
       And Admin Doktorun uzmanlik alanini secer
       And save buttonuna tiklar
+      And kullanici oturumu kapatir
 
 
 
@@ -55,7 +56,7 @@ Feature: US_018 Medunna Admin
 
 
 
-          Scenario: TC005 Admin mevcut kullanİcilar arasindan doktoru secmelidir.
+        #  Scenario: TC005 Admin mevcut kullanİcilar arasindan doktoru secmelidir.
 
 
 
@@ -65,6 +66,7 @@ Feature: US_018 Medunna Admin
             Given Doktor listesinden rastgele bir doktor secip edit butonuna basar
             And Admin doktorun muayene ucretini girer
             And save buttonuna tiklar
+            And kullanici oturumu kapatir
 
 
 

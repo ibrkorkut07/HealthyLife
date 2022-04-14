@@ -193,7 +193,7 @@ actions.sendKeys(Keys.PAGE_DOWN).perform();
         faker=new Faker();
 
         for (int i = 0; i < 4; i++) {
-            int random = faker.random().nextInt(1,15);
+            int random = faker.random().nextInt(1,18);
             Driver.wait(1);
             select.selectByIndex(random);
 
