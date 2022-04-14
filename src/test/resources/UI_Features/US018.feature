@@ -42,6 +42,7 @@ Feature: US_018 Medunna Admin
       Given Doktor listesinden rastgele bir doktor secip edit butonuna basar
       And Admin Doktorun uzmanlik alanini secer
       And save buttonuna tiklar
+      And kullanici oturumu kapatir
 
 
 
@@ -50,6 +51,7 @@ Feature: US_018 Medunna Admin
         Scenario: TC004 Yonetici  doktorun profil fotografini saglayabilir
           Given Doktor listesinden rastgele bir doktor secip edit butonuna basar
           And Admin doktorun profil fotografini degistirebilir
+          And kullanici oturumu kapatir
 
 
 

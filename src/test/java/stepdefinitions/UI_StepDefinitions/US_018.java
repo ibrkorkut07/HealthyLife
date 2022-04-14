@@ -205,7 +205,7 @@ actions.sendKeys(Keys.PAGE_DOWN).perform();
     @And("Admin doktorun profil fotografini degistirebilir")
     public void adminDoktorunProfilFotografiniDegistirebilir() {
         actions=new Actions(Driver.getDriver());
-       // ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", doctor.fotoUpload);
+        ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", doctor.fotoUpload);
 
         actions.sendKeys(Keys.PAGE_DOWN).perform();
         Driver.wait(2);
