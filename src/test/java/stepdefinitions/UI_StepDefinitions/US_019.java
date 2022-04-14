@@ -5,14 +5,24 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 import pages.AdminStaff;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 public class US_019 {
 
     AdminStaff staff = new AdminStaff();
     String randomSSN;
     Faker faker;
+    Actions actions;
+    Select select;
+    String actualLink="";
 
 
 
@@ -79,18 +89,104 @@ public class US_019 {
 
     @And("First Name,Last Name,Birth Date,Phone,Gender,Blood Group,Address,Description,Created Date,User,Country ve State-City kisimlarini doldurur.")
     public void firstNameLastNameBirthDatePhoneGenderBloodGroupAddressDescriptionCreatedDateUserCountryVeStateCityKisimlariniDoldurur() throws Throwable {
-
+actualLink=Driver.getDriver().getCurrentUrl();
         faker = new Faker();
-        staff.firstName.sendKeys(faker.name().firstName());
-        staff.lastName.sendKeys(faker.name().lastName());
-     //   staff.birthDayBox.sendKeys(faker.date().birthday());
-        staff.phonebox.sendKeys("256-365-3255");
-        staff.firstName.sendKeys(faker.name().firstName());
+//firstname
+        if (staff.firstName.getAttribute("value").isEmpty()) {
+            staff.firstName.sendKeys(faker.name().firstName());
+        } else {
+            String text = staff.firstName.getAttribute("value");
+            staff.firstName.clear();
+            Driver.wait(1);
+            staff.firstName.sendKeys(text);
+        }
+//lastname
+        if (staff.lastName.getAttribute("value").isEmpty()) {
+            staff.lastName.sendKeys(faker.name().lastName());
+        } else {
+            String text = staff.lastName.getAttribute("value");
+            staff.lastName.clear();
+            Driver.wait(1);
+            staff.lastName.sendKeys(text);
+        }
+//phone
+        if (staff.phonebox.getAttribute("value").isEmpty()) {
+            staff.phonebox.sendKeys("365-360-2599");
+        } else {
+            String text = staff.phonebox.getAttribute("value");
+            staff.phonebox.clear();
+            Driver.wait(1);
+            staff.phonebox.sendKeys(text);
+        }
+//adres
+        if (staff.adressBox.getAttribute("value").isEmpty()) {
+            staff.adressBox.sendKeys(faker.address().fullAddress());
+        } else {
+            String text = staff.adressBox.getAttribute("value");
+            staff.adressBox.clear();
+            Driver.wait(1);
+            staff.adressBox.sendKeys(text);
+        }
+//Description
+        if (staff.descriptionBox.getAttribute("value").isEmpty()) {
+            staff.descriptionBox.sendKeys(faker.name().title());
+        } else {
+            String text = staff.descriptionBox.getAttribute("value");
+            staff.descriptionBox.clear();
+            Driver.wait(1);
+            staff.descriptionBox.sendKeys(text);
+        }
+//country
+
+        select = new Select(staff.countryDropDown);
+        select.selectByVisibleText("Turkey");
+
+//state
+        select = new Select(staff.stateDropDown);
+        select.selectByVisibleText("Ankara");
 
 
+    }
 
+    @And("Staff listesinden rastgele bir tanesinin Edit butonuna tiklar")
+    public void staffListesindenRastgeleBirTanesininEditButonunaTiklar() {
 
+        Faker faker = new Faker();
+        Driver.wait(1);
+        int satir=faker.random().nextInt(1,20);
 
+        WebElement edit = Driver.getDriver().findElement(By.xpath("//tbody/tr["+satir+"]/td[15]/div[1]/a[2]"));
 
-       }
+        JavascriptExecutor jsexecutor = ((JavascriptExecutor) Driver.getDriver());
+        jsexecutor.executeScript("arguments[0].scrollIntoView(true);", edit);
+        Driver.wait(1);
+        jsexecutor.executeScript("arguments[0].click();", edit);
+
+    }
+
+    @And("{string} yazisini gorur")
+    public void yazisiniGorur(String text) {
+        String expectedtext=text;
+        Driver.wait(1);
+        String actualText = staff.onayKutusu.getText();
+        Assert.assertTrue(actualText.contains(expectedtext));
+
+    }
+
+    @And("Bilgilerin kaydedildigini dogrular")
+    public void bilgilerinKaydedildiginiDogrular() {
+       actions=new Actions(Driver.getDriver());
+        Driver.wait(1);
+        Driver.getDriver().get(actualLink);
+        Assert.assertFalse("FirstName Bos",staff.firstName.getAttribute("value").isEmpty());
+        Assert.assertFalse("LastName Bos",staff.lastName.getAttribute("value").isEmpty());
+        Assert.assertFalse("DogumTarihi Bos",staff.birthDayBox.getAttribute("value").isEmpty());
+        Assert.assertFalse("TelefonNo Bos",staff.phonebox.getAttribute("value").isEmpty());
+        Assert.assertFalse("Adress Bos",staff.adressBox.getAttribute("value").isEmpty());
+        Assert.assertFalse("Description Bos",staff.descriptionBox.getAttribute("value").isEmpty());
+        Assert.assertFalse("Country Bos",staff.countryDropDown.getAttribute("value").isEmpty());
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        Driver.wait(1);
+        Assert.assertFalse("State/City Kalici olarak kaydedilemiyor.",staff.stateDropDown.getAttribute("value").isEmpty());
+    }
 }

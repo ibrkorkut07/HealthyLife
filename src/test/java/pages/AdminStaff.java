@@ -2,6 +2,7 @@ package pages;
 
 import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -83,6 +84,8 @@ return randomSsn;
 
     @FindBy(xpath = "//div[@role='alert']")
     public WebElement onayKutusu;
+
+
 
 
 

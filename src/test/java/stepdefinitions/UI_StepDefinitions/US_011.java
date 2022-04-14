@@ -223,7 +223,7 @@ Driver.wait(1);
     @And("ana sayfa Sign In butonuna tiklar")
     public void anaSayfaSignInButonunaTiklar() {
         Driver.wait(1);
-        if(Driver.getDriver().getCurrentUrl().equals("https://www.medunna.com/logout") ||Driver.getDriver().getCurrentUrl().equals("https://www.medunna.com/")) {
+        if(Driver.getDriver().getCurrentUrl().equals("https://www.medunna.com/logout") | Driver.getDriver().getCurrentUrl().equals("https://www.medunna.com/")) {
             Driver.wait(1);
             Driver.getDriver().get("https://www.medunna.com/login");
         }else {
