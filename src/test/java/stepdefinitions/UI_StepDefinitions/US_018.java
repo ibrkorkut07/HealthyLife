@@ -146,7 +146,7 @@ public class US_018 {
 
 //fotochange
         Driver.wait(1);
-        doctor.fotoUpload.sendKeys("C:\\Users\\Ayşe\\Desktop\\doktor.png");
+        doctor.fotoUpload.sendKeys("C:\\doktor.png");
 
 
 //country
