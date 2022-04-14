@@ -205,8 +205,10 @@ actions.sendKeys(Keys.PAGE_DOWN).perform();
     @And("Admin doktorun profil fotografini degistirebilir")
     public void adminDoktorunProfilFotografiniDegistirebilir() {
         actions=new Actions(Driver.getDriver());
+       // ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", doctor.fotoUpload);
+
         actions.sendKeys(Keys.PAGE_DOWN).perform();
-        Driver.wait(1);
-        doctor.fotoUpload.sendKeys("C:\\Users\\Ayşe\\Desktop\\doktor.png");
+        Driver.wait(2);
+        doctor.fotoUpload.sendKeys("C:\\doktor.png");
     }
 }
