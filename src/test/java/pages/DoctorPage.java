@@ -173,6 +173,87 @@ public class DoctorPage {
     public List <WebElement> appoinmentList ;
 
 
+    /**   US018/
+     *
+     */
+
+
+    @FindBy(xpath = "//input[@id='physician-id']")
+    public WebElement idBox;
+
+    @FindBy(id = "physician-firstName")
+    public WebElement firstName;
+
+    @FindBy(id = "physician-lastName")
+    public WebElement lastName;
+
+    @FindBy(id = "physician1-birthDate")
+    public WebElement birthDayBox;
+
+    @FindBy(id = "physician-phone")
+    public WebElement phonebox;
+
+    @FindBy(id = "physician-gender")
+    public WebElement genderDropDown;
+
+    @FindBy(id = "physician-bloodGroup")
+    public WebElement bloodGroupDropDown;
+
+    @FindBy(id = "physician-adress")
+    public WebElement adressBox;
+
+    @FindBy(id = "physician-description")
+    public WebElement descriptionBox;
+
+    @FindBy(id = "physician-createdDate" )
+    public WebElement createddate;
+
+    @FindBy(id = "physician-user" )
+    public WebElement staffUserdropDown;
+
+    @FindBy(id = "physician-country")
+    public WebElement countryDropDown;
+
+    @FindBy(id = "physician-cstate")
+    public WebElement stateDropDown;
+
+    @FindBy(id = "cancel-save")
+    public WebElement backButton;
+
+    @FindBy(id ="save-entity" )
+    public WebElement saveButton;
+
+    @FindBy(xpath = "//select[@id='physician-speciality']")
+    public WebElement uzmanlikDropDown;
+
+    @FindBy(xpath = "//input[@id='file_image']")
+    public WebElement fotoUpload;
+
+    @FindBy(xpath = "//input[@id='physician-examFee']")
+    public WebElement ExamFreeBox;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }
