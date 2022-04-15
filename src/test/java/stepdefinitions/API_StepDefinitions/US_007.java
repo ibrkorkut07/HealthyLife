@@ -11,11 +11,10 @@ import pojo.Appointment;
 import utilities.ConfigReader;
 
 import java.util.HashMap;
-import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
-import static utilities.Authentication.generateToken;
+import static utilities.Authentication2.generateToken;
 
 public class US_007 {
     RequestSpecification spec;

@@ -55,6 +55,7 @@ Feature: US19 Admin olarak Yeni Staff (Personel) Olusturma Guncelleme Goruntulem
       And save buttonuna tiklar
       And Bilgilerin silindigini kontrol eder
       And kullanici oturumu kapatir
+      And kullanici browseri kapatir
 
 
 
