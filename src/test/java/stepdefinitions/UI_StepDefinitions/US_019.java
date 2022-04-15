@@ -213,4 +213,35 @@ public class US_019 {
     @And("kullanici bilgilerinin goruntulandigini test eder")
     public void kullaniciBilgilerininGoruntulandiginiTestEder() {
     }
+
+    @And("Bilgilerin silindigini kontrol eder")
+    public void bilgilerinSilindiginiKontrolEder() {
+        actions=new Actions(Driver.getDriver());
+        Driver.wait(1);
+        WebElement tikla = Driver.getDriver().findElement(By.xpath(view));
+        Driver.clickWithJS(tikla);
+        WebElement value;
+
+
+        for (int i = 8; i <10 ; i++) {
+            value=Driver.getDriver().findElement(By.xpath("//dd["+i+"]"));
+            Assert.assertTrue("Adres veya description silinmemis",value.getText().isEmpty());
+        }
+        WebElement adr=Driver.getDriver().findElement(By.xpath("//span[@id='adress']//span"));
+        WebElement dsc=Driver.getDriver().findElement(By.xpath("//span[@id='description']//span"));
+        for (int i = 0; i < 10; i++) {
+            actions.doubleClick(adr).perform();
+            actions.doubleClick(dsc).perform();
+        }
+
+
+    }
+
+    @Then("kullanici bilgilerinden adres ve description bilgilerini siler")
+    public void kullaniciBilgilerindenAdresVeDescriptionBilgileriniSiler() {
+        Driver.wait(1);
+        staff.adressBox.clear();
+        Driver.wait(1);
+        staff.descriptionBox.clear();
+    }
 }
