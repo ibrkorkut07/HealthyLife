@@ -220,6 +220,7 @@ Driver.wait(1);
         login.anaSayfaGirisIkonu.click();
     }
 
+
     @And("ana sayfa Sign In butonuna tiklar")
     public void anaSayfaSignInButonunaTiklar() {
         Driver.wait(1);
@@ -241,12 +242,14 @@ Driver.wait(1);
         login.UserNameBox.sendKeys(ConfigReader.getProperty(username));
     }
 
+
     @And("password olarak {string} girer")
     public void passwordOlarakGirer(String password) {
         Driver.wait(1);
 
         login.passwordBox.sendKeys(ConfigReader.getProperty(password));
     }
+
 
     @And("Sign In butonuna tiklar")
     public void signInButonunaTiklar() {
