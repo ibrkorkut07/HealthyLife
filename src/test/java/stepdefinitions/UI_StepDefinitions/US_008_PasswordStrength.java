@@ -57,7 +57,7 @@ public class US_008_PasswordStrength {
     public void cikis_yapilir() {
         us008.userDropdown.click();
         us008.signOut.click();
-        System.out.println("5 OK");
+       // System.out.println("5 OK");
         Driver.wait(1);
     }
 

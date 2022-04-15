@@ -6,10 +6,12 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import utilities.Driver;
 
+import java.util.List;
+
 public class DoctorPage {
 
     public DoctorPage() {
-        PageFactory.initElements(Driver.getDriver(),this);
+        PageFactory.initElements(Driver.getDriver(), this);
     }
 
 
@@ -101,56 +103,154 @@ public class DoctorPage {
     //   public WebElement StartDate;
     @FindBy(xpath = "//span[.='01/04/22 16:56']")
     public WebElement StartDate;
+    @FindBy(xpath = "//input[@id='in-patient-id']")
+    public WebElement inPatientsIdBox;
 
+    @FindBy(xpath = "//input[@id='in-patient-startDate']")
+    public WebElement inPatientStartDateBox;
 
-    //  @FindBy(xpath = "//*[text()='End Date']")
-    // public WebElement EndDate;
-    @FindBy(xpath = "//span[.='01/04/22 16:56']")
-    public WebElement EndDate;
+    @FindBy(xpath = "//div[@role='alert']")
+    public WebElement saveButtonAlertYazisi;
 
-    @FindBy(xpath = "//*[text()='Status']")
-    public WebElement Status;
-
-    @FindBy(xpath = "//*[text()='Description']")
-    public WebElement Description1;
-
-    @FindBy(xpath = "  (//*[text()='01/04/22 01:21'])[2]")
-    public WebElement CreatedDate;
-
-    @FindBy(xpath = "//*[text()='Room']")
-    public WebElement Room;
-
-    @FindBy(xpath = "//*[text()='Appointment']")
-    public WebElement Appointment;
-
-    @FindBy(xpath = "//*[text()='Patient']")
-    public WebElement Patient;
-
-
-
-    @FindBy(xpath = "//input[@name='id']")
-    public WebElement EditPageID;
-
-    @FindBy(xpath = "//input[@name='startDate']")
-    public WebElement EditPageStartDate;
-
-    @FindBy(xpath = "//input[@name='endDate']")
-    public WebElement EditPageEndDate;
+    @FindBy(xpath = "//input[@id='in-patient-endDate']")
+    public WebElement inPatientEndDateBox;
 
     @FindBy(xpath = "//input[@id='in-patient-description']")
-    public WebElement EditPageDescription;
+    public WebElement inPatientDescriptionBox;
 
     @FindBy(xpath = "//input[@id='in-patient-createdDate']")
-    public WebElement EditPageCreatedDate;
+    public WebElement inPatientCreatedDateBox;
 
-    @FindBy(xpath = "//select[@name='status']")
-    public WebElement EditPageStatus;
+    @FindBy(xpath = "//select[@id='in-patient-appointment']")
+    public WebElement inPatientAppointmentBox;
 
-    @FindBy(xpath = "//select[@name='room.id']")
-    public WebElement EditPageroom;
+    @FindBy(xpath = "//select[@id='in-patient-status']")
+    public WebElement inPatientStatusBox;
 
-    @FindBy(id = "save-entity")
-    public WebElement Save;
+    @FindBy(xpath = "//select[@id='in-patient-room']")
+    public WebElement inPatientRoomBox;
+
+    @FindBy(xpath = "//select[@id='in-patient-patient']")
+    public WebElement inPatientPatientBox;
+
+    @FindBy(xpath = "//span[text()='Save']")
+    public WebElement inPatientSaveButton;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @FindBy(xpath = "//input[@id='fromDate']")
+    public WebElement fromDate;
+
+    @FindBy(id = "toDate")
+    public WebElement todate;
+
+    @FindBy(xpath = "//*[span='My Inpatients']" )
+    public WebElement myInpatientsDropdown;
+
+    @FindBy(xpath="//th[1]")
+    public WebElement appointmentIdBox;
+
+    @FindBy(id = "//th[4]")
+    public WebElement appointmentStatusBox;
+
+    @FindBy(xpath = "//tr//td[8]")
+    public List <WebElement> appoinmentList ;
+
+
+    /**   US018/
+     *
+     */
+
+
+    @FindBy(xpath = "//input[@id='physician-id']")
+    public WebElement idBox;
+
+    @FindBy(id = "physician-firstName")
+    public WebElement firstName;
+
+    @FindBy(id = "physician-lastName")
+    public WebElement lastName;
+
+    @FindBy(id = "physician1-birthDate")
+    public WebElement birthDayBox;
+
+    @FindBy(id = "physician-phone")
+    public WebElement phonebox;
+
+    @FindBy(id = "physician-gender")
+    public WebElement genderDropDown;
+
+    @FindBy(id = "physician-bloodGroup")
+    public WebElement bloodGroupDropDown;
+
+    @FindBy(id = "physician-adress")
+    public WebElement adressBox;
+
+    @FindBy(id = "physician-description")
+    public WebElement descriptionBox;
+
+    @FindBy(id = "physician-createdDate" )
+    public WebElement createddate;
+
+    @FindBy(id = "physician-user" )
+    public WebElement staffUserdropDown;
+
+    @FindBy(id = "physician-country")
+    public WebElement countryDropDown;
+
+    @FindBy(id = "physician-cstate")
+    public WebElement stateDropDown;
+
+    @FindBy(id = "cancel-save")
+    public WebElement backButton;
+
+    @FindBy(id ="save-entity" )
+    public WebElement saveButton;
+
+    @FindBy(xpath = "//select[@id='physician-speciality']")
+    public WebElement uzmanlikDropDown;
+
+    @FindBy(xpath = "//input[@id='file_image']")
+    public WebElement fotoUpload;
+
+    @FindBy(xpath = "//input[@id='physician-examFee']")
+    public WebElement ExamFreeBox;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

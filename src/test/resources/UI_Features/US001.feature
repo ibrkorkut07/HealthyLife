@@ -17,7 +17,7 @@ Feature: US001_Kayıt olmak icin SSN, Firstname ve Lastname bilgileri girililebi
       |56465*/ad| sad564/*|+*/--sad234|
 
 @us1 @deneme
-  Scenario: TC_02 SSN boş bırakılmamalıdır
+  Scenario: TC_02 SSN bos birakilmamalidir
     When kullanici "medunnaUrl" sayfasina gider
     Then sayfada kullanici ikonu altinda yer alan register butonuna tiklar
     And SSN kutucuğuna tıklar ardından boş bırakır ve 'Your SSN is required.' uyarı mesajını görüntüler
@@ -57,7 +57,7 @@ Feature: US001_Kayıt olmak icin SSN, Firstname ve Lastname bilgileri girililebi
   @tc06 @deneme
   Scenario: TC_06  API kullanarak kayıtlı kişiler oluşturulup doğrulanmalıdır
     When kullanici gerekli path params ayarlar
-    Then expected datalari girer
+    Then expected datalari girer.
     And kullanici request gonderir ve response alir
     Then kullamici api kayitlarini dosyaya kaydeder
     And kullanici api kayitlarini dogrular

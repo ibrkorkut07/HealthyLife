@@ -8,7 +8,7 @@ import utilities.ConfigReader;
 import static org.hamcrest.Matchers.hasItems;
 import static org.hamcrest.Matchers.matchesPattern;
 import static utilities.ApiUtils.getRequest;
-import static utilities.Authentication.generateToken;
+import static utilities.Authentication2.generateToken;
 
 public class US_002 {
 
@@ -18,7 +18,7 @@ public class US_002 {
 
     @When("kullanici pathparams ve bearer token ayarlamasini yapar")
     public void kullanici_pathparams_ve_bearer_token_ayarlamasini_yapar() {
-        response=getRequest(generateToken("casper","Casper200"), ConfigReader.getProperty("medunnaAccount"));
+        response=getRequest(generateToken(), ConfigReader.getProperty("medunnaAccount"));
     }
 
     @Then("kullanici adini dogrular")

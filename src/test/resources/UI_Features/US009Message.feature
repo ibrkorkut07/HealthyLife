@@ -1,4 +1,5 @@
-Feature:US009 Message
+@demo
+Feature:US009 Message/UI/Api/DBTest
 
 
 
@@ -35,7 +36,7 @@ Feature:US009 Message
 
       Examples:
         | SSN              |
-        | 253-98-1249      |
+        | 345-86-1235      |
 
 
 
@@ -50,7 +51,7 @@ Feature:US009 Message
     And ilgili hastanin  bilgilerinin dolduruldugunu dogrular
     Examples:
       |  SSN             |
-      |  123-56-9424     |
+      |  345-86-1235     |
 
   Scenario Outline:TC04 Staff herhangi bir hasta bilgi silme Testi
 
@@ -64,7 +65,7 @@ Feature:US009 Message
     And firstname siler ve silindigini test eder
     Examples:
       |  SSN             |
-      |  123-56-9424     |
+      |  345-86-1235     |
 
 
   Scenario Outline: TC05:Staff hastalari silememeli testi
@@ -79,7 +80,7 @@ Feature:US009 Message
 
         Examples:
      |  SSN             |
-     |  123-56-9424     |
+     |  345-86-1235     |
 
 
 
@@ -95,4 +96,7 @@ Feature:US009 Message
 
     Examples:
       |  SSN             |
-      |  026-06-1990     |
+      |  345-86-1235     |
+
+
+

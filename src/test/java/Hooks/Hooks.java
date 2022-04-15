@@ -24,6 +24,9 @@ public class Hooks {
         spec = new RequestSpecBuilder().setBaseUri(ConfigReader.getProperty("base_url")).build();
     }
 
+
+
+
     @Before(order = 1, value = "@UIRegistration")
     public void navigateToRegistration(){
         Driver.getDriver().get(ConfigReader.getProperty("medunnaRegistration"));
