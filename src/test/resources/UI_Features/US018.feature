@@ -3,14 +3,12 @@ Feature: US_018 Medunna Admin
 
 
   Background:
-    Given kullanici(doktor)"MDNUrl" sayfasina gider
-    And kullanici(doktor)giris ikonunu tiklar
-    Then kullanici(doktor) Sign in i secer
+    Given kullanici "medunnaUrl" adresine gider
+    And ana sayfa Sign In butonuna tiklar
     And kullanici(doktor)"Username1" textbox'a  gecerli bir username girer
     And kullanici(doktor)"Password" textbox'a gecerli bir password girer
     And kullanici(doktor) sign in butonunu tiklar
     And Yonetici Items&Titles secenegini tiklar ve Physician i secer
-
 
 
 
