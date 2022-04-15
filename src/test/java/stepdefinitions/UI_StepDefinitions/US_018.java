@@ -171,13 +171,17 @@ public class US_018 {
         WebElement tikla = Driver.getDriver().findElement(By.xpath(view));
         Driver.clickWithJS(tikla);
         WebElement value;
-
+        actions=new Actions(Driver.getDriver());
         for (int i = 1; i < 12; i++) {
             value = Driver.getDriver().findElement(By.xpath("//dd[" + i + "]"));
+            actions.sendKeys(Keys.ARROW_DOWN).perform();
+            ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].click();", value);
             Assert.assertFalse("Bos alanlar var",value.getText().toString().isEmpty());
         }
         for (int i = 13; i < 16; i++) {
             value = Driver.getDriver().findElement(By.xpath("//dd[" + i + "]"));
+            actions.sendKeys(Keys.ARROW_DOWN).perform();
+            ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].click();", value);
             Assert.assertFalse("Bos alanlar var",value.getText().toString().isEmpty());
         }
 

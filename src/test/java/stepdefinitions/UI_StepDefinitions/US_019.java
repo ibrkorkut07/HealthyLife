@@ -179,7 +179,7 @@ public class US_019 {
     public void yazisiniGorur(String text) {
         String expectedtext=text;
         //Driver.wait(1);
-        Driver.waitForVisibility(staff.onayKutusu,4);
+        Driver.waitForVisibility(staff.onayKutusu,5);
         String actualText = staff.onayKutusu.getText();
         Assert.assertTrue(actualText.contains(expectedtext));
 
