@@ -31,18 +31,10 @@ public class US_011 {
     }
 
     @Then("kullanici\\(doktor) Sign in i secer")
-    public void kullaniciDoktorSignInISecer() {
+    public void kullaniciDoktorSigninisecer() {
         Driver.wait(1);
-        if(Driver.getDriver().getCurrentUrl().equals("https://www.medunna.com/logout")) {
-            Driver.wait(1);
-            Driver.getDriver().get("https://www.medunna.com/login");
-        }else {
-            Driver.wait(1);
-            Driver.getDriver().get("https://www.medunna.com/logout");
-            Driver.wait(1);
-            Driver.getDriver().get("https://www.medunna.com/login");
+        loginPage.anaSayfaSignIn.click();
 
-        }
     }
 
     @And("kullanici\\(doktor){string} textbox'a  gecerli bir username girer")
@@ -213,17 +205,16 @@ Driver.wait(1);
 
 
     }
-    LoginPage login = new LoginPage();
 
     @And("giris icin giris ikonuna tiklar")
     public void girisIcinGirisIkonunaTiklar() {
-        login.anaSayfaGirisIkonu.click();
+        loginPage.anaSayfaGirisIkonu.click();
     }
 
     @And("ana sayfa Sign In butonuna tiklar")
     public void anaSayfaSignInButonunaTiklar() {
         Driver.wait(1);
-        if(Driver.getDriver().getCurrentUrl().equals("https://www.medunna.com/logout")) {
+        if(Driver.getDriver().getCurrentUrl().equals("https://www.medunna.com/logout") | Driver.getDriver().getCurrentUrl().equals("https://www.medunna.com/")) {
             Driver.wait(1);
             Driver.getDriver().get("https://www.medunna.com/login");
         }else {
@@ -238,19 +229,19 @@ Driver.wait(1);
     @And("username olarak {string} girer")
     public void usernameOlarakGirer(String username) {
         Driver.wait(1);
-        login.UserNameBox.sendKeys(ConfigReader.getProperty(username));
+        loginPage.UserNameBox.sendKeys(ConfigReader.getProperty(username));
     }
 
     @And("password olarak {string} girer")
     public void passwordOlarakGirer(String password) {
         Driver.wait(1);
 
-        login.passwordBox.sendKeys(ConfigReader.getProperty(password));
+        loginPage.passwordBox.sendKeys(ConfigReader.getProperty(password));
     }
 
     @And("Sign In butonuna tiklar")
     public void signInButonunaTiklar() {
-        login.signIn.click();
+        loginPage.signIn.click();
     }
 }
 

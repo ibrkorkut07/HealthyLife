@@ -1,6 +1,5 @@
 package stepdefinitions.API_StepDefinitions;
 
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.restassured.builder.RequestSpecBuilder;
@@ -13,10 +12,9 @@ import utilities.ConfigReader;
 
 
 import java.util.HashMap;
-import java.util.Map;
 
 import static io.restassured.RestAssured.given;
-import static utilities.Authentication.generateToken;
+import static utilities.Authentication2.generateToken;
 
 public class US_010 {
     RequestSpecification spec;

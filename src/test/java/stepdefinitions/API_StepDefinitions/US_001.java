@@ -1,6 +1,5 @@
 package stepdefinitions.API_StepDefinitions;
 
-import Hooks.Hooks;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.javafaker.Faker;
@@ -17,9 +16,8 @@ import utilities.ConfigReader;
 import java.util.HashMap;
 import java.util.Map;
 
-import static Hooks.Hooks.spec;
 import static io.restassured.RestAssured.given;
-import static utilities.Authentication.generateToken;
+import static utilities.Authentication2.generateToken;
 import static utilities.WriteToTxt.saveRegistrantApiData;
 
 public class US_001 {

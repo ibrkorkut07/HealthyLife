@@ -8,7 +8,7 @@ import utilities.ConfigReader;
 import static org.hamcrest.Matchers.hasItems;
 import static org.hamcrest.Matchers.matchesPattern;
 import static utilities.ApiUtils.getRequest;
-import static utilities.Authentication.generateToken;
+import static utilities.Authentication2.generateToken;
 
 public class US_002 {
 

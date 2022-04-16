@@ -34,6 +34,8 @@ Feature: US0014_medunna
       Given kullanici(doktor) Id bilgilerini gunceller
       Then kullanici(doktor) Start date bilgilerini gunceller
       And kullanici(doktor) End date bilgilerini gunceller
+      And kullanici oturumu kapatir
+
 
 
 
@@ -46,17 +48,19 @@ Feature: US0014_medunna
 
 
 
-  Scenario: TC 005("Status" doktor tarafindan "UNAPPROVED, DISCHARGED, STILL STAYING veya CANCELLED" olarak guncelleyebilmeli)
+  Scenario: TC 005("Status" doktor tarafından "UNAPPROVED, DISCHARGED, STILL STAYING veya CANCELLED" olarak guncelleyebilmeli)
     Given status doktor tarafindan UNAPPROVED olarak gunceller
-  And status doktor tarafindan DISCHARGED olarak gunceller
-  And  status doktor tarafindan STAYING olarak gunceller
-  And status doktor tarafindan CANCELLED olarak gunceller
+    And status doktor tarafindan DISCHARGED olarak gunceller
+    And  status doktor tarafindan STAYING olarak gunceller
+    And status doktor tarafindan CANCELLED olarak gunceller
     And kullanici oturumu kapatir
 
 
 
   Scenario: TC 006 kullanici(doktor) rezerve edilmis odayi guncelleyebilmeli
-    Given kullanici(doktor) rezerve edilmiş odayı gunceller
+    Given kullanici(doktor) rezerve edilmis odayi gunceller
+    And kullanici oturumu kapatir
+
 
 
   Scenario: TC 007 kullanici(doktor)hastanin "appoinment, patient" bilgilerini guncelleyebilmeli
