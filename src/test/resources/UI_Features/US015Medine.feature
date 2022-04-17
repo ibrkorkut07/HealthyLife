@@ -23,5 +23,39 @@ And Country sekmesini tiklar ve US secenegini secer
 And State City sekmesini tiklar ve Alaska secenegini secer
 And Save buttonuna tiklar ve hastayi kayit eder
 And A new Patient is created alert yazisini dogrular
-And Log in ikonuna tiklar
-Then Sign out sekmesini tiklar
+
+   Scenario: TC002_Yonetici_FirstName_LastName_BirthDate_Email_Phone_Gender_BloadGroup_Adress_Description_User_Country_State/City_bilgilerini_gorebilmeli
+
+And Ilk satirdaki hastanin View buttonuna tiklar
+Then Patient yazisi altindaki bilgiler dogrulanir
+
+   Scenario: TC003_Yonetici_Hasta_olusturdugunda_veya_guncellediginde_yukaridaki_ogelere_data_girisi_yapabilmeli
+
+And Ilk satirdaki hastanin Edit buttonuna tiklar
+Then Hastanin id boxunu dogurular
+
+   Scenario: TC004_Yonetici_Hastaya_Doktor_atayabilmeli
+
+Given Appointment secenegini secer ve tiklar
+And Ilk satirdaki hastanin Edit buttonuna tiklar
+And Yonetici Hastaya Doktor atar
+And Yonetici Doktora Hasta atar
+Then The Appointment is update mesajini dogrular
+
+   Scenario: TC005_State_buttonu_Us_state olmali_bos_birakilmamali
+
+Given State City secenegini secer ve tiklar
+And Create a new State/City buttonuna tiklar
+And Name textboxna tiklar ve isim yazar
+Then State City sekmesine tiklar ve Us secenegini secer
+And Save buttonuna tiklar
+And Successful mesajini goruldugunu dogrular
+
+
+   Scenario: TC006_Yonetici_herhangi_bir_hastayi_silebilmeli
+
+Given Patient secenegini secer ve tiklar
+And Ilk satirdaki hastanin Delete buttonuna tiklar
+Then Confirm delete operation yazisi altindaki Delete buttonuna tiklar
+And Successful mesajini dogrular
+And Yonetici olarak Delete islemini yapamadigin bug olarak bildirir

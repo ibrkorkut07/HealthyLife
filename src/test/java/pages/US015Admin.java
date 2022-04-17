@@ -30,6 +30,9 @@ public class US015Admin {
     @FindBy(xpath = "//span[.='Patient']")
     public WebElement itemsAltindakiPatientButtonu;
 
+    @FindBy(xpath = "//div[contains(text(),'A new Patient is created')]")
+    public WebElement successCreatedMessage;
+
     @FindBy(xpath = "//span[.='Create a new Patient']")
     public WebElement createanewPatient;
 
@@ -71,4 +74,46 @@ public class US015Admin {
 
     @FindBy(xpath = "//span[.='Save']")
     public WebElement savebuttonu;
+
+    @FindBy(xpath = " (//span[@class='d-none d-md-inline'])[1]")
+    public WebElement viewHastaIlkSatirButtonu;
+
+    @FindBy(xpath = "//span[@id='ssn']")
+    public WebElement ssnView;
+
+    @FindBy(xpath = "//span[@id='firstName']")
+    public WebElement firstNameView;
+
+    @FindBy(xpath = "//span[@id='lastName']")
+    public WebElement lastNameView;
+
+    @FindBy(xpath = "//span[@id='birthDate']")
+    public WebElement birthDateView;
+
+    @FindBy(xpath = "//span[@id='phone']")
+    public WebElement phoneView;
+
+    @FindBy(xpath = "//span[@id='gender']")
+    public WebElement genderView;
+
+    @FindBy(xpath = "//span[@id='bloodGroup']")
+    public WebElement bloodGroupView;
+
+    @FindBy(xpath = "//span[@id='adress']")
+    public WebElement adressView;
+
+    @FindBy(xpath = "//span[@id='description']")
+    public WebElement descriptionView;
+
+    @FindBy(xpath = "//span[@id='createdDate']")
+    public WebElement createdDateView;
+
+    @FindBy(xpath = "(//span[contains(text(),'User')])[2]")
+    public WebElement userView;
+
+    @FindBy(xpath = "(//span[contains(text(),'Country')])[2]")
+    public WebElement countryView;
+
+    @FindBy(xpath = "(//span[contains(text(),' State/City')])")
+    public WebElement stateCityView;
 }
