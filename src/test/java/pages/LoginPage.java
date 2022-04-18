@@ -13,8 +13,8 @@ public class LoginPage {
     }
 
 
-@FindBy(xpath = "//a[@class='d-flex align-items-center dropdown-toggle nav-link']")
-    public WebElement anaSayfaGirisIkonu;
+    @FindBy(xpath = "//a[@class='d-flex align-items-center dropdown-toggle nav-link']")
+    public static WebElement anaSayfaGirisIkonu;
 
     @FindBy(xpath = "//a[@id='login-item']")
     public WebElement anaSayfaSignIn;

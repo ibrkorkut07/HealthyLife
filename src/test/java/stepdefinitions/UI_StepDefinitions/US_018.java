@@ -15,7 +15,7 @@ import pages.DoctorPage;
 import pages.LoginPage;
 import utilities.Driver;
 
-public class US_018 {
+public class  US_018 {
     LoginPage loginPage = new LoginPage();
     AdminPage adminPage = new AdminPage();
     Actions actions;

@@ -6,13 +6,12 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import pages.RegistrationPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 
-public class US_003 {
+public class US_003_PasswordStrengthLevel {
 
     RegistrationPage registrationPage = new RegistrationPage();
     Actions actions = new Actions(Driver.getDriver());
