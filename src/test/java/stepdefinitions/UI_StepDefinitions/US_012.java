@@ -30,7 +30,6 @@ public class US_012 {
     public void signInButtonuTikla() {
         Driver.wait(1);
         us012MedinePage.anaSayfadakiSignInButtonu.click();
-
     }
     @Then("{string} ve {string} bilgileri girilerek, Sign in buttonuna tiklar")
     public void signInBilgileriGirilir(String username, String password) {
