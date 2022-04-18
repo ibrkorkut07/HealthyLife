@@ -1,7 +1,6 @@
 Feature: US023 Hasta Bilgileri
 
-
-  Background: US003 Hasta Bilgileri test
+  Background: US023 Hasta Bilgileri test
     Given "medunnaUrl" adresine gider
     And kullanici giris ikonunu tiklar
     Then SignInDropDownLink ni tiklar
@@ -54,6 +53,7 @@ Feature: US023 Hasta Bilgileri
       | username    | password |     SSN     |
       | Aysglstaff  | 1234567  | 151-15-1515 |
 
+
   Scenario Outline: TC005 Personel hastaya gonderilen faturayi gorebilir
 
     Then PaymentInvoiceProcessButton a tiklar
@@ -63,4 +63,3 @@ Feature: US023 Hasta Bilgileri
     Examples:
       | username    | password |     SSN     |
       | Aysglstaff  | 1234567  | 151-15-1515 |
-

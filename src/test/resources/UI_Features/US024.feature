@@ -1,43 +1,29 @@
 Feature: US023 Hasta Bilgileri
 
+  Background: US024 Hasta Bilgileri test
 
-  Background: US003 Hasta Bilgileri test
-
-  Scenario Outline: TC001 Personel 'Payment Invoice / process' e gidebilir
     Given "medunnaUrl" adresine gider
     And kullanici giris ikonunu tiklar
-    Then anaSayfaSignIn ni tiklar
-    Given username olarak "<username>" girer
-    And password olarak "<password>" girer
-    Then Sign In butonuna tiklar
-    And MyPages sekmesine tiklar
-    Then SearchPatient sekmesine tiklar
-    And SearchPatientSSNBox kutusuna hasta numarasi olarak "<SSN>" girer
-    Then ShowAppointmentsButton a tiklar
-    Then PaymentInvoiceProcessButton a tiklar
-    And PAYMENT DETAIL sayfasini gorur
-    Then PAYMENT DETAIL sayfasinin ekran goruntusunu alir
+    Then SignInDropDownLink ni tiklar
+    Then Username olarak "<username>" ve  password olarak "<password>" girip Hasta Sign In butonuna tiklar
+    And MyPagesPatient sekmesinde My Appointments linkine tiklar
+
+
+  Scenario Outline: TC001 Personel 'Payment Invoice / process' e gidebilir
+
+    Then Show Tests ve View Results sekmelerine tiklar
+    And Test id, name, default max and min value, test date, description Date ini gorur
 
     Examples:
-      | username    | password |     SSN     |
-      | Aysglstaff  | 1234567  | 151-15-1515 |
+      | username    | password |
+      | hastaayse   | ayse     |
 
 
-  Scenario Outline: TC002 Personel 'Appointments' portalinda hasta icin bir fatura olusturmak icin
-                    hastanin randevu durumunun COMPLETED veya CANCELED oldugunu gorur
+  Scenario Outline: TC002 Hasta kendi faturasini gorur
 
-    Given Hasta "https://www.medunna.com" sayfasina gider.
-    Then account-menu iconuna tiklar.
-    And sign in secenegine tiklar.
-    When <username> ve <password> girer.
-    And sign in butonuna tiklar.
-    Then My Pages sekmesine tiklar.
-    Then My Appointments secenegine tiklar
-    And Show Invoice kutusuna tiklar
-    And Invoice sayfasinda Invoice Text basligini gorur
-    Then Invoice sayfasinin ekran goruntusunu alir
+    Then Show Invoice sekmesine tiklar
+    And Hasta Invoice sayfasini gorur
+
     Examples:
       |  username   | password |
       |  hastaayse  |   ayse   |
-
-

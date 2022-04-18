@@ -30,6 +30,12 @@ public class InvoicePage {
     @FindBy(xpath = "(//span[text()='Sign in'])[3]")
     public WebElement SigninEnterTusu;
 
+    @FindBy(xpath = "//span[text()='MY PAGES(PATIENT)']")
+    public WebElement MyPagesPatientButton;
+
+    @FindBy(xpath = "//span[text()='View Results']")
+    public WebElement ViewResultsButton;
+
     @FindBy(xpath = "//span[text()='My Appointments']")
     public WebElement MyAppointmentsDropDownItem;
 
@@ -87,64 +93,42 @@ public class InvoicePage {
     @FindBy(xpath = "//button[@id='save-entity']")
     public WebElement EditaBillSavebutonu;
 
+    @FindBy(xpath = "(//span[text()='Sign in'])[3]")
+    public WebElement HastaSignInbutonu;
 
+    @FindBy(xpath = "(//a[@class='btn btn-primary btn-sm'])[1]")
+    public WebElement ShowTestsbutonu;
 
+    @FindBy(xpath = "(//span[@class='d-none d-md-inline']")
+    public WebElement TestResultsbutonu;
 
+    @FindBy(xpath = "(//th[@class='hand'])[1]")
+    public WebElement TestResultsId;
 
-    //  Create Invoice
+    @FindBy(xpath = "(//th[@class='hand'])[2]")
+    public WebElement TestResultsName;
 
-//    @FindBy(xpath = "//span[text()='COMPLETED']")
-//    public static WebElement AppointmentStatusText;
+    @FindBy(xpath = "(//th[@class='hand'])[3]")
+    public WebElement TestResultsResult;
 
+    @FindBy(xpath = "(//th[@class='hand'])[4]")
+    public WebElement TestResultsDefaultMinValue;
 
-//    @FindBy(xpath = "//li[@id='account-menu']")
-//    public WebElement insanFiguru;
-//
-//    @FindBy(xpath = "//a[@id='login-item']")
-//    public WebElement IlkSigIn;
-//
-//    @FindBy(xpath = "//input[@id='username']")
-//    public WebElement UsernameBox;
-//
-//    @FindBy(xpath = "//input[@id='password']")
-//    public WebElement PasswordBox;
-//
-//    @FindBy(xpath = "//button[@type='submit']//span[contains(text(),'Sign in')]")
-//    public WebElement SigInButton;
-//
-//    @FindBy(xpath = "//span[normalize-space()='MY PAGES']")
-//    public WebElement myPagesButonu;
-//
-//    @FindBy(xpath = "//span[normalize-space()='Search Patient']")
-//    public WebElement searchPatientButonu;
-//
-//    @FindBy(xpath = "//span[normalize-space()='Patients']")
-//    public WebElement patientsYazisi;
-//
-//    @FindBy(xpath = "//input[@name='ssn']")
-//    public WebElement patentSsnBox;
+    @FindBy(xpath = "(//th[@class='hand'])[5]")
+    public WebElement TestResultsDefaultMaxValue;
 
-    //btn btn-success btn-sm
-    //  Show Invoice
+    @FindBy(xpath = "(//span[text()='Test']")
+    public WebElement TestResultsTest;
 
+    @FindBy(xpath = "(//th[@class='hand'])[6]")
+    public WebElement TestResultsDescription;
 
-    // font-size: 15px;
+    @FindBy(xpath = "(//th[@class='hand'])[7]")
+    public WebElement TestResultsDate;
 
+    @FindBy(xpath = "(//a[@class='btn btn-warning btn-sm'])[1]")
+    public WebElement AppointmentsShowInvoiceButton;
 
-    // COMPLETED
-
-
-
-    // PAYMENT DETAIL
-
-    // btn btn-success btn-sm
-
-
-    // btn btn-warning btn-sm
-
-    // Search Patient
-    // @FindBy(xpath = "//div[@class='jh-card card']//li[1]")
-    // //span[text()='Search Patient']
-
-
+    @FindBy(xpath = "//th[text()='INVOICE']")
+    public WebElement AppointmentsInvoiceTitleText;
 }

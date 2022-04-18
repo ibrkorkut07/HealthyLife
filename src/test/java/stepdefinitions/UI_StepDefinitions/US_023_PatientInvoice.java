@@ -7,11 +7,8 @@ import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
-import pages.DoctorPage;
 import pages.InvoicePage;
 import utilities.Driver;
-
-import java.time.LocalDateTime;
 
 public class US_023_PatientInvoice {
 
@@ -78,25 +75,25 @@ public class US_023_PatientInvoice {
 
     @And("PAYMENT DETAIL sayfasini gorur")
     public void paymentDETAILSayfasiniGorur() {
-        invoicePage.PaymentDetailPageText.isDisplayed();
+        Assert.assertTrue("Payment Detail Page Text i gorulemiyor", invoicePage.PaymentDetailPageText.isDisplayed());
         Driver.wait(2);
     }
 
     @And("Personel Hasta adina fatura olusturmak icin RandevuDurumu nun COMPLETED veya CANCELED oldugunu gorur")
     public void randevudurumuNunCOMPLETEDVeyaCANCELEDOldugunuGorur() {
         if (invoicePage.RandevuDurumu.getText().equals("COMPLETED") || invoicePage.RandevuDurumu.getText().equals("CANCELED")) {
-            Assert.assertTrue(invoicePage.PaymentInvoiceProcessButton.isDisplayed());   }
+            Assert.assertTrue("Invoice Process Tusu gorulemiyor", invoicePage.PaymentInvoiceProcessButton.isDisplayed());   }
         }
 
     @And("Exam Fee yi gorur")
     public void examFeeYiGorur() {
-        invoicePage.ExamFee.isDisplayed();
+        Assert.assertTrue("Exam Fee gorulemiyor", invoicePage.ExamFee.isDisplayed());
         Driver.wait(2);
     }
 
     @Then("TestItem Fee yi gorur")
     public void testitemFeeYiGorur() {
-        invoicePage.TestItemFee.isDisplayed();
+        Assert.assertTrue("Test Item Fee gorulemiyor", invoicePage.TestItemFee.isDisplayed());
         Driver.wait(2);
     }
 
@@ -107,13 +104,14 @@ public class US_023_PatientInvoice {
 
     @Then("InvoicePageTitleText in altinda INVOICE u gorur")
     public void invoicepagetitletextInAltindaINVOICEUGorur() {
-        invoicePage.InvoicePageTitleText.isDisplayed();
+        Assert.assertTrue("Invoice sayfasi baslik texti gorulemiyor", invoicePage.InvoicePageTitleText.isDisplayed());
         Driver.wait(2);
     }
 
     @And("Hastanin randevu durumunun COMPLETED olup olmadigini kontrol eder")
     public void randevuDurumununCOMPLETEDOlupOlmadiginiKontrolEder() {
-        Assert.assertEquals("Hastanin randevu durumu COMPLETED degil", "COMPLETED",invoicePage.RandevuDurumu.getText());
+        Assert.assertEquals("Hastanin randevu durumu COMPLETED degil", "COMPLETED",
+                            invoicePage.RandevuDurumu.getText());
     }
 
     @Then("Eger COMPLETED ise PaymentInvoiceProcessButton a tiklar")
@@ -144,6 +142,6 @@ public class US_023_PatientInvoice {
 
     @Then("A Bill is updated with identifier yazili uyariyi gorur")
     public void aBillIsUpdatedWithIdentifierYaziliUyariyiGorur() {
-
+        // Bir onceki adimda bug oldugu icin bu asamaya gecilemiyor
     }
 }
