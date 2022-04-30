@@ -1,0 +1,21 @@
+Yönetici, SSN'lerini kullanarak kayıtlı insanlar arasında yeni personel arayabilir
+Tüm bilgileri doldurulmalı
+Kullanıcı (yönetici), mevcut kullanıcılardan bir kullanıcı seçebilir (kayıtlı insanlar)
+Kullanıcı bilgilerini düzenleyebilir
+Kullanıcı bilgilerini silebilir
+Hepsini API ile doğrulamak
+Hepsini db ile doğrulamak
+
+
+
+
+
+
+
+Admin can search new Staff among registered people using their SSN
+All their information should be populated
+User (Admin) can select a user from the existing users (registered people)
+User can edit their info
+User can delete their info
+Validate them all with API
+Validate them all with DB
